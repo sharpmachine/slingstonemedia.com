@@ -1,0 +1,220 @@
+/*
+	Slideshow
+*/
+#banner {
+  z-index: 98;
+  width: 960px;
+  height: 300px;
+  margin-top: 10px;
+  position: relative;
+  /*
+		Slides container
+		Important:
+		Set the width of your slides container
+		Set to display none, prevents content flash
+	*/
+
+  /*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+
+  /*
+		Pagination
+	*/
+
+}
+#banner .slides_container {
+  width: 960px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  display: none;
+}
+#banner .slides_container a {
+  width: 960px;
+  height: 300px;
+  display: block;
+}
+
+#banner .slides_container a img {
+  display: block;
+}
+#banner .pagination {
+  margin: 26px auto 0;
+  width: 400px;
+  text-align: right;
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  z-index: 99;
+}
+#banner .pagination li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 5px;
+}
+#banner .pagination li a {
+  display: block;
+  width: 13px;
+  height: 13px;
+  background-color: #FFF;
+  border: none;
+  padding-top: 1px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  text-indent: 9999em;
+}
+#banner .pagination li.current a {
+  background-position: 0 -12px;
+  background-color: #AF292E;
+  padding-top: none;
+  border: 2px solid #FFF;
+}
+#banner #categories {
+  z-index: 120;
+  position: absolute;
+  top: -15px;
+  left: 0;
+}
+#banner #categories ul, #banner #categories ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#banner #categories ul li {
+  position: relative;
+}
+#banner #categories ul li a {
+  display: block;
+  background: transparent url('../images/categories-bar.png') no-repeat 0 0;
+  width: 40px;
+  height: 332px;
+}
+#banner #categories ul li:hover ul {
+  display: inherit;
+}
+#banner #categories ul li ul {
+  position: absolute;
+  top: 15px;
+  left: 38px;
+  height: 300px;
+  width: 800px;
+  overflow: hidden;
+  display: none;
+}
+#banner #categories ul li ul li {
+  float: left;
+  background: #000;
+  background: rgba(0, 0, 0, 0.7);
+  width: 196px;
+  height: 300px;
+  margin-left: 1px;
+}
+#banner #categories ul li ul li .title {
+  font-family: "Georgia", serif;
+  color: #FFF;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 10px;
+  margin: 10px;
+  background: transparent url('../images/category-bar.png') no-repeat bottom center;
+  letter-spacing: 3px;
+}
+#banner #categories ul li ul li li.menu-item {
+  background: none;
+  color: #FFF;
+  width: inherit;
+  height: auto;
+  display: block;
+  float: none;
+  position: relative;
+}
+#banner #categories ul li ul li li.menu-item a {
+  background: none;
+  color: #FFF;
+  padding: 1px 20px;
+  width: 195px;
+  height: auto;
+  display: block;
+  float: none;
+}
+
+#banner #categories ul li ul li li.menu-item a:hover {
+ background-color: #AF292E;
+ text-decoration: none;
+}
+
+#banner  #categories ul li ul.menu
+{
+	width: 196px;
+	height: 252px;
+	position: relative;
+	top: 10px;
+	left: 0;
+}
+
+/*
+	Carousel container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+#carousel {
+  position: relative;
+  height: 130px;
+  width: 960px;
+}
+#carousel .pagination {
+  display: none;
+}
+#carousel .next, #carousel .prev {
+  background: transparent url('../images/arrows.png') no-repeat 0 0;
+  position: absolute;
+  top: 37px;
+  width: 22px;
+  height: 22px;
+  text-indent: -9999em;
+  z-index: 100;
+}
+#carousel .next {
+  right: 0;
+  background-position: 0 -44px;
+}
+#carousel .prev {
+  left: 0;
+}
+#carousel .slides_container {
+  width: 900px;
+  height: 96px;
+  display: none;
+  margin-left: 28px;
+  /*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+		*/
+
+  /*
+		Set the size of your carousel items
+		*/
+
+}
+#carousel .slides_container .slide {
+  width: 905px;
+  height: 96px;
+  display: block;
+}
+#carousel .slides_container .item {
+  float: left;
+  width: 171px;
+  height: 96px;
+  margin: 0 5px;
+}
+

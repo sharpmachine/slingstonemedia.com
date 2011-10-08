@@ -1,0 +1,1208 @@
+ article, aside, figure, footer, header, hgroup, 
+  menu, nav, section { display: block; }
+
+@slingstone-type-grey: #6C6F70;
+@slingstone-logo-grey: #3F403F;
+@slingstone-lite-grey: #E2E2E2;
+@border-grey: #a2a5a4;
+@slingstone-red: #AF292E;
+
+.gradient(@start:#E2E2E2, @stop:#EBEBEB) {
+   background: @stop;
+   background: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+   background: -webkit-linear-gradient(@start, @stop);
+   background: -moz-linear-gradient(center top, @start 0%, @stop 100%);
+   background: -moz-gradient(center top, @start 0%, @stop 100%);
+   background: -o-linear-gradient(@start, @stop);
+   background:  linear-gradient(@start, @stop);
+}
+
+.transition(@property:all, @duration:0.5s, @effect:ease)
+{
+	-webkit-transition: @property @duration @effect;
+	-moz-transition: @property @duration @effect; 
+	-o-transition: @property @duration @effect;
+	transition: @property @duration @effect;
+}
+
+/*.......................................................the usual*/
+html { overflow-y: scroll; overflow-x: hidden; } /* Always force a scrollbar in non-IE */
+
+html, body 
+{    
+   height: 100%; 
+}
+  
+  body
+  {
+  	background: url('../images/radial-gradient-bg.png') no-repeat top center;
+  	font-family: 'Droid Sans', Arial, sans-serif;
+  	color: @slingstone-type-grey;
+  	font-size: 12px;
+  }
+  
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Georgia, serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-weight: normal;
+	color: @slingstone-logo-grey;
+}
+
+a
+{
+	color: @slingstone-red;
+	text-decoration: none;
+}
+
+a
+{
+	:hover
+	{
+		text-decoration: underline;
+		color: @slingstone-red;
+	}
+}
+
+hr
+{
+	background: url('../images/divider-line.png') repeat-x;
+	width: 100%;
+	height: 6px;
+	margin-top: 3em;
+}
+
+.ls
+{
+	letter-spacing: 2px;
+}
+
+.tac
+{
+	text-align: center;
+}
+
+header
+{
+	width: 100%;
+	height: 195px;
+	
+	#top-bar
+		{
+			width: 100%;
+			height: 26px;
+			background-color: @slingstone-lite-grey;
+			border-bottom: 1px solid #A2A5A4;
+			
+			#social-media
+			{
+				width: 960px;
+				margin: 0 auto;
+				
+			
+				a
+				{
+					display: block;
+					float: right;
+					height: 26px;
+					width: 60px;
+				}
+				
+				a.facebook
+				{
+					background: url(../images/facebook.png) no-repeat center center;
+					
+					:hover
+					{
+						background: url(../images/facebook_white.png) no-repeat #B4B4B4 center center;
+					}
+				}
+				
+				a.twitter
+				{
+					background: url(../images/twitter.png) no-repeat center center;
+					
+					:hover
+					{
+						background: url(../images/twitter_white.png) no-repeat #B4B4B4 center center;
+					}
+				}
+				
+				img
+				{
+					float: right;
+					padding: 8px 10px;
+				}
+			}
+		}
+		
+		hgroup
+		{
+			width: 960px;
+			margin: 0 auto;	
+			
+			#logo
+			{
+				width: 181px;
+				height: 107px;
+				margin: 37px 0 0 11px;
+				float: left;
+			}
+			
+			nav
+			{
+				float: left;
+				width: 768px;
+				height: 50px;
+			}
+		}
+}
+
+.container
+{
+	min-height: 100%;
+	height: auto;
+   margin-bottom: -200px;
+   position: relative;
+}
+
+/* =Menu
+-------------------------------------------------------------- */
+#access .menu-header,
+div.menu {
+	font-family: Georgia, serif;
+	float: right;
+	margin: 73px 96px 0 0;
+}
+#access .menu-header ul,
+div.menu ul {
+	list-style: none;
+	margin: 0;
+}
+#access .menu-header li,
+div.menu li {
+	float: left;
+	position: relative;
+}
+#access a {
+	color: @slingstone-logo-grey;
+	display: block;
+	line-height: 38px;
+	padding: 0 10px;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 4px;
+	margin-left: 48px;
+}
+#access ul ul {
+	display: none;
+	position: absolute;
+	top: 29px;
+	left: -17px;
+	float: left;
+	width: 160px;
+	z-index: 99999;
+}
+#access ul ul li {
+	min-width: 160px;
+}
+#access ul ul ul {
+	left: 100%;
+	top: 0;
+}
+#access ul ul a {
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: normal;
+	font-family: 'Droid Sans', Arial, sans-serif;
+	line-height: 0;
+	padding: 10px;
+	width: 160px;
+	height: auto;
+	color: @slingstone-type-grey;
+	font-size: 11px;
+	
+	:hover
+	{
+		text-decoration: underline;
+	}
+}
+#access li:hover > a,
+#access ul ul :hover > a {
+	text-decoration: none;
+	color: @slingstone-red;
+	.transition;
+}
+#access ul li:hover > ul {
+	display: block;
+}
+
+#access ul li.current_page_item > a,
+#access ul li.current-menu-ancestor > a,
+#access ul li.current-menu-item > a,
+#access ul li.current-menu-parent > a {
+	background: url('../images/active-page-arrow.png') no-repeat center 0;
+}
+
+#access ul ul li.current_page_item > a,
+#access ul ul  li.current-menu-ancestor > a,
+#access ul ul li.current-menu-item > a,
+#access ul ul li.current-menu-parent > a {
+	background: none;
+}
+
+* html #access ul li.current_page_item a,
+* html #access ul li.current-menu-ancestor a,
+* html #access ul li.current-menu-item a,
+* html #access ul li.current-menu-parent a,
+* html #access ul li a:hover {
+	
+}
+
+#access ul li.mdfdfenu-item > a
+{
+	background: url(../images/drop-icon.gif) no-repeat;
+}
+
+/*.......................................................the footer*/
+#footer-bar
+{
+	width: 100%;
+	background-color: @slingstone-red;
+	height: 200px;
+	margin-top: 220px;
+	clear: both;
+	position: relative;
+}
+
+#carousel
+{
+	margin-top: 40px;
+	
+	div.scroll-inst
+	{
+		text-align: center;
+		text-transform: uppercase;
+		font-family: Gerogia, serif;
+		font-size: 0.8em;
+		margin-top: 20px;
+	}
+}
+
+footer
+{
+	width: 960px;
+	margin: 0 auto;
+	
+	#site-info
+	{
+		position: relative;
+		bottom: -100px;
+		left: 30px;
+		color: #fff;
+		clear: both;
+		
+		a
+		{
+			color: #fff;
+		}
+	}
+}
+
+#footer-menu .footer-nav,
+div.menu {
+	font-family: Georgia, serif;
+	font-size: 0.9em;
+	float: left;
+	margin: 20px 0 0 5px;
+}
+#footer-menu .footer-nav ul,
+div.menu ul {
+	list-style: none;
+	margin: 0;
+}
+#footer-menu .footer-nav li,
+div.menu li {
+	float: left;
+	position: relative;
+	width: 155px;
+}
+#footer-menu a {
+	color: #fff;
+	display: block;
+	line-height: 38px;
+	padding: 0 10px;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 2px;
+	/*margin-right: 50px;*/
+}
+#footer-menu ul ul {
+
+	position: absolute;
+	top: 29px;
+	left: -17px;
+	float: left;
+	width: 160px;
+	z-index: 99999;
+}
+#footer-menu ul ul li {
+	min-width: 160px;
+}
+#footer-menu ul ul ul {
+	left: 100%;
+	top: 0;
+}
+#footer-menu ul ul a {
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: normal;
+	font-family: 'Droid Sans', Arial, sans-serif;
+	line-height: 0;
+	padding: 10px;
+	width: 160px;
+	height: auto;
+	font-size: 11px;
+	
+	:hover
+	{
+		text-decoration: underline;
+	}
+}
+#footer-menu li:hover > a,
+#footer-menu ul ul :hover > a {
+	text-decoration: underline;
+}
+#footer-menu ul li:hover > ul {
+	display: block;
+}
+#footer-menu ul li.current_page_item > a,
+#footer-menu ul li.current-menu-ancestor > a,
+#footer-menu ul li.current-menu-item > a,
+#footer-menu ul li.current-menu-parent > a {
+	
+}
+* html #footer-menu ul li.current_page_item a,
+* html #footer-menu ul li.current-menu-ancestor a,
+* html #footer-menu ul li.current-menu-item a,
+* html #footer-menu ul li.current-menu-parent a,
+* html #footer-menu ul li a:hover {
+	
+}
+
+#footer-menu a > a 
+{
+	background: url(../images/drop-icon.gif) no-repeat;
+}
+
+/*.......................................................the banner*/
+#banner-container
+{
+	background: url('../images/banner-shadow.png') no-repeat scroll bottom left;
+	width: 960px;
+	height: 365px;
+}
+
+/*.......................................................the center content on homepage*/
+.center-content
+{
+	margin: 23px 0px 45px 0px;
+	padding: 0 10px;
+	height: 278px;
+	
+	h3
+	{
+		margin-bottom: 12px;
+		color: #636466;
+		text-align: center;
+		font-size: 1.3em;
+	}
+}
+
+/*.......................................................the recent articles*/
+#recent-articles
+{
+	width: 625px;
+	height: 278px;
+	float: left;
+	margin-right: 20px;
+	text-align: center;
+	
+	h6	
+	{
+		background-color: #F0F0F0;
+		padding: 5px 0;
+		font-size: 0.8em;
+		
+		a
+		{
+			text-decoration: none;
+			
+			:hover
+			{
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	article
+	{
+		.gradient;
+		
+		.frontpage-article
+		{	
+			height: 44px;
+			width: 585px;
+			border-bottom: 1px solid @border-grey;
+			text-align: left;
+			padding: 15px 20px;
+			background: url('../images/ra-bubble-grey.png') no-repeat 567px 25px transparent;
+			
+			:hover
+			{
+				background: url('../images/ra-bubble-crimson.png') no-repeat 560px 25px transparent;
+				border-left: 7px solid @slingstone-red;
+				width: 585px;
+				padding-left: 13px;
+			}
+
+		h2
+		{
+			margin: -10px 0 4px 0;
+			
+			a
+			{
+				text-decoration: none;
+				color: @slingstone-type-grey;
+				
+				:hover
+				{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	}
+}
+
+
+/*.......................................................the newsletter*/
+#newsletter-signup
+{
+	width: 295px;
+	float: left;
+	
+	form
+	{
+		width: 255px;
+		height: 210px;
+		padding: 20px;
+		.gradient;
+		
+		img
+		{
+			position: relative;
+			top: 10px;
+			left: 18px;
+		}
+		
+		p
+		{
+			text-align: center;
+			color: #636466;
+		}
+		
+		input[type="email"]
+		{
+			height: 28px;
+			border: 1px solid @border-grey;
+			width: 243px;
+			font-family: 'Droid Sans', Arial, sans-serif;
+			padding: 0 5px;
+		}
+		
+		input[type="submit"]
+		{
+			background-color: @slingstone-red;
+			height: 25px;
+			width: 255px;
+			border: 1px solid @border-grey;
+			color: #fff;
+			font-family: Georgia, serif;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+			font-weight: normal;
+			cursor: pointer;
+		}
+	}
+}
+
+/*.......................................................the scroller*/
+#scroller
+{
+	background: url('../images/bottom-scroll.jpg') no-repeat scroll top left;
+	width: 960px;
+	height: 141px;
+	position: relative;
+	top: 20px;
+}
+
+
+/*.......................................................the misc stuff*/
+#content-container
+{
+	float: left;
+	margin-right: 40px;
+}
+
+.pagearoni
+{
+	width: 710px;
+	background: url('../images/divider-line.png') top left repeat-x;
+}
+
+.full-width
+{
+	width: 100%;
+	background: url('../images/divider-line.png') top left repeat-x;
+}
+
+.mcontent
+{
+	padding: 40px 15px;
+	
+	
+	h1, h2
+	{
+		text-align: center;
+		letter-spacing: 8px;
+	}
+	
+	h1.entry-title, h1.page-title
+	{
+		font-size: 2em;
+		margin-bottom: 0.75em;
+	}
+}
+
+/*.......................................................the breadcrumbs*/
+.breadcrumbs
+{
+	margin: 55px 0 15px 0
+}
+
+#page
+{
+	min-height: 100%;
+}
+
+
+/*.......................................................the sidebar*/
+#sidebar
+{
+	width: 204px;
+	float: left;
+	border-left: 1px solid #E3E3E3;
+	padding-left: 5px;
+	min-height: 100%;
+	margin-bottom: 40px;
+	
+	ul, ol
+	{
+		margin: 0;
+	}
+}
+
+.widget-area
+{
+	
+	ul
+	{
+		list-style: none;
+	}
+	
+	a
+	{
+		color: @slingstone-type-grey;
+		
+		:hover
+		{
+			color: @slingstone-red;
+		}
+	}
+	
+	ul.primary
+	{
+		li.widget-container
+		{
+			margin-bottom: 1em;
+		}
+		
+		li.widget-container:nth-child(2n)
+		{
+			h3
+			{
+				background: url('../images/widget-title-bg-grey.png') no-repeat scroll top left;
+				color: @slingstone-type-grey;
+			}
+		}
+		
+		h3.widget-title
+		{
+			font-size: 0.8em;
+			text-align: center;
+			color: #fff;
+			background: url('../images/wiget-title-bg-red.png') no-repeat scroll top left;
+			width: 187px;
+			height: 23px;
+			margin-bottom: 0;
+			padding-top: 6px;
+		}
+	}
+	
+	ul.secondary
+	{
+		
+		li
+		{
+			background: url('../images/divider-line.png') no-repeat scroll top left;
+			padding: 20px 0 15px 0;
+			
+			ul
+			{
+				li
+				{
+					background: none;
+					padding: 0;
+				}
+			}
+		}
+		
+		h3.widget-title
+		{
+			font-size: 0.8em;
+			text-align: center;
+			line-height: 1.3;
+		}
+	}
+}
+
+/* =Comments
+-------------------------------------------------------------- */
+#comments {
+	clear: both;
+}
+#comments .navigation {
+	padding: 0 0 18px 0;
+}
+h3#comments-title,
+h3#reply-title {
+	color: #000;
+	font-size: 20px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+h3#comments-title {
+	padding: 24px 0;
+}
+.commentlist {
+	list-style: none;
+	margin: 0;
+}
+.commentlist li.comment {
+	border-bottom: 1px solid #e7e7e7;
+	line-height: 24px;
+	margin: 0 0 24px 0;
+	padding: 0 0 0 56px;
+	position: relative;
+}
+.commentlist li:last-child {
+	border-bottom: none;
+	margin-bottom: 0;
+}
+#comments .comment-body ul,
+#comments .comment-body ol {
+	margin-bottom: 18px;
+}
+#comments .comment-body p:last-child {
+	margin-bottom: 6px;
+}
+#comments .comment-body blockquote p:last-child {
+	margin-bottom: 24px;
+}
+.commentlist ol {
+	list-style: decimal;
+}
+.commentlist .avatar {
+	position: absolute;
+	top: 4px;
+	left: 0;
+}
+.comment-author {
+}
+.comment-author cite {
+	color: #000;
+	font-style: normal;
+	font-weight: bold;
+}
+.comment-author .says {
+	font-style: italic;
+}
+.comment-meta {
+	font-size: 12px;
+	margin: 0 0 18px 0;
+}
+.comment-meta a:link,
+.comment-meta a:visited {
+	color: #888;
+	text-decoration: none;
+}
+.comment-meta a:active,
+.comment-meta a:hover {
+	color: #ff4b33;
+}
+.commentlist .even {
+}
+.commentlist .bypostauthor {
+}
+.reply {
+	font-size: 12px;
+	padding: 0 0 24px 0;
+}
+.reply a,
+a.comment-edit-link {
+	color: #888;
+}
+.reply a:hover,
+a.comment-edit-link:hover {
+	color: #ff4b33;
+}
+.commentlist .children {
+	list-style: none;
+	margin: 0;
+}
+.commentlist .children li {
+	border: none;
+	margin: 0;
+}
+.nopassword,
+.nocomments {
+	display: none;
+}
+#comments .pingback {
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 18px;
+	padding-bottom: 18px;
+}
+.commentlist li.comment+li.pingback {
+	margin-top: -6px;
+}
+#comments .pingback p {
+	color: #888;
+	display: block;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0;
+}
+#comments .pingback .url {
+	font-size: 13px;
+	font-style: italic;
+}
+
+/* Comments form */
+input[type=submit] {
+	color: #333;
+}
+#respond {
+	border-top: 1px solid #e7e7e7;
+	margin: 24px 0;
+	overflow: hidden;
+	position: relative;
+}
+#respond p {
+	margin: 0;
+}
+#respond .comment-notes {
+	margin-bottom: 1em;
+}
+.form-allowed-tags {
+	line-height: 1em;
+}
+.children #respond {
+	margin: 0 48px 0 0;
+}
+h3#reply-title {
+	margin: 18px 0;
+}
+#comments-list #respond {
+	margin: 0 0 18px 0;
+}
+#comments-list ul #respond {
+	margin: 0;
+}
+#cancel-comment-reply-link {
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 18px;
+}
+#respond .required {
+	color: #ff4b33;
+	font-weight: bold;
+}
+#respond label {
+	color: #888;
+	font-size: 12px;
+}
+#respond input {
+	margin: 0 0 9px;
+	width: 98%;
+}
+#respond textarea {
+	width: 98%;
+}
+#respond .form-allowed-tags {
+	color: #888;
+	font-size: 12px;
+	line-height: 18px;
+}
+#respond .form-allowed-tags code {
+	font-size: 11px;
+}
+#respond .form-submit {
+	margin: 12px 0;
+}
+#respond .form-submit input {
+	font-size: 14px;
+	width: auto;
+}
+
+/* =Images
+-------------------------------------------------------------- */
+
+/*
+Resize images to fit the page content area.
+- Applies only to images uploaded via WordPress by targeting size-* classes.
+- Other images will be left alone. Use "size-auto" class to apply to other images.
+*/
+img.size-auto,
+img.size-full,
+img.size-large,
+img.size-medium,
+.attachment img {
+	max-width: 100%; /* When images are too wide for containing element, force them to fit. */
+	height: auto; /* Override height to match resized width for correct aspect ratio. */
+}
+.alignleft,
+img.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 30px;
+}
+.alignright,
+img.alignright {
+	display: inline;
+	float: right;
+	margin-left: 20px;
+	margin-top: 4px;
+}
+.aligncenter,
+img.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+img.alignleft,
+img.alignright,
+img.aligncenter {
+	margin-bottom: 12px;
+}
+.wp-caption {
+	background: #f1f1f1;
+	line-height: 18px;
+	margin-bottom: 20px;
+	max-width: 632px !important; /* prevent too-wide images from breaking layout */
+	padding: 4px;
+	text-align: center;
+}
+.wp-caption img {
+	margin: 5px 5px 0;
+}
+.wp-caption p.wp-caption-text {
+	color: #888;
+	font-size: 12px;
+	margin: 5px;
+}
+.wp-smiley {
+	margin: 0;
+}
+.gallery {
+	margin: 0 auto 18px;
+}
+.gallery .gallery-item {
+	float: left;
+	margin-top: 0;
+	text-align: center;
+	width: 33%;
+}
+.gallery-columns-2 .gallery-item {
+	width: 50%;
+}
+.gallery-columns-4 .gallery-item {
+	width: 25%;
+}
+.gallery img {
+	border: 2px solid #cfcfcf;
+}
+.gallery-columns-2 .attachment-medium {
+	max-width: 92%;
+	height: auto;
+}
+.gallery-columns-4 .attachment-thumbnail {
+	max-width: 84%;
+	height: auto;
+}
+.gallery .gallery-caption {
+	color: #888;
+	font-size: 12px;
+	margin: 0 0 12px;
+}
+.gallery dl {
+	margin: 0;
+}
+.gallery img {
+	border: 10px solid #f1f1f1;
+}
+.gallery br+br {
+	display: none;
+}
+#content .attachment img {/* single attachment images should be centered */
+	display: block;
+	margin: 0 auto;
+}
+
+/*.......................................................the author info*/
+#entry-author-info {
+
+	.gradient;
+	border: 1px solid @slingstone-lite-grey;
+	border-left: 7px solid @slingstone-red;
+	clear: both;
+	font-size: 14px;
+	line-height: 20px;
+	margin: 24px 0;
+	overflow: hidden;
+	padding: 18px 20px;
+}
+#entry-author-info #author-avatar {
+	float: left;
+	height: 60px;
+	margin: 0 -104px 0 0;
+	padding: 11px;
+}
+#entry-author-info #author-description {
+	float: left;
+	margin: 0 0 0 90px;
+}
+#entry-author-info h2 {
+	color: #000;
+	font-size: 100%;
+	margin-bottom: 0;
+	text-align: left;
+	letter-spacing: normal;
+}
+
+/*.......................................................the posts*/
+.entry-meta
+{
+	margin-bottom: 1em;
+	font-family: Georgia, serif;
+	border-bottom: 1px solid @slingstone-lite-grey;
+	border-left: solid 2px @slingstone-red;
+	padding-left: 5px;
+}
+
+h3.entry-title
+{
+	a
+	{
+		color: @slingstone-logo-grey;
+		.transition;
+		
+		:hover
+		{
+			background: @slingstone-red;
+			color: #fff;
+			.transition;
+			text-decoration: none;
+		}
+	}
+}
+
+#author-link
+{
+	margin-top: 1em;
+}
+
+.author-summary
+{
+	padding-top: 20px;
+}
+
+.author-name
+{
+	font-size: 1em;
+	font-family: 'Droid Sans', Arial, sans-serif;
+	letter-spacing: normal;
+	text-transform: none;
+}
+
+.author-name-single
+{
+	font-family: Georgia, serif;
+	color: @slingstone-logo-grey;
+	text-transform: none;
+	letter-spacing: normal;
+}
+
+.type-authors
+{
+	clear:both;
+	margin-bottom: 45px;
+	
+	a
+	{
+		img
+		{
+			margin-right: 15px;
+		}
+	}
+}
+
+.author-headshot
+{
+	float: left;
+	width: 125px;
+	margin: 0 30px 30px 0;
+}
+
+.box
+{
+	float: left;
+	width: 180px;
+	height: auto;
+	margin-right: 70px;
+	
+	:last-child
+	{
+		margin-right: 0;
+	}
+	
+	img
+	{
+		opacity: 0.8;
+		.transition;
+		
+		:hover
+		{
+			opacity: 10;
+			.transition;
+		}
+	}
+}
+
+.box:nth-child(5n)
+{
+	margin-right: 0;
+}
+
+.last
+{
+	margin-right: 0;
+}
+
+.author-entry-summary
+{
+	height: 155px;
+}
+
+.mce_inline_error
+{
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+audio
+{
+	width: 180px;
+	margin-left: -35px;
+	display: none;
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="url"], 
+input[type="email"], 
+input.text, 
+input.title, 
+select 
+{
+	height: 20px;
+}
+
+iframe
+{
+	display: block;
+	margin: 0 auto;
+}
+
+input#ns_widget_mailchimp-email-4
+{
+	width: 174px;
+	height: 28px;
+	border: 1px solid #A2A5A4;
+	font-family: 'Droid Sans', Arial, sans-serif;
+	padding: 0 5px;
+}
+
+form#ns_widget_mailchimp_form-4:after
+{
+	content: url(../images/letter-sb.png);
+}
+
+form#ns_widget_mailchimp_form-4
+{
+	input.button
+	{
+		margin-bottom: 20px;
+		background-color: #AF292E;
+		height: 25px;
+		width: 186px;
+		border: 1px solid #A2A5A4;
+		color: white;
+		font-family: Georgia, serif;
+		text-transform: uppercase;
+		letter-spacing: 4px;
+		font-weight: normal;
+		cursor: pointer;
+	}
+	
+	label
+	{
+		font-weight: normal;
+	}
+}
+
+img.cat-image
+{
+	margin-top: -10px;
+}
+
+h1.cat-title
+{
+	text-align: left;
+	margin-left: 155px;
+}

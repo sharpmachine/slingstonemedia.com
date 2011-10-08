@@ -1,0 +1,214 @@
+#container {
+  padding-bottom: 25px;
+}
+
+.wapf-field {
+  width: 100% !important;
+}
+
+textarea.wapf-field {
+  min-height: 200px !important;
+}
+
+.wapf-field-label {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.wafp-options-pane {
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+
+.wafp-hidden {
+  display: none;
+}
+
+.wafp-new-link, .wafp-new-link td {
+  background-color: darkgray;
+}
+
+ul.wafp-nav-bar {
+  list-style-type: none;
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+ul.wafp-nav-bar li {
+  display: inline;
+  margin: 0;
+}
+
+ul.wafp-nav-bar li a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px;
+  margin: 0px;
+  border: 1px solid #333;
+}
+
+ul.wafp-nav-bar li a:hover {
+  color: white;
+  background-color: #333;
+}
+
+ul.wafp-link-list li {
+  margin-bottom: 25px;
+}
+
+table.wafp-stats-table {
+  border: 1px solid black;
+  width: 99% !important;
+}
+
+table.wafp-stats-table td, table.wafp-stats-table th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+table.wafp-stats-table th {
+  text-align:center !important;
+  font-weight: bold;
+  background-color: #333;
+  color: white !important;
+  padding:5px !important;
+  margin:0 !important;
+}
+
+table.wafp-table {
+  width: 99%;
+}
+
+.wafp-frontend-table, .wafp-frontend-table tr, .wafp-frontend-table tr td {
+  border-style: none;
+  border: none !important;
+}
+.wafp-frontend-text-input {
+  width: 100%;
+}
+.wafp-frontend-label-col {
+  width: 25%;
+}
+
+.wafp-paid-label, .wafp-owed-label, .wafp-payment-label {
+  font-weight: bold;
+}
+.wafp-paid-label, .wafp-red-text {
+  color: red;
+}
+.wafp-owed-label {
+  color: green;
+}
+.wafp-payment-label {
+  color: blue;
+}
+
+.wafp-affiliate-column {
+  width: 25%;
+}
+.wafp-clicks-column {
+  width: 15%;
+}
+.wafp-transaction-column {
+  width: 15%;
+}
+.wafp-sales-column {
+  width: 15%;
+}
+.wafp-refunds-column {
+  width: 15%;
+}
+.wafp-total-column {
+  width: 15%;
+}
+
+/* Transaction Coluns */
+.wafp-trans-time-col {
+  width: 15%;
+}
+.wafp-trans-affiliate-col {
+  width: 15%;
+}
+.wafp-trans-invoice-col {
+  width: 15%;
+}
+.wafp-trans-amount-col {
+  width: 15%;
+}
+.wafp-trans-refund-col {
+  width: 25%;
+}
+.wafp-trans-total-col {
+  width: 15%;
+}
+.wafp-trans-submit-wrap {
+  width: 99%;
+}
+.wafp-trans-submit {
+  float: right;
+  cursor: pointer;
+}
+
+/* Payment Columns */
+.wafp-pay-affiliate-col {
+  width: 14%;
+}
+.wafp-pay-name-col {
+  width: 16%;
+}
+.wafp-pay-paypal-col {
+  width: 15%;
+}
+.wafp-pay-address-col {
+  width: 20%;
+}
+.wafp-pay-commissions-col {
+  width: 10%;
+}
+.wafp-pay-corrections-col {
+  width: 10%;
+}
+.wafp-pay-payment-col {
+  width: 10%;
+}
+.wafp-pay-paid-col  {
+  width: 5%;
+}
+
+/* Signup Form */
+/*
+.wafp_signup_input {
+  width: 200px;
+}
+*/
+
+.affroy_signup_form input, .wafp_loginform input {
+  width: 250px;
+}
+
+.affroy_signup_form tr td {
+  padding: 1px; 
+}
+
+/* Fix for some themes that mess with all the tables */
+#wafp-stats-graph .legend div, #wafp-stats-graph .legend table {
+  width: auto !important;
+}
+
+table.affroy_signup_form {
+  border: none;
+}
+
+table.affroy_signup_form td {
+  border: none;
+}
+
+/* Fix for some issue affecting the wp-admin */
+#editorcontainer textarea {
+  width: 100%;
+}
+
+.wafp-integration-option {
+  display: none;
+}

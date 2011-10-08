@@ -1,0 +1,257 @@
+@width: 960px;
+@height: 300px;
+/*
+	Slideshow
+*/
+
+#banner {
+	z-index:98;
+	width: @width;
+	height: @height;
+	position: relative;
+	
+	/*
+		Slides container
+		Important:
+		Set the width of your slides container
+		Set to display none, prevents content flash
+	*/
+
+	.slides_container {
+		width:@width;
+		height: @height;
+		overflow:hidden;
+		position:relative;
+		display:none;
+	}
+
+	/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+	*/
+
+	.slides_container a {
+		width:@width;
+		height:@height;
+		display:block;
+	}
+
+	.slides_container a img {
+		display:block;
+	}
+
+	/*
+		Pagination
+	*/
+
+	.pagination {
+		margin:26px auto 0;
+		width:400px;
+		text-align: right;
+	 	position: absolute;
+		bottom: 20px;
+		right: 40px;
+		z-index: 99;
+
+		li {
+			list-style: none;
+			display: inline-block;
+			margin: 0 5px;
+
+			a {
+				display: block;
+				width: 13px;
+				height: 13px;
+				background-color: #FFF;
+				border: none;
+				padding-top: 1px;
+				-webkit-border-radius: 10px 10px 10px 10px;                
+				   -moz-border-radius: 10px 10px 10px 10px;  
+				        border-radius: 10px 10px 10px 10px;
+
+				text-indent: 9999em;
+
+
+			}
+
+			&.current a {
+				background-position:0 -12px;
+				background-color: #AF292E;
+				padding-top: none;
+				border: 2px solid #FFF;
+			}
+
+		}
+
+	}
+	
+	#categories
+	{
+		z-index: 120;
+		position:absolute;
+		top: -15px;
+		left: 0;
+		
+		ul, ul li
+		{
+			margin: 0;
+			padding: 0;
+			list-style: none
+		}
+		
+		ul
+		{
+			li
+			{
+				position: relative;
+				
+				a
+				{
+					display: block;
+					background: transparent url('../images/categories-bar.png') no-repeat 0 0;
+					width: 40px;
+					height: 332px;
+				}
+				
+				&:hover
+				{
+					ul
+					{
+						display: inherit;
+					}
+				}
+				
+				ul
+				{
+					position: absolute;
+					top: 15px;
+					left: 38px;
+					height: 300px;
+					width: 800px;
+					overflow: hidden;
+					display: none;
+					
+					li
+					{
+						float: left;
+
+						background: rgba(0,0,0, .7);
+						width: 196px;
+						
+						height: 300px;
+						margin-left: 1px;
+						
+						.title
+						{
+							font-family: "Georgia", serif;
+							color: #FFF;
+							text-transform: uppercase;
+							margin: 0;
+							padding: 10px;
+							margin: 10px;
+							background: transparent url('../images/category-bar.png') no-repeat bottom center;
+						}
+						
+						a
+						{
+							background: none;
+							color: #FFF;
+							padding: 5px 20px;
+							width: inherit;
+							height: auto;
+							display: block;
+							float: none;
+							
+						}
+					}
+				}
+			}
+		}
+
+		
+		
+	}
+	
+}
+
+
+/*
+	Carousel container
+	Important:
+	Set the width of your slides container
+	Set to display none, prevents content flash
+*/
+
+#carousel
+{
+	
+	position: relative;
+	height: 96px;
+	width: @width;
+	
+	.pagination {
+		display: none;
+	}
+	
+	.next, .prev
+	{
+		background: transparent url('../images/arrows.png') no-repeat 0 0;
+		position: absolute;
+		top: 37px;
+		width: 22px;
+		height: 22px;
+		text-indent: -9999em;
+		z-index: 100;
+	}
+	
+	.next
+	{
+		right: 0;
+		background-position: 0 -44px;
+	}
+	
+	.prev 
+	{
+		left: 0;
+	}
+	
+	.slides_container {
+		width: 900px;
+		height: 96px;
+		display:none;
+		margin-left: 28px;
+
+		/*
+		Each slide
+		Important:
+		Set the width of your slides
+		If height not specified height will be set by the slide content
+		Set to display block
+		*/
+
+		.slide {
+			width:905px;
+			height:96px;
+			display:block;
+		}
+		
+		/*
+		Set the size of your carousel items
+		*/
+		.item {
+			float:left;
+			width:171px;
+			height:96px;
+			margin:0 5px;
+		}
+
+	}
+
+}
+
+
+
+

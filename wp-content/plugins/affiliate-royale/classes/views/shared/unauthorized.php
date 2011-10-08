@@ -1,0 +1,1 @@
+<p><?php printf(__('You\'re unauthorized to view this page. Why don\'t you %1$sLogin%2$s and try again.', 'affiliate-royale'), '<a href="'. $loginURL . '">', '</a>'); ?></p>

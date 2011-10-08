@@ -1,0 +1,1 @@
+<div class="updated"><p><strong><?php _e('Links and Banners saved.', 'affiliate-royale'); ?></strong></p></div>

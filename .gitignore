@@ -1,0 +1,6 @@
+wp-config.php
+/misc
+/wp-content/themes/slingstonemedia/js/hashgrid.js
+/wp-content/themes/slingstonemedia/css/hashgrid.css
+/wp-content/themes/slingstonemedia/css/style.less
+.htaccess

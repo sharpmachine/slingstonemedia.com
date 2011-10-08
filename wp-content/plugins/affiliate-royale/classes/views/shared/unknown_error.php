@@ -1,0 +1,1 @@
+<h3><?php _e('An Unknown Error Occurred', 'affiliate-royale'); ?></h3>

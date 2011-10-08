@@ -1,0 +1,269 @@
+<?php
+class WafpReport
+{
+  function &affiliate_stats($period, $affiliate_id=0)
+  {
+    global $wafp_db, $wpdb;
+    
+    $num_days_in_month = date( 't', $period );
+    $stats = array();
+    
+    if( (int)$affiliate_id <= 0 )
+      $aff_where = "";
+    else
+      $aff_where = "AND affiliate_id=%d ";
+
+    $query_str = "SELECT %s as date,
+                         %s as tsdate,
+                    ( SELECT COUNT(*)
+                        FROM {$wafp_db->clicks}
+                       WHERE created_at >= %s AND 
+                             created_at <= %s {$aff_where}) as clicks,
+                    ( SELECT COUNT(*)
+                        FROM {$wafp_db->clicks}
+                       WHERE first_click <> 0 AND
+                             created_at >= %s AND 
+                             created_at <= %s {$aff_where}) as uniques,
+                    ( SELECT COUNT(*)
+                        FROM {$wafp_db->transactions}
+                       WHERE type='commission' AND created_at >= %s AND 
+                             created_at <= %s {$aff_where}) as transactions,
+                    ( SELECT SUM(commission_amount)
+                        FROM {$wafp_db->commissions}
+                       WHERE created_at >= %s AND created_at <= %s {$aff_where}) as commissions,
+                    ( SELECT SUM(correction_amount)
+                        FROM {$wafp_db->commissions}
+                       WHERE created_at >= %s AND created_at <= %s {$aff_where}) as corrections";
+
+    $day = $period;
+    for($i = 1; $i <= $num_days_in_month; $i++ )
+    {
+      $day_start = date('Y-m-d 00:00:00', $day);
+      $day_end   = date('Y-m-d 23:59:59', $day);
+      
+      if( (int)$affiliate_id <= 0 )
+        $query = $wpdb->prepare( $query_str, date('m/d/Y', $day), $day, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end );
+      else
+        $query = $wpdb->prepare( $query_str, date('m/d/Y', $day), $day, $day_start, $day_end, $affiliate_id, $day_start, $day_end, $affiliate_id, $day_start, $day_end, $affiliate_id, $day_start, $day_end, $affiliate_id, $day_start, $day_end, $affiliate_id );
+        
+
+      $stats[$i] = $wpdb->get_row($query);
+      $day += (60*60*24); // add a day
+    }
+    
+    return $stats;
+  }
+  
+  public static function last_n_days_stats($n=7)
+  {
+    global $wafp_db, $wpdb;
+    
+    $stats = array();
+    
+    for($i=($n-1); $i>=0; $i--)
+    {
+      // Take the time out of the equation
+      $start_time = mktime(  0,  0,  0 ) - 60*60*24*$i;
+      $end_time   = mktime( 23, 59, 59 ) - 60*60*24*$i;
+      
+      $start_time_str = date('Y-m-d H:i:s', $start_time);
+      $end_time_str   = date('Y-m-d H:i:s', $end_time);
+      
+      $query_str = "SELECT %s as rdate,
+                           ( SELECT COUNT(*)
+                               FROM {$wafp_db->clicks}
+                              WHERE created_at >= '{$start_time_str}' AND
+                                    created_at <= '{$end_time_str}' ) as clicks,
+                           ( SELECT COUNT(*)
+                               FROM {$wafp_db->clicks}
+                              WHERE first_click <> 0 AND
+                                    created_at >= '{$start_time_str}' AND
+                                    created_at <= '{$end_time_str}' ) as uniques,
+                           ( SELECT COUNT(*)
+                               FROM {$wafp_db->transactions}
+                              WHERE type='commission' AND
+                                    created_at >= '{$start_time_str}' AND
+                                    created_at <= '{$end_time_str}' ) as transactions";
+      
+      $query = $wpdb->prepare($query_str, date('Y/m/d', $start_time ));
+      $stats[] = $wpdb->get_row($query);
+    }
+    
+    return $stats;
+  }
+  
+  function affiliate_clicks( $page_num=1, $page_size=25, $affiliate_id=0 )
+  {
+    global $wafp_db, $wpdb;
+    
+    $limit  = (int)$page_size;
+    $offset = ((int)$page_num - 1) * $limit;
+
+    if( (int)$affiliate_id <= 0 ) {
+      $query_str = "SELECT cl.*, li.target_url, usr.user_login FROM {$wafp_db->clicks} cl, {$wafp_db->links} li, {$wpdb->users} usr WHERE cl.affiliate_id=usr.ID AND cl.link_id=li.id ORDER BY id DESC LIMIT %d,%d";
+      $query = $wpdb->prepare( $query_str, $offset, $limit );
+    }
+    else {
+      $query_str = "SELECT cl.*, li.target_url, usr.user_login FROM {$wafp_db->clicks} cl, {$wafp_db->links} li, {$wpdb->users} usr WHERE cl.affiliate_id=usr.ID AND cl.link_id=li.id AND cl.affiliate_id=%d ORDER BY id DESC LIMIT %d,%d";
+      $query = $wpdb->prepare( $query_str, $affiliate_id, $offset, $limit );
+    }
+
+    return $wpdb->get_results($query);
+  }
+  
+  function top_referring_affiliates( $period, $page_num=1, $page_size=50 )
+  {
+    global $wafp_db, $wpdb;
+
+    $num_days_in_month = (int)(date( 't', $period )) - 1;
+    $seconds_in_month  = 60*60*24*(int)$num_days_in_month;
+
+    $day_start = date( 'Y-m-d 00:00:00', $period );
+    $day_end   = date( 'Y-m-d 23:59:59', ( $period + $seconds_in_month ) );
+
+    $limit  = (int)$page_size;
+    $offset = ((int)$page_num - 1) * $limit;
+  
+    $query_str = "SELECT aff.user_login AS aff_login,
+                    (SELECT COUNT( * ) FROM {$wafp_db->clicks} WHERE affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS click_count,
+                    (SELECT COUNT( * ) FROM {$wafp_db->transactions} WHERE type='commission' AND affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS transaction_count,
+                    (SELECT SUM( sale_amount ) FROM {$wafp_db->transactions} WHERE type='commission' AND affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS sales_amount,
+                    (SELECT SUM( refund_amount ) FROM {$wafp_db->transactions} WHERE type='commission' AND affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS refund_amount,
+                    (SELECT SUM( commission_amount ) FROM {$wafp_db->commissions} WHERE affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS commission_amount,
+                    (SELECT SUM( amount ) FROM {$wafp_db->payments} WHERE affiliate_id=aff.ID AND created_at >= %s AND created_at <= %s) AS payment_amount
+                    FROM {$wpdb->users} aff
+                    GROUP BY aff.user_login
+                    ORDER BY click_count DESC, transaction_count DESC, sales_amount DESC, commission_amount DESC, aff.user_login
+                    LIMIT %d,%d";
+
+    $query = $wpdb->prepare( $query_str, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $day_start, $day_end, $offset, $limit );
+
+    return $wpdb->get_results($query);
+  }
+  
+  function affiliate_payments( $period )
+  {
+    global $wafp_db, $wpdb;
+
+    $num_days_in_month = (int)(date( 't', $period )) - 1;
+    $seconds_in_month  = 60*60*24*(int)$num_days_in_month;
+
+    $day_start = date( 'Y-m-d 00:00:00', $period );
+    $day_end   = date( 'Y-m-d 23:59:59', ( $period + $seconds_in_month ) );
+  
+    $query_str = "SELECT aff.ID AS aff_id,
+                    aff.user_login AS aff_login,
+                    (SELECT COUNT( * ) FROM {$wafp_db->commissions} WHERE affiliate_id=aff.ID AND created_at <= %s) AS transaction_count,
+                    (SELECT SUM( commission_amount ) FROM {$wafp_db->commissions} WHERE affiliate_id=aff.ID AND created_at <= %s) AS commission_amount,
+                    (SELECT SUM( correction_amount ) FROM {$wafp_db->commissions} WHERE affiliate_id=aff.ID AND created_at <= %s) AS correction_amount,
+                    (SELECT SUM( amount ) FROM {$wafp_db->payments} WHERE affiliate_id=aff.ID) AS payment_amount
+                    FROM {$wpdb->users} aff
+                    ORDER BY commission_amount DESC, aff_login";
+
+    $query = $wpdb->prepare( $query_str, $day_end, $day_end, $day_end );
+
+    $results_array = $wpdb->get_results($query);
+    
+    $totals = array();
+    $results = array();
+    foreach( $results_array as $result )
+    {
+      $total_amount = ($result->commission_amount - $result->correction_amount - $result->payment_amount);
+      
+      if((float)$total_amount > 0.00)
+      {
+        $totals{"{$result->aff_id}"} = $total_amount;
+        $results[$result->aff_id] = $result;
+      }
+    }
+
+    arsort($totals); //changed from $totals_hash
+    return compact( 'totals', 'results' );
+  }
+  
+  function affiliate_transactions( $page=1, $page_size=25 )
+  {
+    global $wafp_db, $wpdb;
+
+    $limit  = (int)$page_size;
+    $offset = ((int)$page - 1) * $limit;
+    
+    $query_str = "SELECT tr.*, aff.user_login
+                    FROM {$wafp_db->transactions} tr INNER JOIN {$wpdb->users} aff ON tr.affiliate_id=aff.id
+                   WHERE tr.type='commission'
+                   ORDER BY id DESC 
+                   LIMIT {$offset},{$limit}";
+    $query = $wpdb->prepare($query_str);
+    
+    return $wpdb->get_results($query);
+  }
+  
+  function affiliate_frontend_payments($affiliate_id)
+  {
+    global $wpdb, $wafp_db;
+    $query_str = "( SELECT 'transaction' AS trans_type,
+                           tr.sale_amount AS sale_amount,
+                           co.commission_amount AS commission_amount,
+                           co.correction_amount AS correction_amount,
+                           co.commission_level AS commission_level,
+                           (co.commission_amount - co.correction_amount) AS total_amount,
+                           NULL AS payment_amount,
+                           co.payment_id AS payment_id,
+                           co.created_at AS timestamp
+                      FROM {$wafp_db->commissions} co
+                      JOIN {$wafp_db->transactions} tr ON co.transaction_id = tr.id
+                     WHERE co.affiliate_id=%d )
+                  UNION (
+                    SELECT 'payment' AS trans_type, 
+                           NULL AS sale_amount,
+                           NULL AS commission_amount,
+                           NULL AS correction_amount,
+                           NULL AS commission_level,
+                           NULL AS total_amount,
+                           pmt.amount AS payment_amount,
+                           NULL AS payment_id,
+                           pmt.created_at AS timestamp
+                      FROM {$wafp_db->payments} pmt
+                     WHERE pmt.affiliate_id=%d )
+                  ORDER BY timestamp DESC";
+    $query = $wpdb->prepare( $query_str, $affiliate_id, $affiliate_id );
+    return $wpdb->get_results($query);
+  }
+  
+  function affiliate_payment_totals($affiliate_id)
+  {
+    global $wpdb, $wafp_db;
+    $query_str = "SELECT (SUM(co.commission_amount) - SUM(co.correction_amount)) AS owed FROM {$wafp_db->commissions} co WHERE co.payment_id = 0 AND co.affiliate_id=%d";
+    $query = $wpdb->prepare( $query_str, $affiliate_id );
+    $owed = $wpdb->get_var($query);
+
+    $query_str = "SELECT SUM(pmt.amount) AS paid FROM {$wafp_db->payments} pmt WHERE pmt.affiliate_id=%d";
+    $query = $wpdb->prepare( $query_str, $affiliate_id );
+    $paid = $wpdb->get_var($query);
+    
+    $owed = ((!$owed)?0.00:$owed);
+    $paid = ((!$paid)?0.00:$paid);
+
+    return compact('owed','paid');
+  }
+
+  function affiliate_paypal_bulk_file_totals($payment_ids=null)
+  {
+    global $wpdb, $wafp_db;
+    
+    if(empty($payment_ids) or is_null($payment_ids))
+      return false;
+
+    $query = "SELECT SUM(co.commission_amount) as paid, co.affiliate_id FROM {$wafp_db->commissions} co WHERE co.payment_id IN ({$payment_ids}) GROUP BY co.affiliate_id";
+    $query = $wpdb->prepare( $query );
+    
+    return $wpdb->get_results($query);
+  }
+  
+  function get_user_count()
+  {
+    global $wafp_db, $wpdb;
+    return $wafp_db->get_count( $wpdb->users );
+  }
+}
+?>

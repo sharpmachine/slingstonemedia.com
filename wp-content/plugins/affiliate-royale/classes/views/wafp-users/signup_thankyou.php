@@ -1,0 +1,2 @@
+<h3><?php printf(__('Thanks for Registering for %s!', 'affiliate-royale'), $wafp_blogname); ?></h3><p><?php _e('You should shortly receive an email with your password.', 'affiliate-royale'); ?></p>
+<?php do_action('wafp_signup_thankyou_message'); ?>

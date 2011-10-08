@@ -1,0 +1,1 @@
+<h3><?php _e('Registration is currently not allowed on this site.', 'affiliate-royale'); ?></h3>

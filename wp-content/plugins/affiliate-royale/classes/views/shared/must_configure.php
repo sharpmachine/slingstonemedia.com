@@ -1,0 +1,1 @@
+<div class="error" style="padding-top: 5px; padding-bottom: 5px;"><?php printf(__('Your Affiliate Program must be configured. Go to the %s to set it up.', 'affiliate-royale'), '<a href="?page=affiliate-royale-options">'.__('Affiliate Program Page', 'affiliate-royale').'</a>'); ?></div>

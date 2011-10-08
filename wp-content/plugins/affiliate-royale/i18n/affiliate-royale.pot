@@ -1,0 +1,1667 @@
+# Copyright (C) 2010 Affiliate Royale
+# This file is distributed under the same license as the Affiliate Royale package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Affiliate Royale 1.0.06\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/affiliate-royale\n"
+"POT-Creation-Date: 2011-09-08 00:04:46+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: classes/helpers/WafpOptionsHelper.php:13
+msgid "- Auto Create New Page -"
+msgstr ""
+
+#: classes/helpers/WafpOptionsHelper.php:33
+msgid "Edit"
+msgstr ""
+
+#: classes/helpers/WafpOptionsHelper.php:35
+msgid "View"
+msgstr ""
+
+#: classes/helpers/WafpOptionsHelper.php:42
+#: classes/views/wafp-options/form.php:158
+msgid "PayPal"
+msgstr ""
+
+#: classes/helpers/WafpOptionsHelper.php:43
+#: classes/views/wafp-options/form.php:157
+msgid "Other"
+msgstr ""
+
+#: classes/integrations/WafpWishlistMember.php:21
+#: classes/controllers/WafpPayPalController.php:29
+#: classes/views/wafp-options/paypal_integration.php:8
+#: classes/views/wafp-options/wishlist_integration.php:8
+msgid "Make Sure You Uncheck \"Save Button at PayPal\" in Step 2"
+msgstr ""
+
+#: classes/integrations/WafpWishlistMember.php:22
+#: classes/controllers/WafpPayPalController.php:30
+#: classes/views/wafp-options/paypal_integration.php:9
+msgid ""
+"Make Sure \"Add advanced variables\" is checked in Step 3 and add the "
+"following text into the \"Advanced Variables\" text area:"
+msgstr ""
+
+#: classes/integrations/WafpWishlistMember.php:25
+#: classes/controllers/WafpPayPalController.php:33
+#: classes/views/wafp-options/paypal_integration.php:12
+#: classes/views/wafp-options/wishlist_integration.php:12
+msgid "Click \"Create Button\""
+msgstr ""
+
+#: classes/integrations/WafpWishlistMember.php:26
+#: classes/controllers/WafpPayPalController.php:34
+#: classes/views/wafp-options/paypal_integration.php:13
+#: classes/views/wafp-options/wishlist_integration.php:13
+msgid "Click \"Remove code protection\""
+msgstr ""
+
+#: classes/integrations/WafpPayPal.php:112
+#: classes/controllers/WafpAuthorizeController.php:114
+#: classes/controllers/WafpPayPalController.php:119
+msgid "Subscription Payment"
+msgstr ""
+
+#: classes/integrations/WafpPayPal.php:112
+#: classes/controllers/WafpAuthorizeController.php:114
+#: classes/controllers/WafpPayPalController.php:119
+msgid "Standard Payment"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/integrations/WafpPayPal.php:218
+#: classes/controllers/WafpPayPalController.php:223
+msgid "[%s] PayPal Debug Email"
+msgstr ""
+
+#: classes/controllers/WafpShoppController.php:15
+msgid "Shopp Purchase"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/controllers/WafpAuthorizeController.php:240
+msgid "[%s] Authorize.Net Debug Email"
+msgstr ""
+
+#. #-#-#-#-#  affiliate-royale.pot (Affiliate Royale 1.0.06)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: classes/controllers/WafpAppController.php:44
+#: classes/controllers/WafpAppController.php:73
+msgid "Affiliate Royale"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:45
+#: classes/views/wafp-reports/title.php:1
+msgid "Reports"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:46
+#: classes/views/wafp-users/affiliates_list.php:2
+msgid "Affiliates"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:47
+#: classes/views/wafp-links/list.php:2 classes/views/wafp-dashboard/nav.php:6
+msgid "Links &amp; Banners"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:48
+#: classes/views/wafp-options/form.php:2
+msgid "Options"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:49
+#: classes/views/shared/activation_form.php:2
+msgid "Activate"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:335
+msgid ""
+"You must upgrade your database for <b>Affiliate Royale</b> to work "
+"properly<br/>%1$sAutomatically Upgrade your Database%2$s"
+msgstr ""
+
+#: classes/controllers/WafpAppController.php:341
+msgid "<b>Affiliate Royale's</b> database was successfully upgraded."
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:39
+msgid "AWeber Signup Integration"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:42
+msgid "AWeber List Name"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:44
+msgid ""
+"Enter the AWeber mailing list name that you want users signed up for when "
+"they sign up for Affiliate Royale."
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:47
+msgid "Signup Checkbox Label"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:49
+msgid ""
+"This is the text that will display on the signup page next to your mailing "
+"list opt-out checkbox."
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:86
+msgid "Sign Up for the %s Newsletter"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:92
+msgid "We Respect Your Privacy"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:137
+msgid "You're Almost Done - Activate Your Newsletter Subscription!"
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:138
+msgid ""
+"You've just been sent an email that contains a <strong>confirm link</strong>."
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:139
+msgid ""
+"In order to activate your subscription, check your email and click on the "
+"link in that email.\n"
+"           You will not receive your subscription until you <strong>click "
+"that link to activate it</strong>."
+msgstr ""
+
+#: classes/controllers/WafpAweberController.php:141
+msgid ""
+"If you don't see that email in your inbox shortly, fill out the form again "
+"to have another copy of it sent to you."
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:439
+#: classes/views/wafp-users/admin_profile.php:57
+msgid "None"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:445
+msgid "Yes"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:445
+msgid "No"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:458
+msgid "Message Sent"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:461
+msgid "Unauthorized to resend message"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:464
+msgid "Cannot resend message"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:501
+#: classes/controllers/WafpUsersController.php:504
+msgid "Unauthorized"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:516
+#: classes/views/shared/login_form.php:3
+msgid "Username"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:521
+#: classes/views/wafp-dashboard/home.php:9
+#: classes/views/shared/signup_form.php:5
+msgid "First Name"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:524
+#: classes/views/wafp-dashboard/home.php:13
+#: classes/views/shared/signup_form.php:9
+msgid "Last Name"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:527
+msgid "ID"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:530
+msgid "MTD Clicks"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:533
+msgid "YTD Clicks"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:536
+msgid "MTD Commissions"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:539
+msgid "YTD Commissions"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:542
+msgid "Signup Date"
+msgstr ""
+
+#: classes/controllers/WafpUsersController.php:545
+#: classes/views/wafp-reports/clicks.php:10
+msgid "Referrer"
+msgstr ""
+
+#: classes/controllers/WafpOptionsController.php:71
+#: classes/views/wafp-options/form.php:53
+#: classes/views/wafp-users/admin_profile.php:76
+msgid "Level %d:"
+msgstr ""
+
+#: classes/views/wafp-reports/weekly_stats.php:1
+msgid "Your 7 day Affiliate activity:"
+msgstr ""
+
+#: classes/views/wafp-reports/weekly_stats.php:7
+msgid "View More Affiliate Royale Reports"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:2
+#: classes/views/wafp-reports/stats.php:107
+#: classes/views/wafp-reports/nav.php:4 classes/views/wafp-reports/top.php:8
+#: classes/views/wafp-dashboard/stats.php:108
+msgid "Clicks"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:6
+#: classes/views/wafp-reports/transactions.php:8
+msgid "Time"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:7
+#: classes/views/wafp-reports/payment_receipt.php:7
+#: classes/views/wafp-reports/transactions.php:9
+#: classes/views/wafp-reports/top.php:7
+#: classes/views/wafp-reports/payments.php:10
+msgid "Affiliate"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:8
+msgid "URL"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:9
+msgid "IP"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:32
+#: classes/views/wafp-reports/payment_receipt.php:37
+#: classes/views/wafp-reports/payments.php:60
+msgid "Newer Clicks"
+msgstr ""
+
+#: classes/views/wafp-reports/clicks.php:39
+#: classes/views/wafp-reports/payment_receipt.php:44
+#: classes/views/wafp-reports/payments.php:67
+msgid "Older Clicks"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:2
+msgid "Affiliate Stats"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:3 classes/views/wafp-reports/top.php:3
+#: classes/views/wafp-reports/payments.php:6
+#: classes/views/wafp-dashboard/stats.php:4
+msgid "Select the period you want to view"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:3
+#: classes/views/wafp-users/admin_profile.php:84
+#: classes/views/wafp-dashboard/stats.php:4
+msgid "Loading..."
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:32
+#: classes/views/wafp-dashboard/stats.php:34
+#: classes/views/shared/flot_chart.php:32
+msgid "There was an error loading the Stats chart."
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:106
+#: classes/views/wafp-dashboard/stats.php:107
+#: classes/views/wafp-dashboard/payments.php:9
+msgid "Date"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:108
+#: classes/views/wafp-dashboard/stats.php:109
+msgid "Uniques"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:109
+#: classes/views/wafp-reports/nav.php:5
+#: classes/views/wafp-reports/transactions.php:2
+#: classes/views/wafp-reports/top.php:9
+#: classes/views/wafp-dashboard/stats.php:110
+msgid "Transactions"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:110
+#: classes/views/wafp-reports/payments.php:13
+#: classes/views/wafp-dashboard/stats.php:111
+msgid "Commissions"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:111
+#: classes/views/wafp-reports/payments.php:14
+#: classes/views/wafp-dashboard/stats.php:112
+msgid "Corrections"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:112
+#: classes/views/wafp-reports/transactions.php:13
+#: classes/views/wafp-reports/top.php:12
+#: classes/views/wafp-dashboard/stats.php:113
+msgid "Total"
+msgstr ""
+
+#: classes/views/wafp-reports/stats.php:146
+#: classes/views/wafp-dashboard/stats.php:155
+msgid "Totals"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:2
+msgid "Affiliate Commission Payment Summary"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:8
+#: classes/views/wafp-reports/payments.php:11
+msgid "Name"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:9
+#: classes/views/wafp-reports/payments.php:12
+#: classes/views/wafp-dashboard/home.php:17
+msgid "PayPal Email"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:10
+#: classes/views/wafp-reports/payments.php:16
+#: classes/views/wafp-dashboard/payments.php:16
+msgid "Paid"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:24
+#: classes/views/wafp-reports/payments.php:43
+msgid "none"
+msgstr ""
+
+#: classes/views/wafp-reports/payment_receipt.php:31
+msgid "Download PayPal Mass Payment File"
+msgstr ""
+
+#: classes/views/wafp-reports/nav.php:2 classes/views/wafp-dashboard/nav.php:5
+msgid "Stats"
+msgstr ""
+
+#: classes/views/wafp-reports/nav.php:3 classes/views/wafp-reports/top.php:2
+msgid "Top Referrers"
+msgstr ""
+
+#: classes/views/wafp-reports/nav.php:6
+msgid "Pay Affiliates"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:10
+msgid "Invoice"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:11
+msgid "Amount"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:12
+msgid "Refund"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:34
+msgid "Update Transactions"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:41
+msgid "Newer Transactions"
+msgstr ""
+
+#: classes/views/wafp-reports/transactions.php:48
+msgid "Older Transactions"
+msgstr ""
+
+#: classes/views/wafp-reports/top.php:10
+msgid "Sales"
+msgstr ""
+
+#: classes/views/wafp-reports/top.php:11
+msgid "Refunds"
+msgstr ""
+
+#: classes/views/wafp-reports/top.php:36
+msgid "Next Page"
+msgstr ""
+
+#: classes/views/wafp-reports/top.php:43
+msgid "Prev Page"
+msgstr ""
+
+#: classes/views/wafp-reports/payments.php:2
+msgid "Pay Your Affiliates"
+msgstr ""
+
+#: classes/views/wafp-reports/payments.php:15
+msgid "To Payout"
+msgstr ""
+
+#: classes/views/wafp-reports/payments.php:53
+msgid "Mark Checked Commissions as Paid"
+msgstr ""
+
+#: classes/views/wafp-options/shopp_integration.php:2
+msgid ""
+"Affiliate Royale automatically integrates with Shopp ... so there's no "
+"additional configuration!"
+msgstr ""
+
+#: classes/views/wafp-options/cart66_integration.php:2
+msgid ""
+"Follow these steps to integrate with Cart66 using Affiliate Royale's "
+"iDevAffiliate comapatibility URL:"
+msgstr ""
+
+#: classes/views/wafp-options/cart66_integration.php:4
+msgid ""
+"Go to Cart66's options at \"Cart66\" -> \"Settings\" in your WordPress admin"
+msgstr ""
+
+#: classes/views/wafp-options/cart66_integration.php:5
+msgid "Scroll down to \"iDevAffiliate Settings\""
+msgstr ""
+
+#: classes/views/wafp-options/cart66_integration.php:7
+msgid "Copy & Paste the following URL into the \"URL\" field:"
+msgstr ""
+
+#: classes/views/wafp-options/cart66_integration.php:10
+msgid "Click \"Save\""
+msgstr ""
+
+#: classes/views/wafp-options/form.php:20
+#: classes/views/wafp-options/form.php:231
+msgid "Update Options"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:25
+msgid "Affiliate Program Pages"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:27
+msgid "Affiliate Pages"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:28
+msgid "Configure the WordPress pages you will use for your Affiliate Program."
+msgstr ""
+
+#: classes/views/wafp-options/form.php:31
+msgid "Affiliate Signup Page*:"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:32
+msgid "Affiliate Signup"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:35
+msgid "Affiliate Login Page*:"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:36
+msgid "Affiliate Login"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:39
+msgid "Affiliate Dashboard Page*:"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:40
+msgid "Affiliate Dashboard"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:45
+msgid "Commission Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:47
+msgid "Commission Levels"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:48
+msgid "Configure what percentage you want to pay your affiliates per sale."
+msgstr ""
+
+#: classes/views/wafp-options/form.php:57
+msgid "add level"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:57
+msgid "remove level"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:59
+msgid "Recurring Comissions"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:60
+msgid "Pay commissions on recurring transactions."
+msgstr ""
+
+#: classes/views/wafp-options/form.php:63
+msgid "Dashboard Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:65
+msgid "Welcome Message"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:66
+msgid ""
+"This is the customized message your affiliates will see on their Affiliate "
+"Dashboard welcome page."
+msgstr ""
+
+#: classes/views/wafp-options/form.php:71
+msgid "Dashboard Style"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:72
+msgid "Affiliate Dashboard Page Width"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:72
+msgid "px"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:75
+#: classes/views/wafp-users/admin_profile.php:1
+msgid "Affiliate Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:77
+msgid "Affiliate Payment Method"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:78
+msgid "What method will you use to pay your affiliates?"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:79
+msgid "Pay Affiliates With"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:81
+msgid "Affiliate Registration"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:82
+msgid "Additional affiliate registration settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:83
+msgid "Collect address information from your affiliates?"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:84
+msgid "Collect Tax ID #'s from your affiliates?"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:85
+msgid "Automatically make each new user an Affiliate?"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:87
+msgid "Affiliate Cookie Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:88
+msgid "Expire Cookie After"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:88
+msgid "Days"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:91
+msgid "Payment Integration"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:93
+msgid "What system do you use to accept payments?"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:94
+msgid "You Accept Payments Via"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:96
+msgid "MemberPress"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:159
+msgid "Wishlist Member + PayPal"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:160
+msgid "Shopp Plugin"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:161
+msgid "Cart66 Plugin"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:162
+msgid "Authorize.Net ARB"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:165
+msgid "Integration Instructions"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:176
+msgid "Email Notifications"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:178
+msgid "Affiliate Welcome Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:179
+msgid "Send Welcome Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:182
+msgid "Welcome Email Subject"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:186
+msgid "Welcome Email Body"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:190
+msgid "Admin Commission Notification Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:191
+msgid "Send Admin Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:194
+msgid "Admin Email Subject"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:198
+msgid "Admin Email Body"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:202
+msgid "Affiliate Commission Notification Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:203
+msgid "Send Affiliate Email"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:206
+msgid "Affiliate Email Subject"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:210
+msgid "Affiliate Email Body"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:216
+msgid "International Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:218
+msgid "Currency Settings"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:219
+msgid ""
+"Customize the display and type of the currency your affiliate program will "
+"use"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:220
+msgid "Currency Code:"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:221
+msgid "Currency Symbol:"
+msgstr ""
+
+#: classes/views/wafp-options/form.php:222
+msgid "Currency Format:"
+msgstr ""
+
+#: classes/views/wafp-options/options_saved.php:1
+msgid "Options saved."
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:2
+msgid ""
+"Here are the steps you'll need to follow to integrate Affiliate Royale with "
+"PayPal"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:3
+#: classes/views/wafp-options/wishlist_integration.php:3
+msgid "To create your payment button:"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:5
+#: classes/views/wafp-options/wishlist_integration.php:5
+msgid "Log Into Your PayPal Account"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:6
+#: classes/views/wafp-options/wishlist_integration.php:6
+msgid "Go to \"Merchant Services\" -> \"Create Buttons\""
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:7
+#: classes/views/wafp-options/wishlist_integration.php:7
+msgid "Create either a \"Buy Now\" or \"Subscribe\" Button"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:14
+#: classes/views/wafp-options/wishlist_integration.php:14
+msgid ""
+"Now you can copy your button's code and paste it somewhere on this site. "
+"Note: the button must reside on this site in a page or post in order for the "
+"affiliate tracking to work properly."
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:16
+#: classes/views/wafp-options/wishlist_integration.php:16
+msgid ""
+"(Optional) Setup Affiliate Royale to automatically record refunds and "
+"process recurring payments:"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:18
+#: classes/views/wafp-options/wishlist_integration.php:18
+msgid ""
+"Go to \"My Account\" -> \"Profile\" -> \"Instant Payment Notification "
+"Preferences\" in PayPal"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:19
+#: classes/views/wafp-options/wishlist_integration.php:19
+msgid "Make sure IPN is enabled"
+msgstr ""
+
+#: classes/views/wafp-options/paypal_integration.php:20
+#: classes/views/wafp-options/wishlist_integration.php:20
+msgid ""
+"Paste the following URL into the Notification URL text field and hit save:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:2
+msgid ""
+"You can configure Affiliate Royale to work with most Shopping Carts and "
+"payment systems with the use of a tracking pixel"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:4
+msgid "If your \"Thank You\" page is on a page on this website:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:5
+msgid ""
+"You can just use the Affiliate Royale shortcode to pass static values like "
+"so. <b>Note:</b> this method should only be used for tracking manual or "
+"offline commissions. When you use static values like this you have to omit "
+"the order_id. Since the order_id must be unique, Affiliate Royale "
+"automatically creates a unique order_id for you -- this means that you'll "
+"want to probably disable the \"Affiliate Commission Notification\" and "
+"prevent your thank you page from being refreshed when using this method. "
+"This is because Affiliate Royale will track each page load as a new "
+"affiliate transaction."
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:7
+msgid ""
+"Or, you can tell the Affiliate Royale shortcode to read in GET / POST "
+"variables. For instance if your shopping cart redirects users to this thank "
+"you page 'http://example.com/thank-you/?"
+"awesome_amount=100.00&sweet_order_id=175FJS3H&prod_id=Awesome+Cool+Product' "
+"then you'd want the following shortcode installed:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:9
+msgid ""
+"If your \"Thank You\" page is on another website, part of a customized theme "
+"on this site or a page on this site outside of WordPress:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:10
+msgid ""
+"In this case you can use the Affiliate Royale tracking pixel to pass static "
+"values like so. <b>Note:</b> as with the shortcode, this method should only "
+"be used for tracking manual or offline commissions. When you use static "
+"values like this you have to omit the order_id. Since the order_id must be "
+"unique, Affiliate Royale automatically creates a unique order_id for you -- "
+"this means that you'll want to probably disable the \"Affiliate Commission "
+"Notification\" and prevent your thank you page from being refreshed when "
+"using this method. This is because Affiliate Royale will track each page "
+"load as a new affiliate transaction."
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:12
+msgid ""
+"Or, you can tell the Affiliate Royale tracking pixel to read in GET / POST "
+"variables if your tracking pixel is on a PHP page. For instance if your "
+"shopping cart redirects users to this thank you page 'http://examplecart.com/"
+"thank-you.php?awesome_amount=100.00&sweet_order_id=175FJS3H&prod_id=Awesome"
+"+Cool+Product' then you'd want the following shortcode installed:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:15
+msgid "More Information:"
+msgstr ""
+
+#: classes/views/wafp-options/general_integration.php:16
+msgid ""
+"For instructions on integrating Affiliate Royale with your specific Shopping "
+"Cart or Payment Gateway can be found <a href=\"http://affiliateroyale.com/"
+"user-manual/generic-integration-options/\">here</a>."
+msgstr ""
+
+#: classes/views/wafp-options/wishlist_integration.php:2
+msgid ""
+"Here are the steps you'll need to follow to integrate Affiliate Royale with "
+"Wishlist Member when its using PayPal to process payments"
+msgstr ""
+
+#: classes/views/wafp-options/wishlist_integration.php:9
+msgid ""
+"Make Sure \"Add advanced variables\" is checked in Step 3 and add the "
+"following text into the \"Advanced Variables\" text area underneath your "
+"custom variables for Wishlist Member:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:2
+msgid ""
+"Setting up Affiliate Royale and Authorize.Net ARB to work together involves "
+"configuring Authorize's Silent Post URL and MD5 Hash. Here are the steps "
+"you'll need to follow:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:3
+msgid "Put a Tracking Code on your Payment Thank You Pages:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:5
+msgid ""
+"You'll want to fill in a value for prod_id which can be the name of the "
+"product and the subscr_id which is the subscription id for the new ARB "
+"subscription."
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:8
+msgid "Configure the Silent Post URL:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:10
+msgid ""
+"The Silent Post URL sends data back to Affiliate Royale about each "
+"transaction made through Authorize.Net:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:12
+#: classes/views/wafp-options/authorize_integration.php:23
+msgid "Log on to the Merchant Interface at https://account.authorize.net"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:13
+#: classes/views/wafp-options/authorize_integration.php:24
+msgid "Click Settings under Account in the main menu on the left"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:14
+msgid "Click Silent Post URL in the Transaction Format Settings section"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:15
+msgid "Enter the following URL"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:16
+#: classes/views/wafp-options/authorize_integration.php:27
+msgid "Click Submit"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:19
+msgid "Configure the MD5 Hash:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:21
+msgid ""
+"The MD5 Hash feature allows you to authenticate that transaction responses "
+"are securely received from Authorize.Net."
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:25
+msgid "Click MD5-Hash in the Security Settings section"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:26
+msgid ""
+"Enter the following value into the \"New Hash Value\" and \"Confirm Hash "
+"Value\" fields:"
+msgstr ""
+
+#: classes/views/wafp-options/authorize_integration.php:27
+msgid "Note: the MD5 Hash value is not displayed on the screen once submitted."
+msgstr ""
+
+#: classes/views/wafp-links/list.php:3
+msgid ""
+"To create a banner just hit \"Add New\" enter a Target URL and hit \"Update "
+"Links &amp; Banners.\" To create a simple link just hit \"Add New,\" enter a "
+"Target URL &amp; an image file and then hit \"Update Links &amp; Banners.\""
+msgstr ""
+
+#: classes/views/wafp-links/list.php:11
+msgid "Link Type"
+msgstr ""
+
+#: classes/views/wafp-links/list.php:12
+#: classes/views/wafp-dashboard/links.php:9
+msgid "Target URL"
+msgstr ""
+
+#: classes/views/wafp-links/list.php:13
+msgid "Image"
+msgstr ""
+
+#: classes/views/wafp-links/list.php:26
+msgid "Are you sure you want to delete this link?"
+msgstr ""
+
+#: classes/views/wafp-links/list.php:51
+msgid "Add New"
+msgstr ""
+
+#: classes/views/wafp-links/list.php:53
+msgid "Update Links &amp; Banners"
+msgstr ""
+
+#: classes/views/wafp-links/links_saved.php:1
+msgid "Links and Banners saved."
+msgstr ""
+
+#: classes/views/wafp-integration/form.php:2
+msgid "Affiliate Program: Integration"
+msgstr ""
+
+#: classes/views/wafp-integration/form.php:4
+msgid "Tracking Pixel"
+msgstr ""
+
+#: classes/views/wafp-integration/form.php:7
+msgid ""
+"Copy this code and paste it onto your product's website. You should also add "
+"code to dynamically set the \"amount\", \"payment_id\" and \"affiliate_id"
+"\" (affiliate_id only needs to be set if your payment system pushes this "
+"across as a post back url) variables."
+msgstr ""
+
+#: classes/views/wafp-users/forgot_password_requested.php:1
+msgid "Successfully requested password reset"
+msgstr ""
+
+#: classes/views/wafp-users/forgot_password_requested.php:2
+msgid ""
+"Please click on the confirmation link that was just sent to your email "
+"address."
+msgstr ""
+
+#: classes/views/wafp-users/forgot_password.php:1
+msgid "Request a Password Reset"
+msgstr ""
+
+#: classes/views/wafp-users/forgot_password.php:4
+msgid "Enter Your Username or Email Address"
+msgstr ""
+
+#: classes/views/wafp-users/forgot_password.php:8
+msgid "Request Password Reset"
+msgstr ""
+
+#: classes/views/wafp-users/reset_password.php:1
+msgid "Enter your new password"
+msgstr ""
+
+#: classes/views/wafp-users/reset_password.php:4
+#: classes/views/shared/login_form.php:5
+msgid "Password"
+msgstr ""
+
+#: classes/views/wafp-users/reset_password.php:8
+#: classes/views/shared/signup_form.php:75
+msgid "Password Confirmation"
+msgstr ""
+
+#: classes/views/wafp-users/reset_password.php:12
+msgid "Reset Password"
+msgstr ""
+
+#: classes/views/wafp-users/signup_thankyou.php:1
+msgid "Thanks for Registering for %s!"
+msgstr ""
+
+#: classes/views/wafp-users/signup_thankyou.php:1
+msgid "You should shortly receive an email with your password."
+msgstr ""
+
+#: classes/views/wafp-users/reset_password_thankyou.php:1
+msgid "Password successfully reset"
+msgstr ""
+
+#: classes/views/wafp-users/reset_password_thankyou.php:2
+msgid "Your new password has been emailed to you."
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:8
+msgid "Address 1"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:12
+msgid "Address 2"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:16
+#: classes/views/wafp-dashboard/home.php:32
+#: classes/views/shared/signup_form.php:32
+msgid "City"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:20
+msgid "State"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:24
+msgid "Zip"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:28
+#: classes/views/wafp-dashboard/home.php:44
+#: classes/views/shared/signup_form.php:44
+msgid "Country"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:40
+#: classes/views/wafp-dashboard/home.php:52
+#: classes/views/shared/signup_form.php:52
+msgid "SSN / Tax ID"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:44
+msgid "Int'l Tax ID"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:53
+msgid "Affiliate Referrer"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:61
+msgid "User is an Affiliate"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:62
+msgid "Is this user an Affiliate?"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:65
+msgid "Commission Override"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:66
+msgid "Enable Commission Override for this User."
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:71
+msgid "Affiliate Commission Override:"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:78
+msgid "Pay this user recurring commissions"
+msgstr ""
+
+#: classes/views/wafp-users/admin_profile.php:84
+msgid "Resend Affiliate Program Welcome Email"
+msgstr ""
+
+#: classes/views/wafp-dashboard/become.php:1
+msgid ""
+"Only affiliates can access this page. If you would like to become an "
+"affiliate, please click the button below:"
+msgstr ""
+
+#: classes/views/wafp-dashboard/become.php:3
+msgid "Become an Affiliate"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:1
+msgid "My Affiliate Dashboard"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:4
+msgid "Affiliate Profile"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:24
+#: classes/views/shared/signup_form.php:24
+msgid "Address Line 1"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:28
+#: classes/views/shared/signup_form.php:28
+msgid "Address Line 2"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:36
+msgid "State/Province"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:40
+#: classes/views/shared/signup_form.php:40
+msgid "Zip/Postal Code"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:53
+msgid "US Residents"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:56
+msgid "Intern'l Tax ID"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:57
+#: classes/views/shared/signup_form.php:57
+msgid "Non-US Residents"
+msgstr ""
+
+#: classes/views/wafp-dashboard/home.php:63
+msgid "Save Profile"
+msgstr ""
+
+#: classes/views/wafp-dashboard/stats.php:3
+msgid "My Stats"
+msgstr ""
+
+#: classes/views/wafp-dashboard/links.php:1
+msgid "My Links &amp; Banners"
+msgstr ""
+
+#: classes/views/wafp-dashboard/links.php:10
+msgid "Code"
+msgstr ""
+
+#: classes/views/wafp-dashboard/links.php:11
+msgid "Preview"
+msgstr ""
+
+#: classes/views/wafp-dashboard/links.php:16
+msgid "Affiliate Link"
+msgstr ""
+
+#: classes/views/wafp-dashboard/nav.php:4
+msgid "Home"
+msgstr ""
+
+#: classes/views/wafp-dashboard/nav.php:7
+msgid "Payment History"
+msgstr ""
+
+#: classes/views/wafp-dashboard/nav.php:9
+msgid "Logout"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:1
+msgid "My Payment History"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:3
+msgid "Your Current Balance"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:4
+msgid "Amount Paid To Date"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:10
+msgid "Sale"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:11
+msgid "Level"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:12
+msgid "Commission"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:13
+msgid "Correction"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:14
+msgid "Payment"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:15
+msgid "Owed"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:26
+msgid "PAYMENT"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:32
+msgid "PAID"
+msgstr ""
+
+#: classes/views/wafp-dashboard/payments.php:38
+msgid "PENDING"
+msgstr ""
+
+#: classes/views/shared/no_registration.php:1
+msgid "Registration is currently not allowed on this site."
+msgstr ""
+
+#: classes/views/shared/signup_form.php:13
+msgid "Choose a Username"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:17
+msgid "E-mail"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:36
+msgid "State/Provice"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:53
+msgid "US Residents (###-##-#### or ##-#######)"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:56
+msgid "International Tax ID"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:64
+msgid "PayPal E-mail"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:71
+msgid "Create a Password"
+msgstr ""
+
+#: classes/views/shared/signup_form.php:84
+msgid "Sign Up"
+msgstr ""
+
+#: classes/views/shared/activation_form.php:3
+msgid ""
+"Enter the username and password that was emailed to you when you purchased "
+"Affiliate Royale. If you purchased Affiliate Royale and didn't get a "
+"username and password <a href=\"http://affiliateroyale.com/contact\">contact "
+"us</a> immediately so you can get your Affiliate Program up and running "
+"today!"
+msgstr ""
+
+#: classes/views/shared/already_logged_in.php:6
+msgid "You're already logged in. %1$sLogout.%2$s"
+msgstr ""
+
+#: classes/views/shared/must_configure.php:1
+msgid "Your Affiliate Program must be configured. Go to the %s to set it up."
+msgstr ""
+
+#: classes/views/shared/must_configure.php:1
+msgid "Affiliate Program Page"
+msgstr ""
+
+#: classes/views/shared/wp_cant_register.php:2
+msgid ""
+"Your WordPress registration settings do not currently allow user "
+"registrations.. Go to the %s to enable registrations."
+msgstr ""
+
+#: classes/views/shared/wp_cant_register.php:2
+msgid "General Wordpress Settings Page"
+msgstr ""
+
+#: classes/views/shared/unauthorized.php:1
+msgid ""
+"You're unauthorized to view this page. Why don't you %1$sLogin%2$s and try "
+"again."
+msgstr ""
+
+#: classes/views/shared/errors.php:11 classes/models/WafpUpdate.php:178
+msgid "ERROR"
+msgstr ""
+
+#: classes/views/shared/unknown_error.php:1
+msgid "An Unknown Error Occurred"
+msgstr ""
+
+#: classes/views/shared/login_form.php:7
+msgid "Remember Me"
+msgstr ""
+
+#: classes/views/shared/login_form.php:10
+msgid "Log In"
+msgstr ""
+
+#: classes/views/shared/login_form.php:17
+msgid "Register"
+msgstr ""
+
+#: classes/views/shared/login_form.php:18
+msgid "Lost Password?"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:15
+msgid "Subscriptions"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:16
+msgid "Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:17
+msgid "Add New Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:18
+msgid "Edit Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:19
+msgid "New Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:20
+msgid "View Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:21
+msgid "Search Subscription"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:22
+msgid "No Subscription found"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:23
+msgid "No Subscription found in Trash"
+msgstr ""
+
+#: classes/models/WafpSubscription.php:24
+msgid "Parent Subscription:"
+msgstr ""
+
+#: classes/models/WafpOptions.php:101
+msgid "Welcome to the Affiliate Program on {$site_name}!"
+msgstr ""
+
+#: classes/models/WafpOptions.php:123
+msgid "** Affiliate Sale"
+msgstr ""
+
+#: classes/models/WafpOptions.php:151
+msgid "** Affiliate Commission"
+msgstr ""
+
+#: classes/models/WafpOptions.php:232
+msgid "Welcome to %s's Affiliate Program."
+msgstr ""
+
+#: classes/models/WafpOptions.php:273
+msgid "Your Payment Integration Must Not Be Blank."
+msgstr ""
+
+#: classes/models/WafpOptions.php:276
+msgid "The Commission Amount Must Not Be Blank."
+msgstr ""
+
+#: classes/models/WafpOptions.php:282
+msgid "The commission amount in level %d must be a number."
+msgstr ""
+
+#: classes/models/WafpOptions.php:284
+msgid ""
+"The commission amount in level %d is a percentage so it must be a number "
+"from 0 to 100."
+msgstr ""
+
+#: classes/models/WafpOptions.php:288
+msgid "Your Dashboard Width Must be Set. A sensible default is 500px."
+msgstr ""
+
+#: classes/models/WafpOptions.php:290
+msgid "Your Dashboard Width Must be A Number."
+msgstr ""
+
+#: classes/models/WafpUpdate.php:47
+msgid "Affiliate Royale Username"
+msgstr ""
+
+#: classes/models/WafpUpdate.php:48
+msgid "Affiliate Royale Password"
+msgstr ""
+
+#: classes/models/WafpUpdate.php:49
+msgid "Your Affiliate Royale Username or Password was Invalid"
+msgstr ""
+
+#: classes/models/WafpUpdate.php:158
+msgid ""
+"Your Username & Password was accepted<br/>Now you can %1$sUpgrade "
+"Automatically!%2$s"
+msgstr ""
+
+#: classes/models/WafpUpdate.php:168
+msgid ""
+"Your Username & Password was accepted<br/>Now you can %1$sGet Started!%2$s"
+msgstr ""
+
+#: classes/models/WafpUpdate.php:213
+msgid "Save"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/models/WafpUser.php:323
+msgid "[%s] New Affiliate Signup"
+msgstr ""
+
+#. translators: In this string, %1$s is the blog's name/title, %2$s is the
+#. user's real name, %3$s is the user's username and %4$s is the user's email
+#: classes/models/WafpUser.php:326
+msgid ""
+"A new user just joined your Affiliate Program at %1$s!\n"
+"\n"
+"Name: %2$s\n"
+"Username: %3$s\n"
+"E-Mail: %4$s"
+msgstr ""
+
+#: classes/models/WafpUser.php:344
+msgid "*** The password you created at signup ***"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/models/WafpUser.php:381
+msgid "[%s] Affiliate Password Reset"
+msgstr ""
+
+#. translators: In this string, %1$s is the user's username, %2$s is the blog's
+#. name/title, %3$s is the blog's url, %4$s the reset password link
+#: classes/models/WafpUser.php:384
+msgid ""
+"Someone requested to reset your password for %1$s on the Affiliate Program "
+"at %2$s at %3$s\n"
+"\n"
+"To reset your password visit the following address, otherwise just ignore "
+"this email and nothing will happen.\n"
+"\n"
+"%4$s"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/models/WafpUser.php:409
+msgid "[%s] Affiliate Password Lost/Changed"
+msgstr ""
+
+#. translators: In this string, %1$s is the user's username
+#: classes/models/WafpUser.php:412
+msgid "Affiliate Password Lost and Changed for user: %1$s"
+msgstr ""
+
+#. translators: In this string, %s is the Blog Name/Title
+#: classes/models/WafpUser.php:425
+msgid "[%s] Your new Affiliate Password"
+msgstr ""
+
+#. translators: In this string, %1$s is the user's first name, %2$s is the
+#. blog's name/title, %3$s is the user's username, %4$s is the user's password,
+#. and %5$s is the blog's URL...
+#: classes/models/WafpUser.php:428
+msgid ""
+"%1$s,\n"
+"\n"
+"Your Affiliate Password was successfully reset on %2$s!\n"
+"\n"
+"Username: %3$s\n"
+"Password: %4$s\n"
+"\n"
+"You can login here: %5$s"
+msgstr ""
+
+#: classes/models/WafpUser.php:609 classes/models/WafpUser.php:658
+msgid "Username must not be blank"
+msgstr ""
+
+#: classes/models/WafpUser.php:612
+msgid "Username must only contain letters, numbers and/or underscores"
+msgstr ""
+
+#: classes/models/WafpUser.php:615
+msgid "Username is Already Taken."
+msgstr ""
+
+#: classes/models/WafpUser.php:618
+msgid "PayPal email must not be blank"
+msgstr ""
+
+#: classes/models/WafpUser.php:621
+msgid "Email must be a real and properly formatted email address"
+msgstr ""
+
+#: classes/models/WafpUser.php:624
+msgid "Email Address has already been used by another user."
+msgstr ""
+
+#: classes/models/WafpUser.php:627 classes/models/WafpUser.php:703
+msgid "You must enter a Password."
+msgstr ""
+
+#: classes/models/WafpUser.php:630 classes/models/WafpUser.php:706
+msgid "You must enter a Password Confirmation."
+msgstr ""
+
+#: classes/models/WafpUser.php:633 classes/models/WafpUser.php:709
+msgid "Your Password and Password Confirmation don't match."
+msgstr ""
+
+#: classes/models/WafpUser.php:636
+msgid "You must enter an Address"
+msgstr ""
+
+#: classes/models/WafpUser.php:639
+msgid "You must enter a City"
+msgstr ""
+
+#: classes/models/WafpUser.php:642
+msgid "You must enter a State/Province"
+msgstr ""
+
+#: classes/models/WafpUser.php:645
+msgid "You must enter a Zip/Postal Code"
+msgstr ""
+
+#: classes/models/WafpUser.php:648
+msgid "You must enter a Country"
+msgstr ""
+
+#: classes/models/WafpUser.php:664
+msgid "Username was not found"
+msgstr ""
+
+#: classes/models/WafpUser.php:671
+msgid "Your Password was Incorrect"
+msgstr ""
+
+#: classes/models/WafpUser.php:682
+msgid "You must enter a Username or Email"
+msgstr ""
+
+#: classes/models/WafpUser.php:692
+msgid "That Username or Email wasn't found."
+msgstr ""
+
+#: classes/models/WafpLink.php:128
+msgid "Target URL can't be blank"
+msgstr ""
+
+#: classes/models/WafpLink.php:133
+msgid "Target URL must be a valid URL"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://affiliateroyale.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A complete Affiliate Program plugin for WordPress. Use it to start an "
+"Affiliate Program for your products to dramatically increase traffic, "
+"attention and sales."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Caseproof, LLC"
+msgstr ""
