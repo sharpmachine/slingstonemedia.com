@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://slingstonemedia.com/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.2.1" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.6" -->
-<!-- generated-on="October 3, 2011 9:45 am" -->
+<!-- generated-on="October 13, 2011 7:26 pm" -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://slingstonemedia.com/</loc>
 		<lastmod>2011-10-03T16:44:24+00:00</lastmod>
@@ -23,7 +23,7 @@
 		<loc>http://slingstonemedia.com/2011/09/be%e2%80%a6a-writer/</loc>
 		<lastmod>2011-09-21T20:35:43+00:00</lastmod>
 		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
+		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>http://slingstonemedia.com/authors/blair_reynolds/</loc>
@@ -65,7 +65,7 @@
 		<loc>http://slingstonemedia.com/2011/09/field-dreams/</loc>
 		<lastmod>2011-09-16T04:11:30+00:00</lastmod>
 		<changefreq>monthly</changefreq>
-		<priority>0.2</priority>
+		<priority>0.3</priority>
 	</url>
 	<url>
 		<loc>http://slingstonemedia.com/2011/08/writing_good/</loc>
