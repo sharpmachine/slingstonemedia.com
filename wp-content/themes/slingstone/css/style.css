@@ -799,3 +799,10 @@ h1.cat-title {
   text-align: left;
   margin-left: 155px;
 }
+img#wpstats {
+  position: absolute;
+  top: 0;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
