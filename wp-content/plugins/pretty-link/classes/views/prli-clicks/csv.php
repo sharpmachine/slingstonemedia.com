@@ -20,4 +20,3 @@
   }
   else
     header("Location: " . $prli_blogurl);
-?>

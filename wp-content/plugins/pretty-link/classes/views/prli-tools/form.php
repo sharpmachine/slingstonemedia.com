@@ -13,7 +13,7 @@ function toggle_iphone_instructions()
   <h3>Bookmarklet: </h3>
   <p><strong><a href="javascript:location.href='<?php echo PRLI_URL; ?>/prli-bookmarklet.php?k=<?php echo $prli_options->bookmarklet_auth; ?>&target_url='+escape(location.href);">Get PrettyLink</a></strong><br/>
   <span class="description">Just drag this "Get PrettyLink" link to your toolbar to install the bookmarklet. As you browse the web, you can just click this bookmarklet to create a pretty link from the current url you're looking at.&nbsp;&nbsp;<a href="http://blairwilliams.com/pretty-link-bookmarklet/">(more help)</a></span>
-  <br/><br/><a href="javascript:toggle_iphone_instructions()"><strong><?php _e('Show iPhone Bookmarklet Instructions'); ?></strong></a>
+  <br/><br/><a href="javascript:toggle_iphone_instructions()"><strong><?php _e('Show iPhone Bookmarklet Instructions', 'pretty-link'); ?></strong></a>
   <div class="iphone_instructions" style="display: none"><strong>Note:</strong> iPhone users can install this bookmarklet in their Safari to create Pretty Links with the following steps:<br/>
     <ol>
       <li>Copy this text:<br/><code>javascript:location.href='<?php echo PRLI_URL; ?>/prli-bookmarklet.php?k=<?php echo $prli_options->bookmarklet_auth; ?>&target_url='+escape(location.href);</code></li>

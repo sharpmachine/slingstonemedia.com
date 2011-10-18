@@ -52,32 +52,32 @@ if( isset($_REQUEST[ $hidden_field_name ]) and $_REQUEST[ $hidden_field_name ] =
 
     // Put an options updated message on the screen
 
-    $update_message = __('Options saved.');
+    $update_message = __('Options saved.', 'pretty-link');
   }
 }
 else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'clear_all_clicks')
 {
   $prli_click->clearAllClicks();
 
-  $update_message = __('Hit Database was Cleared.');
+  $update_message = __('Hit Database was Cleared.', 'pretty-link');
 }
 else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'clear_30day_clicks')
 {
   $num_clicks = $prli_click->clear_clicks_by_age_in_days(30);
 
   if($num_clicks)
-    $update_message = __("Hits older than 30 days ({$num_clicks} Hits) were deleted" );
+    $update_message = __("Hits older than 30 days ({$num_clicks} Hits) were deleted" , 'pretty-link');
   else
-    $update_message = __("No hits older than 30 days were found, so nothing was deleted" );
+    $update_message = __("No hits older than 30 days were found, so nothing was deleted" , 'pretty-link');
 }
 else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'clear_90day_clicks')
 {
   $num_clicks = $prli_click->clear_clicks_by_age_in_days(90);
 
   if($num_clicks)
-    $update_message = __("Hits older than 90 days ({$num_clicks} Hits) were deleted" );
+    $update_message = __("Hits older than 90 days ({$num_clicks} Hits) were deleted" , 'pretty-link');
   else
-    $update_message = __("No hits older than 90 days were found, so nothing was deleted" );
+    $update_message = __("No hits older than 90 days were found, so nothing was deleted" , 'pretty-link');
 }
 
 if($update_message)

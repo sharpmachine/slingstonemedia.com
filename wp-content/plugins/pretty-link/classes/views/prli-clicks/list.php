@@ -1,3 +1,4 @@
+<?php if(!defined('ABSPATH')) {die('You are not allowed to call this page directly.');} ?>
 <div class="wrap">
 <?php
   require(PRLI_VIEWS_PATH.'/shared/nav.php');
@@ -122,7 +123,7 @@
       ?>
       <tr>
     <?php if( isset($prli_options->extended_tracking) and $prli_options->extended_tracking == "extended" ) { ?>
-        <td><img src="http://d14715w921jdje.cloudfront.net/browser/<?php echo prli_browser_image($click->btype); ?>" alt="<?php echo $click->btype . " v" . $click->bversion; ?>" title="<?php echo $click->btype . " v" . $click->bversion; ?>"/>&nbsp;<img src="http://d14715w921jdje.cloudfront.net/os/<?php echo prli_os_image($click->os); ?>" alt="<?php echo $click->os; ?>" title="<?php echo $click->os; ?>"/></td>
+        <td><img src="<?php echo esc_html(PRLI_BROWSER_URL); ?>/<?php echo prli_browser_image($click->btype); ?>" alt="<?php echo $click->btype . " v" . $click->bversion; ?>" title="<?php echo $click->btype . " v" . $click->bversion; ?>"/>&nbsp;<img src="<?php echo esc_html(PRLI_OS_URL); ?>/<?php echo prli_os_image($click->os); ?>" alt="<?php echo $click->os; ?>" title="<?php echo $click->os; ?>"/></td>
     <?php } ?>
         <td><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-clicks.php&ip=<?php echo $click->ip; ?>" title="View All Activity for IP Address: <?php echo $click->ip; ?>"><?php echo $click->ip; ?> (<?php echo $click->ip_count; ?>)</a></td>
     <?php if( isset($prli_options->extended_tracking) and $prli_options->extended_tracking == "extended" ) { ?>

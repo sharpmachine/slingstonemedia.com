@@ -1,17 +1,18 @@
+<?php if(!defined('ABSPATH')) { die('You are not allowed to call this page directly.'); } ?>
 <?php
   // Only show the pager bar if there is more than 1 page
   if($page_count > 1)
   {
       ?>
-    <div class="tablenav"<?php echo (isset($navstyle)?" style=\"$navstyle\"":''); ?>>
-      <div class='tablenav-pages'><span class="displaying-num">Displaying <?php print "$page_first_record&#8211;$page_last_record of $record_count"; ?></span>
+    <div class="tablenav"<?php echo (isset($navstyle)?" style=\"" . esc_html($navstyle) . "\"":''); ?>>
+      <div class='tablenav-pages'><span class="displaying-num">Displaying <?php echo esc_html("$page_first_record&#8211;$page_last_record of $record_count"); ?></span>
         
         <?php
         // Only show the prev page button if the current page is not the first page
         if($current_page > 1)
         {
           ?>
-          <a class='prev page-numbers' href='?page=<?php print PRLI_PLUGIN_NAME; ?>/<?php print $controller_file . $page_params; ?>&paged=<?php print($current_page-1); ?>'>&laquo;</a>
+          <a class='prev page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php print($current_page-1); ?>'>&laquo;</a>
           <?php
         }
       
@@ -25,7 +26,7 @@
         else
         {
           ?>
-          <a class='page-numbers' href='?page=<?php print PRLI_PLUGIN_NAME; ?>/<?php print $controller_file . $page_params; ?>&paged=1'>1</a>
+          <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=1'>1</a>
           <?php
         }
       
@@ -45,13 +46,13 @@
           if($current_page==$i)
           {
             ?>
-            <span class='page-numbers current'><?php print $i; ?></span>
+            <span class='page-numbers current'><?php echo esc_html($i); ?></span>
             <?php
           }
           else
           {
             ?>
-            <a class='page-numbers' href='?page=<?php print PRLI_PLUGIN_NAME; ?>/<?php print $controller_file . $page_params; ?>&paged=<?php print $i; ?>'><?php print $i; ?></a>
+            <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php echo esc_html($i); ?>'><?php echo esc_html($i); ?></a>
             <?php
           }
         }
@@ -68,13 +69,13 @@
         if($current_page == $page_count)
         {
           ?>
-          <span class='page-numbers current'><?php print $page_count; ?></span>
+          <span class='page-numbers current'><?php echo esc_html($page_count); ?></span>
           <?php
         }
         else
         {
           ?>
-          <a class='page-numbers' href='?page=<?php print PRLI_PLUGIN_NAME; ?>/<?php print $controller_file . $page_params; ?>&paged=<?php print $page_count; ?>'><?php print $page_count; ?></a>
+          <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php echo esc_html($page_count); ?>'><?php echo esc_html($page_count); ?></a>
           <?php
         }
       
@@ -82,7 +83,7 @@
         if($current_page < $page_count)
         {
           ?>
-          <a class='next page-numbers' href='?page=<?php print PRLI_PLUGIN_NAME; ?>/<?php print $controller_file . $page_params; ?>&paged=<?php print($current_page + 1); ?>'>&raquo;</a>
+          <a class='next page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php print($current_page + 1); ?>'>&raquo;</a>
           <?php
         }
         ?>
@@ -90,4 +91,3 @@
     </div>
     <?php
   }
-?>

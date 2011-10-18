@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="http://slingstonemedia.com/wp-content/plugins/google-sitemap-generator/sitemap.xsl"?><!-- generator="wordpress/3.2.1" -->
 <!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.6" -->
-<!-- generated-on="October 13, 2011 7:26 pm" -->
+<!-- generated-on="October 17, 2011 11:42 am" -->
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">	<url>
 		<loc>http://slingstonemedia.com/</loc>
-		<lastmod>2011-10-03T16:44:24+00:00</lastmod>
+		<lastmod>2011-10-14T20:48:37+00:00</lastmod>
 		<changefreq>daily</changefreq>
 		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>http://slingstonemedia.com/2011/10/intimacy-insulation/</loc>
+		<lastmod>2011-10-14T20:48:37+00:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.2</priority>
 	</url>
 	<url>
 		<loc>http://slingstonemedia.com/slingstone-foundation/</loc>
@@ -217,6 +223,10 @@
 	</url>
 	<url>
 		<loc>prosperity-with-purpose-ebooks</loc>
+		<priority>0.0</priority>
+	</url>
+	<url>
+		<loc>the-emarketing-guide-strategies-for-the-online-marketplace</loc>
 		<priority>0.0</priority>
 	</url>
 </urlset>

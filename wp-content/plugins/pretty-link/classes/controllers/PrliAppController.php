@@ -67,7 +67,7 @@ class PrliAppController
       
       if( $upgrade_db ) {
         prli_install();
-        wp_redirect("{$prli_blogurl}/wp-admin/admin.php?page=pretty-link/prli-links.php&message=" . urlencode(__('Your Database Has Been Successfully Upgraded.')));
+        wp_redirect("{$prli_blogurl}/wp-admin/admin.php?page=pretty-link/prli-links.php&message=" . urlencode(__('Your Database Has Been Successfully Upgraded.', 'pretty-link')));
       }
       else
         wp_redirect($prli_blogurl);

@@ -16,16 +16,16 @@ function prli_xmlrpc_api_version($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   return prli_api_version();
 }
@@ -79,20 +79,20 @@ function prli_xmlrpc_create_pretty_link( $args )
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   // Target URL Required
   if(!isset($args[2]))
-    return new IXR_Error( 401, __( 'You must provide a target URL' ) );
+    return new IXR_Error( 401, __( 'You must provide a target URL' , 'pretty-link') );
 
   $target_url = $args[2];
 
@@ -118,7 +118,7 @@ function prli_xmlrpc_create_pretty_link( $args )
                                        $param_struct ) )
     return $link;
   else
-    return new IXR_Error( 401, __( 'There was an error creating your Pretty Link' ) );
+    return new IXR_Error( 401, __( 'There was an error creating your Pretty Link' , 'pretty-link') );
 }
 
 function prli_xmlrpc_update_pretty_link( $args )
@@ -127,20 +127,20 @@ function prli_xmlrpc_update_pretty_link( $args )
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   // Target URL Required
   if(!isset($args[2]))
-    return new IXR_Error( 401, __( 'You must provide the id of the link you want to update' ) );
+    return new IXR_Error( 401, __( 'You must provide the id of the link you want to update' , 'pretty-link') );
 
   $id               = $args[2];
   $target_url       = (isset($args[3])?$args[3]:'');
@@ -167,7 +167,7 @@ function prli_xmlrpc_update_pretty_link( $args )
                                        $param_struct ) )
     return $link;
   else
-    return new IXR_Error( 401, __( 'There was an error creating your Pretty Link' ) );
+    return new IXR_Error( 401, __( 'There was an error creating your Pretty Link' , 'pretty-link') );
 }
 
 /**
@@ -183,21 +183,21 @@ function prli_xmlrpc_get_all_groups($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   if( $groups = prli_get_all_groups())
     return $groups;
   else
-    return new IXR_Error( 401, __( 'There was an error fetching the Pretty Link Groups' ) );
+    return new IXR_Error( 401, __( 'There was an error fetching the Pretty Link Groups' , 'pretty-link') );
 }
 
 /**
@@ -213,21 +213,21 @@ function prli_xmlrpc_get_all_links($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   if( $links = prli_get_all_links())
     return $links;
   else
-    return new IXR_Error( 401, __( 'There was an error fetching the Pretty Links' ) );
+    return new IXR_Error( 401, __( 'There was an error fetching the Pretty Links' , 'pretty-link') );
 }
                              
 /**
@@ -242,26 +242,26 @@ function prli_xmlrpc_get_link_from_slug($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   if(!isset($args[2]))
-    return new IXR_Error( 401, __( 'Sorry, you must provide a slug to lookup' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must provide a slug to lookup' , 'pretty-link') );
 
   $slug = $args[2];
 
   if( $link = prli_get_link_from_slug($slug) )
     return $link;
   else
-    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link' ) );
+    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link' , 'pretty-link') );
 }
                              
 /**
@@ -276,26 +276,26 @@ function prli_xmlrpc_get_link($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   if(!isset($args[2]))
-    return new IXR_Error( 401, __( 'Sorry, you must provide an id to lookup' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must provide an id to lookup' , 'pretty-link') );
 
   $id = $args[2];
 
   if( $link = prli_get_link($id) )
     return $link;
   else
-    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link' ) );
+    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link' , 'pretty-link') );
 }                             
 
 /**
@@ -309,25 +309,25 @@ function prli_xmlrpc_get_pretty_link_url($args)
   $password = $args[1];
 
   if ( !get_option( 'enable_xmlrpc' ) )
-    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' ) );
+    return new IXR_Error( 401, __( 'Sorry, XML-RPC Not enabled for this website' , 'pretty-link') );
 
   if (!user_pass_ok($username, $password)) 
-    return new IXR_Error( 401, __( 'Sorry, Login failed' ) );
+    return new IXR_Error( 401, __( 'Sorry, Login failed' , 'pretty-link') );
 
   // make sure user is an admin
   $userdata = get_userdatabylogin( $username );
   if( !isset($userdata->user_level) or 
       (int)$userdata->user_level < 8 )
-    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must be an administrator to access this resource' , 'pretty-link') );
 
   if(!isset($args[2]))
-    return new IXR_Error( 401, __( 'Sorry, you must provide an id to lookup' ) );
+    return new IXR_Error( 401, __( 'Sorry, you must provide an id to lookup' , 'pretty-link') );
 
   $id = $args[2];
 
   if( $url = prli_get_pretty_link_url($id) )
     return $url;
   else
-    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link URL' ) );
+    return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link URL' , 'pretty-link') );
 }
 ?>

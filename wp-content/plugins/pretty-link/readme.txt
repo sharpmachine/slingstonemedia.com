@@ -2,9 +2,9 @@
 Contributors: supercleanse
 Donate link: http://prettylinkpro.com
 Tags: links, link, url, urls, affiliate, affiliates, pretty, marketing, redirect, forward, plugin, twitter, tweet, rewrite, shorturl, hoplink, hop, shortlink, short, shorten, click, clicks, track, tracking, tiny, tinyurl, budurl, shrinking, domain, shrink, mask, masking, cloak, cloaking, slug, slugs, admin, administration, stats, statistics, stat, statistic, email, ajax, javascript, ui, csv, download, page, post, pages, posts, shortcode, seo, automation, widget, widgets, dashboard
-Requires at least: 2.9
-Tested up to: 3.1
-Stable tag: 1.4.56
+Requires at least: 3.0
+Tested up to: 3.2.1
+Stable tag: 1.5.0
 
 Shrink, track and share any URL on the Internet from your WordPress website. Create short links suitable for Twitter using your own domain name!
 
@@ -63,9 +63,14 @@ http://blairwilliams.com/w7a
 
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
-3. Make sure you have changed your permalink Common Settings in Settings -> Permalinks away from "Default" to something else. I prefer using custom and then "/%postname%/" for the simplest possible URL slugs.
+3. Make sure you have changed your permalink Common Settings in Settings -> Permalinks away from "Default" to something else. I prefer using custom and then "/%year%/%month%/%postname%/" for the simplest possible URL slugs with the best performance.
 
 == Changelog ==
+
+= 1.5.0 =
+* Fixed XSS Vulnerabilities
+* Added more indexes to Pretty Link tables
+* Other minor fixes
 
 = 1.4.56 =
 * Updated to be fully compatible with WordPress 3.1 and WordPress MultiSite for all users
@@ -289,6 +294,9 @@ http://blairwilliams.com/w7a
 * Fixed some issues surrounding keyword content caching in Pro
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+* All users should upgrade to this release since it fixes several security vulnerabilities.
 
 = 1.4.56 =
 * This release fixes several issues including full WordPress 3.1 and MultiSite compatibility. So everyone should upgrade to this release.

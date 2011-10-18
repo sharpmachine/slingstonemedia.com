@@ -6,7 +6,9 @@ define('PRLI_CONTROLLERS_PATH',PRLI_PATH.'/classes/controllers');
 define('PRLI_VIEWS_PATH',PRLI_PATH.'/classes/views');
 //define(PRLI_URL,WP_PLUGIN_URL.'/'.PRLI_PLUGIN_NAME);
 define('PRLI_URL',plugins_url($path = '/'.PRLI_PLUGIN_NAME));
-define('PRLI_IMAGES_URL','https://d14715w921jdje.cloudfront.net/images');
+define('PRLI_IMAGES_URL',PRLI_URL . '/images');
+define('PRLI_BROWSER_URL','https://d14715w921jdje.cloudfront.net/browser');
+define('PRLI_OS_URL','https://d14715w921jdje.cloudfront.net/os');
 
 require_once(PRLI_MODELS_PATH.'/PrliOptions.php');
 

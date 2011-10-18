@@ -1,3 +1,4 @@
+<?php if(!defined('ABSPATH')) {die('You are not allowed to call this page directly.');} ?>
 <!-- JQuery UI Includes -->
 <link type="text/css" href="<?php echo PRLI_URL; ?>/includes/jquery/css/ui-lightness/jquery-ui-1.7.1.custom.css" rel="stylesheet" />
 <script type="text/javascript" src="<?php echo PRLI_URL; ?>/includes/jquery/js/jquery-1.3.2.min.js"></script>
@@ -5,8 +6,8 @@
 
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#sdate").datepicker({ dateFormat: 'yy-mm-dd', defaultDate: -30, minDate: -<?php echo $min_date; ?>, maxDate: 0 });
-    $("#edate").datepicker({ dateFormat: 'yy-mm-dd', minDate: -<?php echo $min_date; ?>, maxDate: 0 });
+    $("#sdate").datepicker({ dateFormat: 'yy-mm-dd', defaultDate: -30, minDate: -<?php echo esc_js($min_date); ?>, maxDate: 0 });
+    $("#edate").datepicker({ dateFormat: 'yy-mm-dd', minDate: -<?php echo esc_js($min_date); ?>, maxDate: 0 });
   });
 </script>
 

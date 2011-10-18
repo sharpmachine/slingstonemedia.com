@@ -26,8 +26,8 @@ $prli_update    = new PrliUpdate();
 global $prli_db_version;
 global $prlipro_db_version;
 
-$prli_db_version = 11; // this is the version of the database we're moving to
-$prlipro_db_version = 1; // this is the version of the database we're moving to
+$prli_db_version = 12; // this is the version of the database we're moving to
+$prlipro_db_version = 2; // this is the version of the database we're moving to
 
 // Load Controller(s)
 require_once( PRLI_CONTROLLERS_PATH.'/PrliAppController.php');

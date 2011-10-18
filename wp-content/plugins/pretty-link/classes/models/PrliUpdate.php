@@ -42,9 +42,9 @@ class PrliUpdate
     $this->pro_cred_store         = 'prlipro-credentials';
     $this->pro_auth_store         = 'prlipro_activated';
     $this->pro_last_checked_store = 'prlipro_last_checked_update';
-    $this->pro_username_label     = __('Pretty Link Pro Username');
-    $this->pro_password_label     = __('Pretty Link Pro Password');
-    $this->pro_error_message_str  = __('Your Pretty Link Pro Username or Password was Invalid');
+    $this->pro_username_label     = __('Pretty Link Pro Username', 'pretty-link');
+    $this->pro_password_label     = __('Pretty Link Pro Password', 'pretty-link');
+    $this->pro_error_message_str  = __('Your Pretty Link Pro Username or Password was Invalid', 'pretty-link');
     
     // Don't modify these variables
     $this->pro_check_interval = 60*15; // Checking every 15 minutes
@@ -137,7 +137,7 @@ class PrliUpdate
 
           ?>
 <div id="message" class="updated fade">
-<strong><?php printf(__('Your Username & Password was accepted<br/>Now you can %1$sUpgrade Automatically!%2$s'), "<a href=\"{$inst_install_url}\">","</a>"); ?></strong>
+<strong><?php printf(__('Your Username & Password was accepted<br/>Now you can %1$sUpgrade Automatically!%2$s', 'pretty-link'), "<a href=\"{$inst_install_url}\">","</a>"); ?></strong>
 </div>
           <?php
         }
@@ -181,7 +181,7 @@ class PrliUpdate
     </tr>
   </table>
   <p class="submit">
-    <input type="submit" name="Submit" value="<?php _e('Save'); ?>" />
+    <input type="submit" name="Submit" value="<?php _e('Save', 'pretty-link'); ?>" />
   </p>
 </form>
     <?php

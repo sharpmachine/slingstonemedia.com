@@ -742,7 +742,13 @@ class PrliUtils
                 created_at datetime NOT NULL,
                 link_id int(11) default NULL,
                 PRIMARY KEY  (id),
-                KEY link_id (link_id),
+                KEY tw_text (tw_text),
+                KEY tw_to_user_id (tw_to_user_id),
+                KEY tw_from_user (tw_from_user),
+                KEY tw_from_user_id (tw_from_user_id),
+                KEY tw_iso_language_code (tw_iso_language_code),
+                KEY tw_source (tw_source),
+                KEY tw_profile_image_url (tw_profile_image_url),
                 KEY twid (twid)
               ) {$charset_collate};";
       
@@ -755,7 +761,8 @@ class PrliUtils
                 link_id int(11) NOT NULL,
                 created_at datetime NOT NULL,
                 PRIMARY KEY  (id),
-                KEY link_id (link_id)
+                KEY link_id (link_id),
+                KEY text (text)
               ) {$charset_collate};";
       
       dbDelta($sql);
@@ -767,7 +774,8 @@ class PrliUtils
                 goal_link_id int(11) default NULL,
                 created_at datetime NOT NULL,
                 PRIMARY KEY  (id),
-                KEY goal_link_id (goal_link_id)
+                KEY goal_link_id (goal_link_id),
+                KEY name (name)
               ) {$charset_collate};";
       
       dbDelta($sql);
@@ -794,7 +802,10 @@ class PrliUtils
                 link_id int(11) NOT NULL,
                 created_at datetime NOT NULL,
                 PRIMARY KEY  (id),
-                KEY link_id (link_id)
+                KEY link_id (link_id),
+                KEY url (url),
+                KEY weight (weight),
+                KEY r_index (r_index)
               ) {$charset_collate};";
       
       dbDelta($sql);

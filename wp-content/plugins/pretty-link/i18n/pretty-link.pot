@@ -1,0 +1,589 @@
+# Copyright (C) 2010 Pretty Link Lite
+# This file is distributed under the same license as the Pretty Link Lite package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Pretty Link Lite 1.5.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/pretty-link\n"
+"POT-Creation-Date: 2011-10-17 04:06:02+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: prli-pro-settings.php:22
+msgid ""
+"You're almost done!<br/>%1$sFinish your Re-Install of Pretty Link Pro%2$s"
+msgstr ""
+
+#: prli-pro-settings.php:30
+msgid "Pretty Link Pro Successfully Uninstalled."
+msgstr ""
+
+#: prli-options.php:55 pro/prlipro-options.php:192
+msgid "Options saved."
+msgstr ""
+
+#: prli-options.php:62
+msgid "Hit Database was Cleared."
+msgstr ""
+
+#: prli-options.php:71
+msgid "No hits older than 30 days were found, so nothing was deleted"
+msgstr ""
+
+#: prli-options.php:80
+msgid "No hits older than 90 days were found, so nothing was deleted"
+msgstr ""
+
+#: classes/controllers/PrliAppController.php:28
+msgid ""
+"Database Upgrade is required for Pretty Link to work properly<br/>%1"
+"$sAutomatically Upgrade your Database%2$s"
+msgstr ""
+
+#: classes/controllers/PrliAppController.php:70
+msgid "Your Database Has Been Successfully Upgraded."
+msgstr ""
+
+#: classes/views/prli-options/form.php:58
+msgid "Filter Robots"
+msgstr ""
+
+#: classes/views/prli-options/form.php:59
+msgid ""
+"Filter known Robots and unidentifiable browser clients from your hit data, "
+"stats and reports. <code>IMPORTANT: Any robot hits recorded with any version "
+"of Pretty Link before 1.4.22 won't be filtered by this setting.</code>"
+msgstr ""
+
+#: classes/views/prli-options/form.php:62
+msgid "Whitelist IP Addresses:"
+msgstr ""
+
+#: classes/views/prli-options/form.php:65
+msgid ""
+"Enter IP Addresses or IP Ranges you want to always include in your Hit data "
+"and Stats even if they are flagged as robots. Each IP Address should be "
+"separated by commas. Example: <code>192.168.0.1, 192.168.2.1, 192.168.3.4 or "
+"192.168.*.*</code>"
+msgstr ""
+
+#: classes/views/prli-options/form.php:73
+msgid "Tracking Style:"
+msgstr ""
+
+#: classes/views/prli-options/form.php:73
+msgid ""
+"Note: Changing your tracking style can affect the accuracy of your existing "
+"statistics."
+msgstr ""
+
+#: classes/views/prli-options/form.php:77
+msgid "Normal Tracking"
+msgstr ""
+
+#: classes/views/prli-options/form.php:80
+msgid "Extended Tracking (more stats / slower performance)"
+msgstr ""
+
+#: classes/views/prli-options/form.php:83
+msgid "Simple Click Count Tracking (less stats / faster performance)"
+msgstr ""
+
+#: classes/views/prli-options/form.php:92
+msgid "Update Options"
+msgstr ""
+
+#: classes/views/prli-tools/form.php:16
+msgid "Show iPhone Bookmarklet Instructions"
+msgstr ""
+
+#: classes/views/shared/nav.php:5
+msgid "Pro Manual"
+msgstr ""
+
+#: classes/views/shared/nav.php:7
+msgid "Upgrade to Pro"
+msgstr ""
+
+#: classes/views/shared/nav.php:9
+msgid "Connect"
+msgstr ""
+
+#: classes/views/shared/nav.php:9
+msgid "Get Help"
+msgstr ""
+
+#: classes/views/shared/nav.php:9
+msgid "Tutorials"
+msgstr ""
+
+#: classes/views/shared/nav.php:9
+msgid "One on One"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:45
+msgid "Pretty Link Pro Username"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:46
+msgid "Pretty Link Pro Password"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:47
+msgid "Your Pretty Link Pro Username or Password was Invalid"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:140
+msgid ""
+"Your Username & Password was accepted<br/>Now you can %1$sUpgrade "
+"Automatically!%2$s"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:150
+msgid "ERROR"
+msgstr ""
+
+#: classes/models/PrliUpdate.php:184
+#: pro/classes/views/prlipro-options/form.php:439
+msgid "Save"
+msgstr ""
+
+#: prli-xmlrpc.php:19 prli-xmlrpc.php:82 prli-xmlrpc.php:130
+#: prli-xmlrpc.php:186 prli-xmlrpc.php:216 prli-xmlrpc.php:245
+#: prli-xmlrpc.php:279 prli-xmlrpc.php:312
+msgid "Sorry, XML-RPC Not enabled for this website"
+msgstr ""
+
+#: prli-xmlrpc.php:22 prli-xmlrpc.php:85 prli-xmlrpc.php:133
+#: prli-xmlrpc.php:189 prli-xmlrpc.php:219 prli-xmlrpc.php:248
+#: prli-xmlrpc.php:282 prli-xmlrpc.php:315
+msgid "Sorry, Login failed"
+msgstr ""
+
+#: prli-xmlrpc.php:28 prli-xmlrpc.php:91 prli-xmlrpc.php:139
+#: prli-xmlrpc.php:195 prli-xmlrpc.php:225 prli-xmlrpc.php:254
+#: prli-xmlrpc.php:288 prli-xmlrpc.php:321
+msgid "Sorry, you must be an administrator to access this resource"
+msgstr ""
+
+#: prli-xmlrpc.php:95
+msgid "You must provide a target URL"
+msgstr ""
+
+#: prli-xmlrpc.php:121 prli-xmlrpc.php:170
+msgid "There was an error creating your Pretty Link"
+msgstr ""
+
+#: prli-xmlrpc.php:143
+msgid "You must provide the id of the link you want to update"
+msgstr ""
+
+#: prli-xmlrpc.php:200
+msgid "There was an error fetching the Pretty Link Groups"
+msgstr ""
+
+#: prli-xmlrpc.php:230
+msgid "There was an error fetching the Pretty Links"
+msgstr ""
+
+#: prli-xmlrpc.php:257
+msgid "Sorry, you must provide a slug to lookup"
+msgstr ""
+
+#: prli-xmlrpc.php:264 prli-xmlrpc.php:298
+msgid "There was an error fetching your Pretty Link"
+msgstr ""
+
+#: prli-xmlrpc.php:291 prli-xmlrpc.php:324
+msgid "Sorry, you must provide an id to lookup"
+msgstr ""
+
+#: prli-xmlrpc.php:331
+msgid "There was an error fetching your Pretty Link URL"
+msgstr ""
+
+#: prli-main.php:353 prli-main.php:372
+msgid ""
+"Your Pretty Link Pro installation isn't quite complete yet.<br/>%1"
+"$sAutomatically Upgrade to Enable Pretty Link Pro%2$s"
+msgstr ""
+
+#: pro/prlipro-options.php:7
+msgid "Your Keyword Replacement Cache was successfully deleted"
+msgstr ""
+
+#: pro/prlipro-options.php:34
+msgid "Your Duplicate Tweets were Successfully Trimmed"
+msgstr ""
+
+#: pro/pretty-link-pro.php:125
+msgid "Disable Keyword Replacements on this post."
+msgstr ""
+
+#: pro/pretty-link-pro.php:161
+msgid "Hits"
+msgstr ""
+
+#: pro/pretty-link-pro.php:161
+msgid "Uniques"
+msgstr ""
+
+#: pro/pretty-link-pro.php:203
+msgid ""
+"A Pretty Link hasn't been generated for this entry yet. Click \"Update Post"
+"\" to generate."
+msgstr ""
+
+#: pro/pretty-link-pro.php:257
+msgid "ERROR: Your Pretty Link was unable to be created"
+msgstr ""
+
+#: pro/pretty-link-pro.php:260
+msgid "Unauthorized"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1612
+msgid "Alternate Pretty Bar Attribution URL:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1705
+msgid "End-Point URL:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1706
+msgid "This can be used to integrate with your twitter client."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1709
+msgid "Show TweetDeck Integration Instructions"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1711 pro/pretty-link-pro.php:1717
+msgid "Follow the"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1711
+msgid "TweetDeck Custom URL Instructions"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1711
+msgid " and add the following URL to TweetDeck"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1715
+msgid "Show Twitter for iPhone Integration Instructions"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1717
+msgid "Twitter for iPhone Custom URL Instructions"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1717
+msgid " and add the following URL to Twitter for iPhone"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1727
+msgid "Label:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1732 pro/prlipro-create-public-link-widget.php:43
+msgid "Redirection:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1743 pro/prlipro-create-public-link-widget.php:54
+msgid "Tracking Enabled:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1752 pro/prlipro-create-public-link-widget.php:63
+msgid "Group:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1854 pro/pretty-link-pro.php:1894
+msgid "There was an error saving your Twitter account."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1890
+msgid "Your Twitter Account was successfully saved."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1908 pro/pretty-link-pro.php:1946
+msgid "Pretty Bar"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1909
+msgid "Cloaked"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1910 pro/pretty-link-pro.php:1948
+msgid "Pixel"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1947
+msgid "Cloak"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1976
+msgid "Image URL:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1979
+msgid ""
+"If set, this will replace the logo image on the PrettyBar. The image that "
+"this URL references should be 48x48 Pixels to fit."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1983
+msgid "Background Image URL:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1986
+msgid ""
+"If set, this will replace the background image on PrettyBar. The image that "
+"this URL references should be 65px tall - this image will be repeated "
+"horizontally across the bar."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1990
+msgid "Background Color:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:1993
+msgid ""
+"This will alter the background color of the PrettyBar if you haven't "
+"specified a PrettyBar background image."
+msgstr ""
+
+#: pro/pretty-link-pro.php:1997
+msgid "Text Color:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2000
+msgid ""
+"If not set, this defaults to black (RGB value <code>#000000</code>) but you "
+"can change it to whatever color you like."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2004
+msgid "Link Color:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2007
+msgid ""
+"If not set, this defaults to blue (RGB value <code>#0000ee</code>) but you "
+"can change it to whatever color you like."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2011
+msgid "Link Hover Color:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2014
+msgid ""
+"If not set, this defaults to RGB value <code>#ababab</code> but you can "
+"change it to whatever color you like."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2018
+msgid "Visited Link Color:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2021
+msgid ""
+"If not set, this defaults to RGB value <code>#551a8b</code> but you can "
+"change it to whatever color you like."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2025
+msgid "Title Char Limit*:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2028
+msgid ""
+"If your Website has a long title then you may need to adjust this value so "
+"that it will all fit on the PrettyBar. It is recommended that you keep this "
+"value to <code>30</code> characters or less so the PrettyBar's format looks "
+"good across different browsers and screen resolutions."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2032
+msgid "Description Char Limit*:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2035
+msgid ""
+"If your Website has a long Description (tagline) then you may need to adjust "
+"this value so that it will all fit on the PrettyBar. It is recommended that "
+"you keep this value to <code>40</code> characters or less so the PrettyBar's "
+"format looks good across different browsers and screen resolutions."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2039
+msgid "Target URL Char Limit*:"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2042
+msgid ""
+"If you link to a lot of large Target URLs you may want to adjust this value. "
+"It is recommended that you keep this value to <code>40</code> or below so "
+"the PrettyBar's format looks good across different browsers and URL sizes"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2047
+msgid "Show Pretty Bar Title"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2048
+msgid ""
+"Make sure this is checked if you want the title of your blog (and link) to "
+"show up on the PrettyBar."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2053
+msgid "Show Pretty Bar Description"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2054
+msgid ""
+"Make sure this is checked if you want your site description to show up on "
+"the PrettyBar."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2059
+msgid "Show Pretty Bar Share Links"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2060
+msgid ""
+"Make sure this is checked if you want \"share links\" to show up on the "
+"PrettyBar."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2065
+msgid "Show Pretty Bar Target URL"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2066
+msgid ""
+"Make sure this is checked if you want a link displaying the Target URL to "
+"show up on the PrettyBar."
+msgstr ""
+
+#: pro/pretty-link-pro.php:2096
+msgid "Logo Image URL must be a correctly formatted URL"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2099
+msgid "Background Image URL must be a correctly formatted URL"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2102
+msgid "PrettyBar Background Color must be an actual RGB Value"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2105
+msgid "PrettyBar Text Color must be an actual RGB Value"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2108
+msgid "PrettyBar Link Color must be an actual RGB Value"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2111 pro/pretty-link-pro.php:2114
+msgid "PrettyBar Hover Color must be an actual RGB Value"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2117
+msgid "PrettyBar Title Character Limit must not be blank"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2120
+msgid "PrettyBar Description Character Limit must not be blank"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2123
+msgid "PrettyBar Link Character Limit must not be blank"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2126
+msgid "PrettyBar Title Character Limit must be a number"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2129
+msgid "PrettyBar Description Character Limit must be a number"
+msgstr ""
+
+#: pro/pretty-link-pro.php:2132
+msgid "PrettyBar Link Character Limit must be a number"
+msgstr ""
+
+#: pro/prlipro-create-public-link-widget.php:39
+msgid "Label Text:"
+msgstr ""
+
+#: pro/prlipro-create-public-link-widget.php:40
+msgid "Button Text:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:41
+msgid "Maximum Keywords per Page*:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:47
+msgid "Maximum Replacements per Keyword per Page*:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:66
+msgid "Custom CSS Styling for your Keyword Replacements:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:73
+msgid "Custom Hover CSS Styling for your Keyword Replacements:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:194
+msgid "Twitter Account"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:239
+msgid "Twitter Comments Headline:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:246
+msgid "Twitter Comments Height:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:259
+msgid "Main Tweet User:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:272
+msgid "Tweet Hash Tags:"
+msgstr ""
+
+#: pro/classes/views/prlipro-options/form.php:394
+msgid "Social Buttons Display Spacing:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Pretty Link Lite"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://blairwilliams.com/pretty-link"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Shrink, track and share any URL on the Internet from your WordPress website!"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Caseproof"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://caseproof.com"
+msgstr ""

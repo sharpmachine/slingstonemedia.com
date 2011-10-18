@@ -221,7 +221,7 @@ function prli_install()
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
     
     /* Create/Upgrade Clicks (Hits) Table */
-    $sql = "CREATE TABLE " . $clicks_table . " (
+    $sql = "CREATE TABLE {$clicks_table} (
               id int(11) NOT NULL auto_increment,
               ip varchar(255) default NULL,
               browser varchar(255) default NULL,
@@ -238,6 +238,16 @@ function prli_install()
               vuid varchar(25) default NULL,
               PRIMARY KEY  (id),
               KEY link_id (link_id),
+              KEY ip (ip),
+              KEY browser (browser),
+              KEY btype (btype),
+              KEY bversion (bversion),
+              KEY os (os),
+              KEY referer (referer),
+              KEY host (host),
+              KEY uri (uri),
+              KEY robot (robot),
+              KEY first_click (first_click),
               KEY vuid (vuid)".
               // We won't worry about this constraint for now.
               //CONSTRAINT ".$clicks_table."_ibfk_1 FOREIGN KEY (link_id) REFERENCES $pretty_links_table (id)
@@ -246,7 +256,7 @@ function prli_install()
     dbDelta($sql);
     
     /* Create/Upgrade Pretty Links Table */
-    $sql = "CREATE TABLE " . $pretty_links_table . " (
+    $sql = "CREATE TABLE {$pretty_links_table} (
               id int(11) NOT NULL auto_increment,
               name varchar(255) default NULL,
               description text default NULL,
@@ -261,19 +271,25 @@ function prli_install()
               group_id int(11) default NULL,
               PRIMARY KEY  (id),
               KEY group_id (group_id),
+              KEY name (name),
+              KEY nofollow (nofollow),
+              KEY track_me (track_me),
+              KEY param_forwarding (param_forwarding),
+              KEY param_struct (param_struct),
+              KEY redirect_type (redirect_type),
               KEY slug (slug)
             ) {$charset_collate};";
     
     dbDelta($sql);
 
     /* Create/Upgrade Groups Table */
-    $sql = "CREATE TABLE " . $groups_table . " (
+    $sql = "CREATE TABLE {$groups_table} (
               id int(11) NOT NULL auto_increment,
               name varchar(255) default NULL,
               description text default NULL,
-              cmon_g varchar(255) default NULL,
               created_at datetime NOT NULL,
-              PRIMARY KEY  (id)
+              PRIMARY KEY  (id),
+              KEY name (name)
             ) {$charset_collate};";
     
     dbDelta($sql);
@@ -286,6 +302,7 @@ function prli_install()
               link_id int(11) NOT NULL,
               created_at datetime NOT NULL,
               PRIMARY KEY  (id),
+              KEY meta_key (meta_key),
               KEY link_id (link_id)
             ) {$charset_collate};";
     
@@ -356,5 +373,3 @@ function prli_pro_get_started_headline()
     <?php 
   }
 }
-
-?>

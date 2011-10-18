@@ -110,7 +110,7 @@ a:hover {
 }
 
 .map {
-  background-image: url(http://d14715w921jdje.cloudfront.net/images/bar_map.png);
+  background-image: url(<?php echo PRLI_IMAGES_URL; ?>/bar_map.png);
   background-repeat: no-repeat;
 }
 

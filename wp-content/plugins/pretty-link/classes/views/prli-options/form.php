@@ -55,14 +55,14 @@ if(!$permalink_structure or empty($permalink_structure))
   </tr>
   <tr>
     <td colspan="2">
-      <input type="checkbox" class="filter-robots-checkbox" name="<?php echo $filter_robots; ?>" <?php echo (($prli_options->filter_robots != 0)?'checked="true"':''); ?>/>&nbsp; <?php _e('Filter Robots'); ?>
-      <br/><span class="description"><?php _e('Filter known Robots and unidentifiable browser clients from your hit data, stats and reports. <code>IMPORTANT: Any robot hits recorded with any version of Pretty Link before 1.4.22 won\'t be filtered by this setting.</code>'); ?></span>
+      <input type="checkbox" class="filter-robots-checkbox" name="<?php echo $filter_robots; ?>" <?php echo (($prli_options->filter_robots != 0)?'checked="true"':''); ?>/>&nbsp; <?php _e('Filter Robots', 'pretty-link'); ?>
+      <br/><span class="description"><?php _e('Filter known Robots and unidentifiable browser clients from your hit data, stats and reports. <code>IMPORTANT: Any robot hits recorded with any version of Pretty Link before 1.4.22 won\'t be filtered by this setting.</code>', 'pretty-link'); ?></span>
       <table class="option-pane whitelist-ips">
         <tr class="form-field">
-          <td valign="top"><?php _e('Whitelist IP Addresses:'); ?>&nbsp;</td>
+          <td valign="top"><?php _e('Whitelist IP Addresses:', 'pretty-link'); ?>&nbsp;</td>
           <td>
             <input type="text" name="<?php echo $whitelist_ips; ?>" value="<?php echo $prli_options->whitelist_ips; ?>"> 
-            <br/><span class="description"><?php _e('Enter IP Addresses or IP Ranges you want to always include in your Hit data and Stats even if they are flagged as robots. Each IP Address should be separated by commas. Example: <code>192.168.0.1, 192.168.2.1, 192.168.3.4 or 192.168.*.*</code>'); ?></span>
+            <br/><span class="description"><?php _e('Enter IP Addresses or IP Ranges you want to always include in your Hit data and Stats even if they are flagged as robots. Each IP Address should be separated by commas. Example: <code>192.168.0.1, 192.168.2.1, 192.168.3.4 or 192.168.*.*</code>', 'pretty-link'); ?></span>
           </td>
         </tr>
       </table>
@@ -70,17 +70,17 @@ if(!$permalink_structure or empty($permalink_structure))
   </tr>
   <tr>
     <td colspan="2">
-      <h4><?php _e('Tracking Style:'); ?></h4><span class="description"><code><?php _e('Note: Changing your tracking style can affect the accuracy of your existing statistics.'); ?></code></span>
+      <h4><?php _e('Tracking Style:', 'pretty-link'); ?></h4><span class="description"><code><?php _e('Note: Changing your tracking style can affect the accuracy of your existing statistics.', 'pretty-link'); ?></code></span>
       <div id="option-pane">
         <ul style="list-style-type: none;" class="pane">
           <li>
-            <input type="radio" name="<?php echo $extended_tracking; ?>" value="normal"<?php echo (($prli_options->extended_tracking == 'normal')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Normal Tracking'); ?>
+            <input type="radio" name="<?php echo $extended_tracking; ?>" value="normal"<?php echo (($prli_options->extended_tracking == 'normal')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Normal Tracking', 'pretty-link'); ?>
           </li>
           <li>
-            <input type="radio" name="<?php echo $extended_tracking; ?>" value="extended"<?php echo (($prli_options->extended_tracking == 'extended')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Extended Tracking (more stats / slower performance)'); ?>
+            <input type="radio" name="<?php echo $extended_tracking; ?>" value="extended"<?php echo (($prli_options->extended_tracking == 'extended')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Extended Tracking (more stats / slower performance)', 'pretty-link'); ?>
           </li>
           <li>
-            <input type="radio" name="<?php echo $extended_tracking; ?>" value="count"<?php echo (($prli_options->extended_tracking == 'count')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Simple Click Count Tracking (less stats / faster performance)'); ?>
+            <input type="radio" name="<?php echo $extended_tracking; ?>" value="count"<?php echo (($prli_options->extended_tracking == 'count')?' checked="checked"':''); ?>/>&nbsp;<?php _e('Simple Click Count Tracking (less stats / faster performance)', 'pretty-link'); ?>
           </li>
         </ul>
       </div>
@@ -89,7 +89,7 @@ if(!$permalink_structure or empty($permalink_structure))
 </table>
 
 <p class="submit">
-<input type="submit" name="Submit" value="<?php _e('Update Options') ?>" />
+<input type="submit" name="Submit" value="<?php _e('Update Options', 'pretty-link') ?>" />
 </p>
 
 
