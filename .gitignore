@@ -4,3 +4,5 @@ wp-config.php
 /wp-content/themes/slingstonemedia/css/hashgrid.css
 /wp-content/themes/slingstonemedia/css/style.less
 .htaccess
+sitemap.xml
+sitemap.xml.gz
