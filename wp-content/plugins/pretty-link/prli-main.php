@@ -1,4 +1,6 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
 
 // Let's give pretty link plenty of room to work with
 $mem = abs(intval(@ini_get('memory_limit')));
@@ -347,7 +349,7 @@ function prli_pro_action_needed( $plugin )
       $prli_update->pro_is_authorized() and
       !$prli_update->pro_is_installed() )
   {
-    $prli_update->queue_update(true);
+    $prli_update->manually_queue_update();
     $inst_install_url = wp_nonce_url('update.php?action=upgrade-plugin&plugin=' . $plugin, 'upgrade-plugin_' . $plugin);
 ?>
   <td colspan="3" class="plugin-update"><div class="update-message" style="-moz-border-radius-bottomleft:5px; -moz-border-radius-bottomright:5px; -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; border-style:solid; border-width:1px; margin:5px; background-color:#FFEBE8; border-color:#CC0000; padding:3px 5px;"><?php printf(__('Your Pretty Link Pro installation isn\'t quite complete yet.<br/>%1$sAutomatically Upgrade to Enable Pretty Link Pro%2$s', 'pretty-link'), '<a href="'.$inst_install_url.'">', '</a>'); ?></div></td>
@@ -366,7 +368,7 @@ function prli_pro_get_started_headline()
   if( $prli_update->pro_is_authorized() and
       !$prli_update->pro_is_installed())
   {
-    $prli_update->queue_update(true);
+    $prli_update->manually_queue_update();
     $inst_install_url = wp_nonce_url('update.php?action=upgrade-plugin&plugin=' . $prli_update->plugin_name, 'upgrade-plugin_' . $prli_update->plugin_name);
     ?>
 <div class="error" style="padding-top: 5px; padding-bottom: 5px;"><?php printf(__('Your Pretty Link Pro installation isn\'t quite complete yet.<br/>%1$sAutomatically Upgrade to Enable Pretty Link Pro%2$s', 'pretty-link'), '<a href="'.$inst_install_url.'">','</a>'); ?></div>  

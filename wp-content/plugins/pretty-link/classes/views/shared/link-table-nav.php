@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
   // Only show the pager bar if there is more than 1 page
   if($page_count > 1)
   {
@@ -99,4 +102,3 @@
     </div>
     <?php
   }
-?>

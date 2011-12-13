@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
   if(is_user_logged_in() and current_user_can('level_10'))
   {
 

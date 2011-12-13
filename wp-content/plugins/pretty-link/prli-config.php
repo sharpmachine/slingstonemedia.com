@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 define('PRLI_PLUGIN_NAME',"pretty-link");
 define('PRLI_PATH',WP_PLUGIN_DIR.'/'.PRLI_PLUGIN_NAME);
 define('PRLI_MODELS_PATH',PRLI_PATH.'/classes/models');
@@ -131,4 +134,3 @@ function setup_edit_vars($groups,$record)
 
   return $values;
 }
-?>

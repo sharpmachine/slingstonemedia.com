@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+?>
+
 <script type="text/javascript">
 jQuery(document).ready(function() {
 <?php do_action('prli_options_js'); ?>
@@ -44,4 +49,5 @@ jQuery(document).ready(function() {
 }
 </style>
 
-<?php do_action('prli-options-head'); ?>
+<?php
+  do_action('prli-options-head');

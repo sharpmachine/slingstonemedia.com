@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 class PrliUrlUtils {
 
   function get_title($url, $slug='')
@@ -161,4 +164,3 @@ class PrliUrlUtils {
       return trim($contents);
   }
 }
-?>

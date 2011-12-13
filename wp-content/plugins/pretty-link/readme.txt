@@ -3,8 +3,8 @@ Contributors: supercleanse
 Donate link: http://prettylinkpro.com
 Tags: links, link, url, urls, affiliate, affiliates, pretty, marketing, redirect, forward, plugin, twitter, tweet, rewrite, shorturl, hoplink, hop, shortlink, short, shorten, click, clicks, track, tracking, tiny, tinyurl, budurl, shrinking, domain, shrink, mask, masking, cloak, cloaking, slug, slugs, admin, administration, stats, statistics, stat, statistic, email, ajax, javascript, ui, csv, download, page, post, pages, posts, shortcode, seo, automation, widget, widgets, dashboard
 Requires at least: 3.0
-Tested up to: 3.2.1
-Stable tag: 1.5.0
+Tested up to: 3.3
+Stable tag: 1.5.4
 
 Shrink, track and share any URL on the Internet from your WordPress website. Create short links suitable for Twitter using your own domain name!
 
@@ -66,6 +66,27 @@ http://blairwilliams.com/w7a
 3. Make sure you have changed your permalink Common Settings in Settings -> Permalinks away from "Default" to something else. I prefer using custom and then "/%year%/%month%/%postname%/" for the simplest possible URL slugs with the best performance.
 
 == Changelog ==
+
+= 1.5.4 =
+* Fixed XSS Vulnerability
+* Fixed an activation issue
+* Fixed an issue with Pretty Link Export link for Pro users
+
+= 1.5.2 =
+* Critical performance fix
+* WP_Error on dashboard fix
+
+= 1.5.1 =
+* Fixed issue with mt_rand overflowing
+* Fixed another XSS Vulnerability
+* Fixed some issues with the automatic update process for pro users
+* Made some big security enhancements
+* Fixed some issues with the public link creation widget
+* Fixed an issue with the update database mechanism
+* Removed Keyword Caching from Pro
+* Optimized Keyword Replacement routine in Pro
+* Fixed a small issues with automatic post link creation routines
+* Changed the way slugs are generated and now default to 4 character slugs
 
 = 1.5.0 =
 * Fixed XSS Vulnerabilities
@@ -294,6 +315,15 @@ http://blairwilliams.com/w7a
 * Fixed some issues surrounding keyword content caching in Pro
 
 == Upgrade Notice ==
+
+= 1.5.4 =
+* Everyone should upgrade to this new release as it fixes an XSS vulnerability
+
+= 1.5.2 =
+* CRITICAL UPGRADE ... this release contains several critical performance fixes
+
+= 1.5.1 =
+* This release contains several optimizations and fixes that will benefit most users.
 
 = 1.5.0 =
 * All users should upgrade to this release since it fixes several security vulnerabilities.

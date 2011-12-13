@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+?>
+
 <script type="text/javascript" src="<?php echo PRLI_URL; ?>/includes/jquery/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function() {

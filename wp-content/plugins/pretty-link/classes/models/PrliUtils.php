@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 require_once('models.inc.php');
 
 class PrliUtils
@@ -824,6 +827,14 @@ class PrliUtils
       dbDelta($sql);
     }
 
+    if($old_pro_db_version < 3) {
+	  global $prli_keyword;
+	
+      // Reset the whole keyword cache for good
+	  if(isset($prli_keyword) and is_a($prli_keyword, 'PrliKeyword'))
+        $prli_keyword->deleteContentCache();
+    }
+
     /***** SAVE DB VERSION *****/
     delete_option('prlipro_db_version');
     add_option('prlipro_db_version',$prlipro_db_version);
@@ -1174,5 +1185,15 @@ class PrliUtils
       $wpdb->query($query);
     }
   }
+  
+  public static function gen_random_string($length = 4)
+  {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $string = '';
+    
+    for($p = 0; $p < $length; $p++)
+      $string .= $characters[mt_rand(0, strlen($characters))];
+    
+    return $string;
+  }
 }
-?>

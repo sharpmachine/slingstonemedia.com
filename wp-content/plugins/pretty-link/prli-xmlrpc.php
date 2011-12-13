@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 /**
  * Pretty Link WordPress Plugin API export via XML-RPC
  *
@@ -330,4 +333,3 @@ function prli_xmlrpc_get_pretty_link_url($args)
   else
     return new IXR_Error( 401, __( 'There was an error fetching your Pretty Link URL' , 'pretty-link') );
 }
-?>

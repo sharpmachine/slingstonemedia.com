@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 require_once(PRLI_MODELS_PATH.'/PrliLink.php');
 require_once(PRLI_MODELS_PATH.'/PrliClick.php');
 require_once(PRLI_MODELS_PATH.'/PrliGroup.php');
@@ -27,7 +30,7 @@ global $prli_db_version;
 global $prlipro_db_version;
 
 $prli_db_version = 12; // this is the version of the database we're moving to
-$prlipro_db_version = 2; // this is the version of the database we're moving to
+$prlipro_db_version = 3; // this is the version of the database we're moving to
 
 // Load Controller(s)
 require_once( PRLI_CONTROLLERS_PATH.'/PrliAppController.php');
@@ -36,33 +39,40 @@ global $prli_app_controller;
 
 $prli_app_controller = new PrliAppController();
 
-function prli_get_main_message( $message = "Get started by <a href=\"?page=pretty-link/prli-links.php&action=new\">adding a URL</a> that you want to turn into a pretty link.<br/>Come back to see how many times it was clicked.", $expiration=3600) // Get new messages every 1 hour
+function prli_get_main_message($message='',$expiration=1800) // Get new messages every 1/2 hour
 {
-  global $prli_update, $wp_version;
-  include_once(ABSPATH."/wp-includes/class-IXR.php");
+  global $prli_update;
 
-  $message_mothership = (($prli_update->pro_is_installed_and_authorized())?'http://prettylinkpro.com/xmlrpc.php':'http://blairwilliams.com/xmlrpc.php');
+  // Set the default message
+  if(empty($message)) {
+    $message = __( "Get started by <a href=\"?page=pretty-link/prli-links.php&action=new\">" .
+                   "adding a URL</a> that you want to turn into a pretty link.<br/>" .
+                   "Come back to see how many times it was clicked." , 'pretty-link');
+  }
 
-  if( version_compare($wp_version, '3.0', '>=') )
-    $messages = get_site_transient('_prli_messages'); // for WordPress 3.0
-  else
-    $messages = get_transient('_prli_messages'); // for WordPress 2.8+
+  $messages = get_site_transient('_prli_messages');
 
   // if the messages array has expired go back to the mothership
-  if($messages === false)
+  if(!$messages)
   {
-    $client = new IXR_Client($message_mothership);
-    if ($client->query('prli.get_main_message_array'))
-      $messages = $client->getResponse();
+	$remote_controller = $prli_update->pro_is_installed_and_authorized() ? 'prlipro' : 'prli';
+	$message_mothership = "http://prettylinkpro.com/index.php?controller={$remote_controller}&action=json_messages";
 
-    // If we're having connection issues on the mothership then store the default message in the transient
-    if(empty($messages) or !$messages or !is_array($messages))
-      $messages = array($message);
-
-    if( version_compare($wp_version, '3.0', '>=') )
-      set_site_transient("_prli_messages", $messages, $expiration); // for WordPress 3.0
+    if( !class_exists( 'WP_Http' ) )
+      include_once( ABSPATH . WPINC . '/class-http.php' );
+	
+    $http = new WP_Http;
+    $response = $http->request( $message_mothership );
+    
+    if( isset($response) and
+        is_array($response) and // if response is an error then WP_Error will be returned
+        isset($response['body']) and
+        !empty($response['body']))
+      $messages = json_decode($response['body']);
     else
-      set_transient("_prli_messages", $messages, $expiration); // for WordPress 2.8+
+      $messages = array($message);
+    
+    set_site_transient("_prli_messages", $messages, $expiration);
   }
 
   if(empty($messages) or !$messages or !is_array($messages))
@@ -70,5 +80,3 @@ function prli_get_main_message( $message = "Get started by <a href=\"?page=prett
   else
     return $messages[array_rand($messages)];
 }
-
-?>

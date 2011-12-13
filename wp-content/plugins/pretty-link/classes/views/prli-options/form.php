@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+?>
+
 <div class="wrap">
         <div id="icon-options-general" class="icon32"><br /></div>
 <h2 id="prli_title">Pretty Link: Options</h2>

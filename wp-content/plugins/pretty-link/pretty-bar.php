@@ -8,7 +8,7 @@ else
 require_once('prli-config.php');
 require_once(PRLI_MODELS_PATH . '/models.inc.php');
 
-$link = $prli_link->getOneFromSlug($_GET['slug']);
+$link = $prli_link->getOneFromSlug(esc_html($_GET['slug']));
 $bar_image = $prli_options->prettybar_image_url;
 $bar_background_image = $prli_options->prettybar_background_image_url;
 $bar_color = $prli_options->prettybar_color;
@@ -24,7 +24,7 @@ $bar_title_limit = (int)$prli_options->prettybar_title_limit;
 $bar_desc_limit = (int)$prli_options->prettybar_desc_limit;
 $bar_link_limit = (int)$prli_options->prettybar_link_limit;
 
-$target_url = $_GET['url'];
+$target_url = esc_html($_GET['url']);
 
 $shortened_title = stripslashes(substr($prli_blogname,0,$bar_title_limit));
 $shortened_desc  = stripslashes(substr($prli_blogdescription,0,$bar_desc_limit));

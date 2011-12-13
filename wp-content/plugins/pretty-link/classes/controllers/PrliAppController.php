@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 class PrliAppController
 {
   function PrliAppController()
@@ -57,23 +60,10 @@ class PrliAppController
       require_once(ABSPATH . WPINC . '/pluggable.php');
 
     if( wp_verify_nonce( $_REQUEST['_wpnonce'], "prli-db-upgrade" ) and current_user_can( 'update_core' ) ) {
-      $old_prli_db_version = get_option('prli_db_version');
-      $upgrade_db = ( !$old_prli_db_version or ( intval($old_prli_db_version) < $prli_db_version ) );
-
-      if( !$upgrade_db and $prli_update->pro_is_installed_and_authorized()) {
-        $old_prlipro_db_version = get_option('prlipro_db_version');
-        $upgrade_db = ( !$old_prlipro_db_version or ( intval($old_prlipro_db_version) < $prlipro_db_version ) );
-      }
-      
-      if( $upgrade_db ) {
-        prli_install();
-        wp_redirect("{$prli_blogurl}/wp-admin/admin.php?page=pretty-link/prli-links.php&message=" . urlencode(__('Your Database Has Been Successfully Upgraded.', 'pretty-link')));
-      }
-      else
-        wp_redirect($prli_blogurl);
-    }  
+      prli_install();
+      wp_redirect("{$prli_blogurl}/wp-admin/admin.php?page=pretty-link/prli-links.php&message=" . urlencode(__('Your Database Has Been Successfully Upgraded.', 'pretty-link')));
+    }
     else
       wp_redirect($prli_blogurl);
   }
 }
-?>

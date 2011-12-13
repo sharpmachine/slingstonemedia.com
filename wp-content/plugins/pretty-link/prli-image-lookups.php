@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
  $browser_images = array(
         "Akregator" => "akregator.png",
         "Amiga" => "amigavoyager.png",
@@ -132,5 +135,3 @@ function prli_os_image($os)
 
   return $image;
 }
-
-?>

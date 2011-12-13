@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+?>
+
 <script type="text/javascript">
 jQuery(document).ready(function() {
   jQuery('.link_actions').hide();

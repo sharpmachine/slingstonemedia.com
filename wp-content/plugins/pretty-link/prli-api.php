@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 /**
  * Pretty Link WordPress Plugin API
  */
@@ -229,5 +232,3 @@ function prli_get_pretty_link_url($id)
 
   return false;
 }
-                             
-?>

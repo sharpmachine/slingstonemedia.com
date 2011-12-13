@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 class PrliLinkMeta
 {
   var $table_name;
@@ -56,4 +59,3 @@ class PrliLinkMeta
     return $wpdb->query($query);
   }
 }
-?>

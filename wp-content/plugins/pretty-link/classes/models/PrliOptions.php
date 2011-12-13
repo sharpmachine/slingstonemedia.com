@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 class PrliOptions
 {
   var $prli_exclude_ips;
@@ -272,4 +275,3 @@ class PrliOptions
       $this->extended_tracking = 'normal';
   }
 }
-?>

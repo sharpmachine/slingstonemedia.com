@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 require_once 'prli-config.php';
 require_once(PRLI_MODELS_PATH . '/models.inc.php');
 
@@ -171,5 +174,3 @@ function prli_get_group_sort_vars($params,$where_clause = '')
                'where_clause' => $where_clause, 
                'page_params' => $page_params);
 }
-
-?>

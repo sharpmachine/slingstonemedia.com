@@ -96,4 +96,3 @@
 <?php
   // Add stuff to the form here
   do_action('prli_link_fields',$id);
-?>

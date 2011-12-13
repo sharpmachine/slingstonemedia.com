@@ -1,3 +1,8 @@
+<?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+?>
+
 <div class="wrap">
 <script type="text/javascript">
 function toggle_iphone_instructions()

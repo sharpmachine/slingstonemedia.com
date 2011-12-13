@@ -40,6 +40,12 @@ Check your PHP version. You need at least PHP 5.1.2 to use this plugin.
 3. The widget displays in your sidebar.
 
 == Changelog ==
+= 0.8.12 =
+* Bugfix to account for multiple failed submissions. Also cleans up the mailchimp-widget.js file. Thank you to verify for pointing out the problem and its solution.
+
+= 0.8.11 =
+* Added Russian translation. Thank you to Игорь Клипач for contributing!
+
 = 0.8.10 =
 * Reintegrated translation, which wasn't getting called before.
 
@@ -123,6 +129,12 @@ Check your PHP version. You need at least PHP 5.1.2 to use this plugin.
 * First release.
 
 == Upgrade Notice ==
+= 0.8.12 =
+* Bugfix to account for multiple failed submissions. Also cleans up the mailchimp-widget.js file. Thank you to verify for pointing out the problem and its solution.
+
+= 0.8.11 =
+ * Added Russian translation. Thank you to Игорь Клипач for contributing!
+
 = 0.8.10 =
 * If translations are giving you trouble, this should help fix it.
 
@@ -209,5 +221,6 @@ Currently, translations are included to the following languages:
 * fr_FR - French. Thank you to Frederick Marcoux for contributing!
 * nl_NL - Dutch. Thank you to Angelique Schäffer for contributing!
 * pt_BR - Portuguese. Thank you to Marcelo Vasconcelos Araújo for contributing!
+* ru_RU - Russian. Thank you to Игорь Клипач for contributing!
 
 If you're interested in doing a translation into your language, please let me know.

@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
   global $prli_update;
   
   if($prli_update->pro_is_installed_and_authorized())

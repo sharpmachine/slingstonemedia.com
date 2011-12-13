@@ -1,4 +1,7 @@
 <?php
+if(!defined('ABSPATH'))
+  die('You are not allowed to call this page directly.');
+
 class PrliGroup
 {
   var $table_name;
@@ -121,4 +124,3 @@ class PrliGroup
     return $errors;
   }
 }
-?>
