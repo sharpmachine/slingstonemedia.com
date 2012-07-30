@@ -3,26 +3,26 @@ Contributors: supercleanse
 Donate link: http://prettylinkpro.com
 Tags: links, link, url, urls, affiliate, affiliates, pretty, marketing, redirect, forward, plugin, twitter, tweet, rewrite, shorturl, hoplink, hop, shortlink, short, shorten, click, clicks, track, tracking, tiny, tinyurl, budurl, shrinking, domain, shrink, mask, masking, cloak, cloaking, slug, slugs, admin, administration, stats, statistics, stat, statistic, email, ajax, javascript, ui, csv, download, page, post, pages, posts, shortcode, seo, automation, widget, widgets, dashboard
 Requires at least: 3.0
-Tested up to: 3.3
-Stable tag: 1.5.4
+Tested up to: 3.3.1
+Stable tag: 1.6.0
 
-Shrink, track and share any URL on the Internet from your WordPress website. Create short links suitable for Twitter using your own domain name!
+Shrink, beautify, track, manage and share any URL on or off of your WordPress website. Create links that look how you want using your own domain name!
 
 == Description ==
 
-Shrink, track and share any URL on the Internet from your WordPress website. Create short links suitable for Twitter using your own domain name!
+= Pretty Link Pro =
 
-= Upgrade to Pretty Link Pro =
+[Upgrade to Pretty Link Pro](http://prettylinkpro.com "Upgrade to Pretty Link Pro")
 
-Pretty Link Pro is an upgrade to Pretty Link that adds the capability to automate your pretty link creation, cloak links, auto-tweet them, replace keywords thoughout your blog and much more. You can learn more about it here:
+*Pretty Link Pro* is a **significant upgrade** to *Pretty Link Lite* that adds many tools and redirection types that will allow you to create pretty links automatically, cloak links, auto-tweet links, replace keywords thoughout your blog with pretty links and much more.  You can learn more about *Pretty Link Pro* here:
 
-http://prettylinkpro.com
+[About](http://prettylinkpro.com/about "About") | [Features](http://prettylinkpro.com/features "Features") | [Pricing](http://prettylinkpro.com/pricing "Pricing")
 
-= Detail =
+= Pretty Link Lite =
 
 Pretty Link enables you to shorten links using your own domain name (as opposed to using tinyurl.com, bit.ly, or any other link shrinking service)! In addition to creating clean links, Pretty Link tracks each hit on your URL and provides a full, detailed report of where the hit came from, the browser, os and host. Pretty Link is a killer plugin for people who want to clean up their affiliate links, track clicks from emails, their links on Twitter to come from their own domain, or generally increase the reach of their website by spreading these links on forums or comments on other blogs.
 
-= Examples =
+= Link Examples =
 
 This is a link setup using Pretty Link that redirects to the Pretty Link Homepage where you can find more info about this Plugin:
 
@@ -32,14 +32,14 @@ Here's a named Pretty Link (I used the slug 'aweber') that does a 307 redirect t
 
 http://blairwilliams.com/aweber
 
-Here's a link that Pretty Link generated a random slug for (similar to how bit.ly or tinyurl would do):
+Here's a link that Pretty Link generated a random slug for (similar to what bit.ly or tinyurl would do):
 
 http://blairwilliams.com/w7a
 
 = Features =
 
 * Gives you the ability to create clean, simple URLs on your website that redirect to any other URL (allows for 301 and 307 redirects only)
-* Generates random 2-3 character slugs for your URL or allows you to name a custom slug for your URL
+* Generates random 3-4 character slugs for your URL or allows you to name a custom slug for your URL
 * Tracks the Number of Hits per link
 * Tracks the Number of Unique Hits per link
 * Provides a reporting interface where you can see a configurable chart of clicks per day. This report can be filtered by the specific link clicked, date range, and/or unique clicks.
@@ -48,7 +48,6 @@ http://blairwilliams.com/w7a
 * Intuitive Javascript / AJAX Admin User Interface
 * Pass custom parameters to your scripts through pretty link and still have full tracking ability
 * Exclude IP Addresses from Stats
-* Enables you to post your Pretty Links to Twitter directly from your WordPress admin
 * Enables you to send your Pretty Links via Email directly from your WordPress admin
 * Select Temporary (307) or Permanent (301) redirection for your Pretty Links
 * Cookie based system for tracking visitor activity across hits
@@ -66,6 +65,46 @@ http://blairwilliams.com/w7a
 3. Make sure you have changed your permalink Common Settings in Settings -> Permalinks away from "Default" to something else. I prefer using custom and then "/%year%/%month%/%postname%/" for the simplest possible URL slugs with the best performance.
 
 == Changelog ==
+
+= 1.6.0 =
+* *Fix* Fixed some potential security vulnerabilities
+
+= 1.5.9 =
+* *Feature* Added Bulk Actions for Pretty Link Management page
+* *Feature* Added the ability to change the number of rows displayed in the Pretty Link Management page (no longer limited to 10)
+* *Feature* Added 1-click copy for pretty links in the Pretty Link management page and bookmarklet
+* *Feature* Added the ability to click on the referrer links in the pretty link hits table
+* *Fix* Fixed the permission issue when clicking on some links in the pretty link admin interface
+* *Fix* Fixed the timestamp issue in hits that some people were experiencing
+
+= 1.5.7 =
+* *Feature* Re-factored the add/edit link screen to be more intuitive and accurate
+* *Feature* Added the ability to add a new group from the Add / Edit Link screen
+* *Fix* Using uniqid() to generate visitor id for normal & extended tracking now in order to increase performance and avoid issues with mt_rand and pow
+* *Fix* Replaced all code dependent on curl to now use the more versatile WP_Http
+* *Fix* Altered the hits list for normal & extended tracking to use GMT time
+* *Fix* Fixed some issues with Parameter Forwarding
+* *Fix* Fixed the conflict with W3 Total Cache Object Caching that was causing pretty link options to not be saved when it was enabled
+* *Pro Feature* Added Double Redirection for any pretty link
+* *Pro Feature* Added Google Analytics support for any pretty link by integrating with the Google Analyticator, Google Analytics for WordPress and Google Analytics Plugin
+* *Pro Feature* Added Delayed Redirection for any pretty links using Javascript and Meta-Refresh Redirection
+* *Pro Feature* Added the ability to automatically create and download QR Codes pretty links
+* *Pro Feature* Added the ability to change the minimum user admin role that can access Pretty Link
+* *Pro Fix* Made some major performance enhancements to Keyword and URL Replacements
+* *Pro Fix* Fixed an issue adding Twitter accounts for some users running wordpress within a subdomain
+* *Pro Fix* Fixed an issue with select all links
+
+= 1.5.6 =
+* Fixed a cross-site scripting vulnerability that could have affected a very small number of users
+
+= 1.5.5 =
+* Added the option to redirect on the template_redirect hook
+* Fixed an issue with the database upgrade process
+* Added Javascript redirection for pro users
+* Added Meta-Refresh redirection for pro users
+* Fixed issue where keywords were only being replaced on the first post of the post overview page for pro users
+* Fixed issue preventing the graph from appearing on the conversion reports page for pro users
+* Fixed issue with automatic tweeting when a post title contains a dollar sign for pro users
 
 = 1.5.4 =
 * Fixed XSS Vulnerability
@@ -315,6 +354,21 @@ http://blairwilliams.com/w7a
 * Fixed some issues surrounding keyword content caching in Pro
 
 == Upgrade Notice ==
+
+= 1.6.0 =
+* This adds some security fixes. Everyone should upgrade.
+
+= 1.5.9 =
+* This adds some very useful features for link managment in Lite & Pro ... everyone should upgrade.
+
+= 1.5.7 =
+* This is a major new release that fixes numerous bugs and adds several new features for Lite and Pro users. Everyone should upgrade.
+
+= 1.5.6 =
+* Fixed a cross-site scripting vulnerability that could have affected a very small number of users
+
+= 1.5.5 =
+* Adds some new functionality that could be important for many users. Also fixed some minor issues affecting some users.
 
 = 1.5.4 =
 * Everyone should upgrade to this new release as it fixes an XSS vulnerability

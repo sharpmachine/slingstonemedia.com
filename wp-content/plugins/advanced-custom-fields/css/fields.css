@@ -5,6 +5,8 @@
 	background: url(../images/acf-icon-32.png) 0 0 no-repeat !important;
 }
 
+#toplevel_page_edit-post_type-acf .wp-menu-image { background: url("../../../../wp-admin/images/menu.png") no-repeat scroll 0 -1px transparent; }
+		
 #message p a {
 	display: none;
 }
@@ -189,14 +191,26 @@ table.widefat.acf td {
 
 .fields {
 	position: relative;
-	overflow: hidden;
-	background: #F5F5F5;
+	background: #f1f1f1;
+	box-shadow: inset 0 0 0 1px #DFDFDF;
 }
 
 .fields .field {
 	position: relative;
 	overflow: hidden;
-	background: #F5F5F5;
+	background: #F9F9F9;
+}
+
+#acf_fields .field.ui-sortable-helper {
+	
+}
+#acf_fields .field.ui-sortable-helper {
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF;
+}
+
+#acf_fields .field.ui-sortable-placeholder + .field {
+	border-top: 1px solid #DFDFDF;
 }
 
 .fields .field:nth-child(even) {
@@ -245,15 +259,13 @@ table.widefat.acf td {
 	width: 161px;
 	height: 23px;
 	float: left;
-	margin-left: 5px;
+	margin-left: 13px;
 }
 
 #acf_fields .table_footer a#add_field{
 	display: block;
     float: right;
     margin: 0;
-    text-align: center;
-    width: 70px;
 }
 
 .inline_metabox {
@@ -287,7 +299,7 @@ table.widefat.acf td {
 
 .field_options .field_option table {
 	border: #CCCCCC solid 1px;
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px; 
+	border-radius: 5px;
 }
 
 
@@ -317,19 +329,19 @@ table.acf_input tr td .acf tr td {
 	Field Form
 ---------------------------------------------------------------------------------------------*/
 .field_form {
-	border: #98b6cb solid 1px;
+	border: #7390a5 solid 1px;
 	border-top: 0 none;
-	background: #accde4;
+	background: #91bbd9;
 	padding: 10px;
 	clear: both;
 	vertical-align: top;
 }
 
 .field_form table.acf_input {
-	border: #98b6cb solid 1px;
-	-moz-border-radius: 5px; -webkit-border-radius: 5px; -khtml-border-radius: 5px; border-radius: 5px;
+	border: #7390a5 solid 1px;
 	position: relative;
 	overflow: hidden;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .field_form table.acf_input tr.field_label td {
@@ -349,11 +361,6 @@ table.acf_input tr td .acf tr td {
 	overflow: hidden;
 	clear: both;
 }
-
-.field_form .field_option {
-	display: none;
-}
-
 
 /*---------------------------------------------------------------------------------------------
 	Location
@@ -451,18 +458,17 @@ table#location_rules a.add:hover {
 	background-position: 0 100%;
 }
 
-.location_rules p select {
-	width: 50px;
-}
-
-table#location_rules tr td.value div {
-	display: none;
+table#location_rules .acf-loading {
+	margin: 0 auto;
+	margin-top: -2px;
 }
 
 
 /*---------------------------------------------------------------------------------------------
-	Options
----------------------------------------------------------------------------------------------*/
+*
+*	Options
+*	
+*---------------------------------------------------------------------------------------------*/
 
 .postbox#acf_options .inside {
 	margin: 0;
@@ -492,3 +498,115 @@ ul.checkbox_list li input {
 	vertical-align: top;
 } 
 
+
+/*---------------------------------------------------------------------------------------------
+*
+*	Flexible Content
+*	
+*---------------------------------------------------------------------------------------------*/
+table.acf_input table.acf_cf_meta {
+	width: 100%;
+	border: 0 none;
+}
+
+table.acf_input table.acf_cf_meta td {
+	border: 0 none;
+	width: 33%;
+}
+
+table.acf_input table.acf_cf_meta label {
+	width: 20%;
+	color: #333333;
+	font-weight: bold;
+}
+
+table.acf_input table.acf_cf_meta input {
+	width: 80%;
+}
+
+table.acf_input table.acf_cf_meta select {
+	width: 75%;
+}
+
+.acf_fc_reorder {
+	cursor: move;
+}
+
+.ui-state-highlight {
+	height: 40px;
+}
+
+.field_form table.acf_input .field_option_flexible_content > td {
+	background: #f9f9f9;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+*
+*	Publish Metabox
+*	
+*---------------------------------------------------------------------------------------------*/
+
+.postbox {
+	min-width: 200px;
+}
+
+.inner-sidebar #side-sortables, 
+.columns-2 .inner-sidebar #side-sortables {
+	width: 200px;
+}
+
+.has-right-sidebar #side-info-column {
+	width: 200px;
+}
+
+.has-right-sidebar #post-body-content {
+    margin-right: 220px;
+}
+
+#submitdiv .acf-button {
+	width: 100%;
+}
+
+#submitdiv a.acf-button {
+	width: auto;
+	margin: 0 0 10px;
+}
+
+#submitdiv #delete-action {
+	float: none;
+}
+#submitdiv #publishing-action {
+	float: none;
+}
+#submitdiv #publishing-action img {
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------------------------
+*
+*	Select with Optgroup
+*	
+*---------------------------------------------------------------------------------------------*/
+#acf_fields select optgroup,
+#acf_location select optgroup {
+	padding: 5px;
+	background: #F9F9F9;
+	border-bottom: #DFDFDF solid 1px;
+}
+
+#acf_fields select option,
+#acf_location select option {
+	padding: 3px;
+}
+
+#acf_fields select optgroup option,
+#acf_location select optgroup option {
+	padding-left: 6px;
+}
+
+#acf_fields select optgroup:nth-child(2n),
+#acf_location select optgroup:nth-child(2n) {
+    background: #FCFCFC;
+}

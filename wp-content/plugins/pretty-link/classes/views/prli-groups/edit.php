@@ -4,7 +4,7 @@ if(!defined('ABSPATH'))
 ?>
 
 <div class="wrap">
-<h2><img src="<?php echo PRLI_IMAGES_URL.'/pretty-link-med.png'; ?>"/>&nbsp;Pretty Link: Edit Group</h2>
+<?php echo PrliAppHelper::page_title(__('Edit Group', 'pretty-link')); ?>
 
 <?php
   require(PRLI_VIEWS_PATH.'/shared/errors.php');

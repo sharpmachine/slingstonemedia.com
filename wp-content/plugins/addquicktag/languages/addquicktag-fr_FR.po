@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: AddQuicktag v1.5.7\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2009-01-19 13:22-0500\n"
+"PO-Revision-Date: 2012-01-12 10:01+0100\n"
 "Last-Translator: Li-An <lian00@gmail.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,185 +13,205 @@ msgstr ""
 "X-Poedit-Language: French\n"
 "X-Poedit-Country: FRANCE\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
 "X-Poedit-Basepath: ../\n"
-"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes"
 
-#: addquicktag.php:231
-#@ addquicktag
-msgid "Options saved."
-msgstr "Options sauvegardées."
+# @ addquicktag
+#. translators: plugin header field 'Name'
+#: addquicktag.php:0
+msgid "AddQuicktag"
+msgstr "AddQuicktag"
 
-#: addquicktag.php:234
-#: addquicktag.php:249
-#@ addquicktag
-msgid "You do not have sufficient permissions to edit plugins for this blog."
-msgstr "Vous n'avez pas les droits suffisants pour éditer les plugins de ce blog."
+# @ addquicktag
+#. translators: plugin header field 'PluginURI'
+#: addquicktag.php:0
+msgid "http://bueltge.de/wp-addquicktags-de-plugin/120/"
+msgstr "http://bueltge.de/wp-addquicktags-de-plugin/120/"
 
-#: addquicktag.php:291
-#@ addquicktag
-msgid "Invalid file extension!"
-msgstr "Extension du fichier non valide !"
+# @ addquicktag
+#. translators: plugin header field 'Author'
+#: addquicktag.php:0
+msgid "Frank Bültge"
+msgstr "Frank Bültge"
 
-#: addquicktag.php:289
-#@ addquicktag
-msgid "File is exist!"
-msgstr "Le fichier existe déjà ! "
+# @ addquicktag
+#. translators: plugin header field 'AuthorURI'
+#: addquicktag.php:0
+msgid "http://bueltge.de"
+msgstr "http://bueltge.de"
 
-#: addquicktag.php:287
-#@ addquicktag
-msgid "AddQuicktag options imported!"
-msgstr "Options d'AddQuicktag importées !"
-
-#: addquicktag.php:245
-#@ addquicktag
-msgid "AddQuicktag options have been deleted!"
-msgstr "Les options d'AddQuicktag ont été effacées !"
-
-#: addquicktag.php:253
-#@ addquicktag
-msgid "Add or delete Quicktag buttons"
-msgstr "Ajouter ou supprimer des boutons Quicktag"
-
-#: addquicktag.php:254
-#@ addquicktag
-msgid "Fill in the fields below to add or edit the quicktags. Fields with * are required. To delete a tag simply empty all fields."
-msgstr "Remplissez les champs ci-dessous ou éditez les quicktags. Les champs marqués d'un * sont obligatoires. Pour effacer un tag, videz simplement tous les champs."
-
-#: addquicktag.php:255
-#@ addquicktag
-msgid "Button Label*"
-msgstr "Label du bouton*"
-
-#: addquicktag.php:257
-#@ addquicktag
-msgid "Start Tag(s)*"
-msgstr "Début du/des tag(s)*"
-
-#: addquicktag.php:258
-#@ addquicktag
-msgid "End Tag(s)"
-msgstr "Fin du(des) tag(s)"
-
-#: addquicktag.php:259
-#@ addquicktag
-msgid "Update Options &raquo;"
-msgstr "Mise à jour des options &raquo;"
-
-#: addquicktag.php:262
-#@ addquicktag
-msgid "Export &raquo;"
-msgstr "Exporter &raquo;"
-
-#: addquicktag.php:268
-#@ addquicktag
-msgid "Upload file and import &raquo;"
-msgstr "Uploader et importer fichier &raquo;"
-
-#: addquicktag.php:270
-#@ addquicktag
-msgid "Choose a Quicktag (<em>.wpaq</em>) file to upload, then click <em>Upload file and import</em>."
-msgstr "Choisir un fichier (<em>.wpaq</em>) à uploader, puis cliquer sur <em>Uploader et importer fichier </em>."
-
-#: addquicktag.php:271
-#@ addquicktag
-msgid "Choose a file from your computer: "
-msgstr "Choisir un fichier sur votre ordinateur:"
-
-#: addquicktag.php:274
-#@ addquicktag
-msgid "Uninstall Options &raquo;"
-msgstr "Options de désinstallation &raquo;"
-
-#: addquicktag.php:275
-#@ addquicktag
-msgid "Uninstall options"
-msgstr "Options de désinstallation"
-
-#: addquicktag.php:276
-#@ addquicktag
-msgid "This button deletes all options of the WP-AddQuicktag plugin. <strong>Attention: </strong>You cannot undo this!"
-msgstr "Ce bouton efface toutes les options du plugin WP-AddQuicktag. <strong>Attention: </strong> vous ne pourrez pas annuler cette action !"
-
-#: addquicktag.php:279
-#@ addquicktag
-msgid "About the plugin"
-msgstr "À propos du plugin"
-
-#: addquicktag.php:280
-#@ addquicktag
-msgid "Further information: Visit the <a href='http://bueltge.de/wp-addquicktags-de-plugin/120'>plugin homepage</a> for further information or to grab the latest version of this plugin."
-msgstr "Informations complémentaires: visitez la <a href='http://bueltge.de/wp-addquicktags-de-plugin/120'>homepage du plugin</a> pour d'autres informations ou pour récupérer la dernière version de ce plugin."
-
-#: addquicktag.php:300
-#@ addquicktag
-msgid "WP-Quicktag Management"
-msgstr "Gestion de WP-Quicktag"
-
-#: addquicktag.php:827
-#: addquicktag.php:849
+#: inc/class-settings.php:110
+#: inc/class-settings.php:127
+#: inc/class-settings.php:145
+#: inc/class-settings.php:153
 msgid "Settings"
 msgstr "Réglages"
 
-#: addquicktag.php:945
-msgid "Version"
-msgstr "Version"
+# @ addquicktag
+#: inc/class-settings.php:178
+msgid "Add or delete Quicktag buttons"
+msgstr "Ajouter ou supprimer des boutons Quicktag"
 
-#: addquicktag.php:945
-msgid "Author"
-msgstr "Auteur"
+# @ addquicktag
+#: inc/class-settings.php:209
+msgid "Button Label*"
+msgstr "Label du bouton*"
 
-#: addquicktag.php:172
-#@ secure_wp
-msgid "Options not update - you don&lsquo;t have the privilidges to do this!"
-msgstr "Options pas mises à jour - vous n'avez pas les droits pour réaliser cette action !"
-
-#: addquicktag.php:263
-#@ addquicktag
-msgid "Export/Import AddQuicktag buttons options"
-msgstr "Options des boutons d' export/import d'AddQuicktag"
-
-#: addquicktag.php:264
-#@ addquicktag
-msgid "You can save a .wpaq file with your options."
-msgstr "Vous pouvez sauvegarder un fichier .wpaq contenant vos options."
-
-#: addquicktag.php:265
-#@ addquicktag
-msgid "Export"
-msgstr "Exporter"
-
-#: addquicktag.php:269
-#@ addquicktag
-msgid "Import"
-msgstr "Importer"
-
-#: addquicktag.php:922
-#@ addquicktag
-msgid "AddQuicktag"
-msgstr ""
-
-#: addquicktag.php:924
-#@ addquicktag
-msgid "WP-Quicktag &ndash; AddQuicktag"
-msgstr ""
-
-#: addquicktag.php:256
-#@ addquicktag
+# @ addquicktag
+#: inc/class-settings.php:210
 msgid "Title Attribute"
 msgstr "Attribut de titre"
 
-#: addquicktag.php:281
-#@ addquicktag
-msgid "You want to thank me? Visit my <a href='http://bueltge.de/wunschliste/'>wishlist</a> or donate."
-msgstr "Vous désirez me remercier ? Visitez ma <a href='http://bueltge.de/wunschliste/'>liste de voeux</a> ou faites un don."
+# @ addquicktag
+#: inc/class-settings.php:211
+msgid "Start Tag(s)*"
+msgstr "Début du/des tag(s)*"
 
-#: addquicktag.php:305
-#: addquicktag.php:360
-#: addquicktag.php:393
-#: addquicktag.php:412
-msgid "Click to toggle"
-msgstr ""
+# @ addquicktag
+#: inc/class-settings.php:212
+msgid "End Tag(s)"
+msgstr "Fin du(des) tag(s)"
+
+# @ addquicktag
+#: inc/class-settings.php:213
+msgid "Access Key"
+msgstr "Clef d'accés"
+
+# @ addquicktag
+#: inc/class-settings.php:273
+msgid "Fill in the fields below to add or edit the quicktags. Fields with * are required. To delete a tag simply empty all fields."
+msgstr "Remplissez les champs ci-dessous ou éditez les quicktags. Les champs marqués d'un * sont obligatoires. Pour effacer un tag, videz simplement tous les champs."
+
+# @ default
+#: inc/class-settings.php:275
+msgid "Save Changes"
+msgstr "Sauvegarder les modifications"
+
+# @ addquicktag
+#: inc/class-settings.php:310
+msgid "Like this plugin?"
+msgstr "Vous aimez ce plugin ?"
+
+# @ addquicktag
+#: inc/class-settings.php:312
+msgid "Here's how you can give back:"
+msgstr "Voilà comment vous pouvez remercier:"
+
+# @ addquicktag
+#: inc/class-settings.php:314
+msgid "The Plugin on the WordPress plugin repository"
+msgstr "Le plugin sur le dépôt officiel de plugins Wordress"
+
+# @ addquicktag
+#: inc/class-settings.php:314
+msgid "Give the plugin a good rating."
+msgstr "Donnez au plugin une bonne note."
+
+# @ addquicktag
+#: inc/class-settings.php:315
+msgid "Donate via PayPal"
+msgstr "Faire une donation via Paypal"
+
+# @ addquicktag
+#: inc/class-settings.php:315
+msgid "Donate a few euros."
+msgstr "Donner quelques euros."
+
+# @ addquicktag
+#: inc/class-settings.php:316
+msgid "Frank Bültge's Amazon Wish List"
+msgstr "La liste d'envies de Frank Bültge sur Amazon"
+
+# @ addquicktag
+#: inc/class-settings.php:316
+msgid "Get me something from my wish list."
+msgstr "Offrez moi quelque chose à partir de ma liste d'envie."
+
+# @ addquicktag
+#: inc/class-settings.php:335
+msgid "About this plugin"
+msgstr "À propos de ce plugin"
+
+#: inc/class-settings.php:338
+msgid "Version:"
+msgstr "Version:"
+
+# @ addquicktag
+#: inc/class-settings.php:342
+msgid "Description:"
+msgstr "Description:"
+
+# @ addquicktag
+#: inc/class-settings.php:214
+msgid "Order"
+msgstr "Ordre"
+
+# @ addquicktag
+#: inc/class-settings.php:215
+msgid "Visual"
+msgstr "Visuel"
+
+# @ addquicktag
+#. translators: plugin header field 'Description'
+#: addquicktag.php:0
+msgid "Allows you to easily add custom Quicktags to the html- and visual-editor."
+msgstr "Vous permets d'ajouter facilement les quicktags personnalisés à l'éditeur visuel et html."
+
+# @ addquicktag
+#. translators: plugin header field 'Version'
+#: addquicktag.php:0
+msgid "2.0.0"
+msgstr "2.0.0"
+
+# @ addquicktag
+#: inc/class-imexport.php:64
+msgid "Export"
+msgstr "Exporter"
+
+# @ addquicktag
+#: inc/class-imexport.php:66
+msgid "When you click the button below the plugin will create an XML file for you to save to your computer."
+msgstr "En cliquant sur le bouton ci-dessous, le plugin créera un fichier XML à sauvegarder sur votre ordinateur."
+
+# @ addquicktag
+#: inc/class-imexport.php:67
+msgid "This format, a custom XML, will contain your options from quicktags."
+msgstr "Ce format, un XML personnalisé, contiendra vos options de quicktags."
+
+# @ addquicktag
+#: inc/class-imexport.php:68
+msgid "Once you’ve saved the download file, you can use the Import function in another WordPress installation to import this site."
+msgstr "Une fois sauvegardé le fichier à télécharger, vous pouvez utiliser la fonction d'import dans une autre installation Wordpress pour importer ces données."
+
+# @ addquicktag
+#: inc/class-imexport.php:72
+msgid "Download Export File"
+msgstr "Télécharger le fichier d'export"
+
+# @ addquicktag
+#: inc/class-imexport.php:80
+msgid "Import"
+msgstr "Importer"
+
+# @ addquicktag
+#: inc/class-imexport.php:82
+msgid "If you have quicktags from other installs, the plugin can import those into this site. To get started, choose a file to import."
+msgstr "Si vous avez les quicktags d'autres installations, le plugin peut importer ceux-ci dans le site courant. Pour commencer, choisissez un fichier à importer."
+
+# @ addquicktag
+#: inc/class-imexport.php:87
+msgid "Upload file and import"
+msgstr "Uploader et importer fichier"
+
+# @ secure_wp
+#: inc/class-imexport.php:178
+msgid "Options not update - you don&lsquo;t have the privilidges to do this!"
+msgstr "Options pas mises à jour - vous n'avez pas les droits pour réaliser cette action !"
+
+# @ addquicktag
+#: inc/class-settings.php:387
+msgid "Options saved."
+msgstr "Options sauvegardées."
 

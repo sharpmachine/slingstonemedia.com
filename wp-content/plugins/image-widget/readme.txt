@@ -1,10 +1,10 @@
 === Image Widget ===
-Contributors: Shane & Peter, Inc., mattwiebe
+Contributors: ModernTribe, peterchester, mattwiebe, Produced by Modern Tribe, Inc.
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4BSPTNFFY6AL6
 Tags: widget, image, ad, banner, simple, upload, sidebar, admin, thickbox, resize
 Requires at least: 3.0
-Tested up to: 3.1
-Stable tag: 3.2.8
+Tested up to: 3.3.1
+Stable tag: 3.3.4
 
 == Description ==
 
@@ -16,24 +16,28 @@ Simple image widget that uses native Wordpress upload thickbox to add image widg
 * Title and Description
 * Very versatile.  All fields are optional.
 * Upload, link to external image, or select an image from your media collection using the built in thickbox browser.
-* Language Support for German, Portuguese, Swedish and French (feel free to contribute other languages)
 * Supports override of template so that you can override the template for your theme!
 * Supports HTTPS
+
+Supported Languages (feel free to contribute other languages):
+
+* French
+* German
+* Japanese
+* Portuguese
+* Romanian
+* Swedish
 
 This plugin is actively supported and we will do our best to help you. In return we simply as 3 things:
 
 1. Help Out. If you see a question on the forum you can help with or have a great idea and want to code it up and submit a patch, that would be just plain awesome and we will shower your with praise. Might even be a good way to get to know us and lead to some paid work if you freelance.  Also, we are happy to post translations if you provide them.
 1. Donate - if this is generating enough revenue to support our time it makes all the difference in the world
 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4BSPTNFFY6AL6
+1. Support us by buying our Premium plugins. In particular, check out our Events Calendar Pro http://tri.be/wordpress-events-calendar-pro/
 
 == Installation ==
 
 = Install =
-
-1. Unzip the `image-widget.zip` file. 
-1. Upload the the `image-widget` folder (not just the files in it!) to your `wp-contents/plugins` folder. If you're using FTP, use 'binary' mode.
-
-= Activate =
 
 1. In your WordPress administration, go to the Plugins page
 1. Activate the Image Widget plugin and a subpage for the plugin will appear
@@ -59,18 +63,51 @@ The Image Widget comes with a default template for the widget output. If you wou
 
 Edit the new file to your hearts content. Please do not edit the one in the plugin folder as that will cause conflicts when you update the plugin to the latest release.
 
-New in 3.2: You may now also use the "sp_template_image-widget_widget" filter to override the default template behavior for .php template files. Eg: if you wanted widget.php to reside in a folder called my-custom-templates/ and wanted it to be called my-custom-name.php:
+New in 3.2: You may now also use the "sp_template_image-widget_widget.php" filter to override the default template behavior for .php template files. Eg: if you wanted widget.php to reside in a folder called my-custom-templates/ and wanted it to be called my-custom-name.php:
 
-`add_filter('sp_template_image-widget_widget', 'my_template_filter');
+`add_filter('sp_template_image-widget_widget.php', 'my_template_filter');
 function my_template_filter($template) {
 	return get_template_directory() . '/my-custom-templates/my-custom-name.php';
 }`
 
 == Changelog ==
 
+= 3.3.4 =
+
+* Fix javascript bugs in the widget admin UI. ( thanks for filing this @joo-joo )
+* Fix notices in php error log.
+* Add widget description filter $args and $instance ( thanks @jeffreyzinn )
+* Fixed localization and renamed key to 'image-widget'
+
+= 3.3.3 =
+
+* Romanian translation courtesy of Alexander Ovsov at Web Geek Science (http://webhostinggeeks.com).
+
+= 3.3.2 =
+
+* Remove extra esc_attr() from the $title display. (Thank you @romaspit)
+
+= 3.3.1 =
+
+* Add minor security updates.
+* Update readme, thumbnails and other minor descriptors.
+
+= 3.3 =
+
+* Fix to allow the widget to work in the non-async (browser) uploader. Props Bjorn Wijers
+
+= 3.2.11 =
+
+* Yet another minor JS fix to hopefully address issues of lightbox not working
+
+= 3.2.10 =
+
+* Fix JS typo.
+
 = 3.2.9 =
 
 * Minor JS fix to hopefully address issues of lightbox not working
+* Use new the new [jQuery.fn.on](http://api.jquery.com/on/) method for forward compatibility.
 
 = 3.2.8 =
 
@@ -102,13 +139,13 @@ function my_template_filter($template) {
 
 * Added Portuguese translation courtesy of Gustavo Machado
 
-= 3.2.1 = 
+= 3.2.1 =
 
 * Fix image widget public declaration bug.
 
 = 3.2 =
 
-* Abstract views for widget output and widget admin.  
+* Abstract views for widget output and widget admin.
 * Support theme override of the widget output!  Now you can layout the widget however you'd like.
 * Added filter to override template call.
 
@@ -188,7 +225,7 @@ Thank you @smurkas, @squigie and @laurie!!!  Special thanks to Cameron Clark fro
 
 = 3.0 =
 
-* Completely remodeled the plugin to use the native wordpress uploader and be compatible with Wordpress 2.8 plugin architecture.
+* Completely remodeled the plugin to use the native WordPress uploader and be compatible with Wordpress 2.8 plugin architecture.
 * Removed externalized widget admin.
 
 = 2.2.2 =

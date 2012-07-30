@@ -6,7 +6,7 @@ class PrliGroup
 {
   var $table_name;
 
-  function PrliGroup()
+  function __construct()
   {
     global $wpdb;
     $this->table_name = "{$wpdb->prefix}prli_groups";
@@ -14,20 +14,17 @@ class PrliGroup
 
   function create( $values )
   {
-    global $wpdb, $wp_rewrite;
+    global $wpdb;
 
-    $query = 'INSERT INTO ' . $this->table_name . 
-             ' (name,description,created_at) VALUES (\'' .
-                   $values['name'] . '\',\'' . 
-                   $values['description'] . '\',' . 
-                   'NOW())';
+    $query = "INSERT INTO {$this->table_name} (name,description,created_at) VALUES (%s, %s, NOW())";
+    $query = $wpdb->prepare( $query, $values['name'], $values['description'] );
     $query_results = $wpdb->query($query);
     return $wpdb->insert_id;
   }
 
   function update( $id, $values )
   {
-    global $wpdb, $wp_rewrite;
+    global $wpdb;
 
     $query = 'UPDATE ' . $this->table_name . 
                 ' SET name=\'' . $values['name'] . '\', ' .
@@ -40,7 +37,7 @@ class PrliGroup
   function destroy( $id )
   {
     require_once(PRLI_MODELS_PATH.'/models.inc.php');
-    global $wpdb, $prli_link, $wp_rewrite;
+    global $wpdb, $prli_link;
 
     // Disconnect the links from this group
     $query = 'UPDATE ' . $prli_link->table_name . 

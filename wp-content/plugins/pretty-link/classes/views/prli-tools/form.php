@@ -14,14 +14,14 @@ function toggle_iphone_instructions()
 <?php
   require(PRLI_VIEWS_PATH.'/shared/nav.php');
 ?>
-  <h2><img src="<?php echo PRLI_IMAGES_URL.'/pretty-link-med.png'; ?>"/>&nbsp;Pretty Link: Tools</h2>
-  <h3>Bookmarklet: </h3>
-  <p><strong><a href="javascript:location.href='<?php echo PRLI_URL; ?>/prli-bookmarklet.php?k=<?php echo $prli_options->bookmarklet_auth; ?>&target_url='+escape(location.href);">Get PrettyLink</a></strong><br/>
-  <span class="description">Just drag this "Get PrettyLink" link to your toolbar to install the bookmarklet. As you browse the web, you can just click this bookmarklet to create a pretty link from the current url you're looking at.&nbsp;&nbsp;<a href="http://blairwilliams.com/pretty-link-bookmarklet/">(more help)</a></span>
+  <?php echo PrliAppHelper::page_title(__('Tools', 'pretty-link')); ?>
+  <h3><?php _e('Bookmarklet:', 'pretty-link'); ?></h3>
+  <p><strong><a href="<?php echo PrliLink::bookmarklet_link(); ?>">Get PrettyLink</a></strong><br/>
+  <span class="description"><?php _e('Just drag this "Get PrettyLink" link to your toolbar to install the bookmarklet. As you browse the web, you can just click this bookmarklet to create a pretty link from the current url you\'re looking at.  <a href="http://blairwilliams.com/pretty-link-bookmarklet/">(more help)</a>', 'pretty-link'); ?></span>
   <br/><br/><a href="javascript:toggle_iphone_instructions()"><strong><?php _e('Show iPhone Bookmarklet Instructions', 'pretty-link'); ?></strong></a>
-  <div class="iphone_instructions" style="display: none"><strong>Note:</strong> iPhone users can install this bookmarklet in their Safari to create Pretty Links with the following steps:<br/>
+  <div class="iphone_instructions" style="display: none"><?php _e('<strong>Note:</strong> iPhone users can install this bookmarklet in their Safari to create Pretty Links with the following steps:', 'pretty-link'); ?><br/>
     <ol>
-      <li>Copy this text:<br/><code>javascript:location.href='<?php echo PRLI_URL; ?>/prli-bookmarklet.php?k=<?php echo $prli_options->bookmarklet_auth; ?>&target_url='+escape(location.href);</code></li>
+      <li>Copy this text:<br/><code><?php echo PrliLink::bookmarklet_link(); ?></code></li>
       <li>Tap the + button at the bottom of the screen</li>
       <li>Choose "Add Bookmark", rename your bookmark to "Get PrettyLink" (or whatever you want) and then "Save"</li>
       <li>Navigate through your Bookmarks folders until you find the new bookmark and click "Edit"</li>

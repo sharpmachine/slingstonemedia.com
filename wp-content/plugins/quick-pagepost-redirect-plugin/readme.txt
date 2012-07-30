@@ -3,8 +3,8 @@ Contributors: Don Fischer
 Donate link: http://www.fischercreativemedia.com/wordpress-plugins/donate/
 Tags: redirect, 301, 302, meta, post, plugin, page, forward, re-direct, nofollow, menu links, posts, pages, admin, 404, custom post types, nav menu
 Requires at least: 3.1
-Tested up to: 3.2.1
-Stable tag: trunk
+Tested up to: 3.3.2
+Stable tag: 4.2.3
 
 Redirect Pages/Posts to another page/post or external URL. Has edit box as well as global options. Specify the redirect Location and type. For PHP5+
 
@@ -117,6 +117,9 @@ Yes, you can, but you do not always need to. If you are redirecting to an extern
 4. Summary of redirects page (new in version 4.0)
 
 == Changelog ==
+= 4.2.3 =
+* Fix WP_PLUGIN_URL and replace with plugins_url() to help with redirects on SSL. (01/01/2012)
+
 = 4.2.2 =
 * Fix some embarrasing spelling errors.(07/14/2011)
 * Fix Quick Redirects links from inside the redirect edit box and plugin page - they would give a "not authorized" warning because the page location changed in version 4.0 (07/14/11)
@@ -200,8 +203,5 @@ Yes, you can, but you do not always need to. If you are redirecting to an extern
 
 == Upgrade Notice ==
 
-= 4.2 =
-This upgrade contains fixes bugs for category redirects not working, homepage redirect issue and always open in new window bug.
-
-= 4.1 =
-This upgrade contains new features and drastically reduces the plugin overhead on your site. It is strongly recommended that you updgrade.
+= 4.2.3 =
+Fix for SSL sites - replaces WP_PLUGIN_URL constant with plugins_url() funsction for proper URL Protocol return. 

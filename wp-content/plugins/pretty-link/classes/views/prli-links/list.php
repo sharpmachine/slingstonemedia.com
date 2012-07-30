@@ -7,7 +7,7 @@ if(!defined('ABSPATH'))
 <?php
   require(PRLI_VIEWS_PATH.'/shared/nav.php');
 ?>
-  <h2><img src="<?php echo PRLI_IMAGES_URL . '/pretty-link-med.png'; ?>"/>&nbsp;Pretty Link: Links</h2>
+  <?php echo PrliAppHelper::page_title(__('Links', 'pretty-link')); ?>
   <?php
   if(empty($params['group']))
   {
@@ -32,7 +32,7 @@ if(!defined('ABSPATH'))
       if(!empty($search_str))
       {
       ?>
-      or <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php">Reset</a>
+      or <a href="<?php echo admin_url('admin.php?page=pretty-link&action=reset'); ?>">Reset</a>
       <?php
       }
       ?>
@@ -40,8 +40,7 @@ if(!defined('ABSPATH'))
     </form>
   </div>
   <div id="button_bar">
-    <p><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-add-link.php"><img src="<?php echo PRLI_IMAGES_URL . '/pretty-link-add.png'; ?>"/> Add a Pretty Link</a>
-    &nbsp;|&nbsp;<a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-options.php">Options</a>
+    <p><a href="<?php echo admin_url('admin.php?page=add-new-pretty-link'); ?>"><img src="<?php echo PRLI_IMAGES_URL . '/pretty-link-add.png'; ?>"/> Add a Pretty Link</a>
     &nbsp;|&nbsp;<a href="http://blairwilliams.com/plintro">Watch Pretty Link Intro Video</a>
     <?php do_action('prli-link-nav'); ?>
     </p>
@@ -57,20 +56,57 @@ if(!defined('ABSPATH'))
   <?php
   }
   ?>
-<form class="form-fields link-list-form" name="link_list_form" method="post" action="">
-<input type="hidden" name="action" value="list-form"/>
 <?php $footer = false; require(PRLI_VIEWS_PATH.'/shared/link-table-nav.php'); ?>
-<table class="widefat post fixed" cellspacing="0">
+<table class="prli-edit-table widefat post fixed" cellspacing="0">
     <thead>
     <tr>
-      <th class="manage-column" width="30%"><?php do_action('prli-list-header-icon'); ?><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&sort=name<?php echo (($sort_str == 'name' and $sdir_str == 'asc')?'&sdir=desc':''); ?>">Name<?php echo (($sort_str == 'name')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
+      <th class="manage-column" width="30%"><input type="checkbox" name="check-all" class="select-all-link-action-checkboxes" style="margin-left: 1px;"/>&nbsp;&nbsp;<a href="<?php echo admin_url('admin.php?page=pretty-link&sort=name' . (($sort_str == 'name' and $sdir_str == 'asc')?'&sdir=desc':'')); ?>">Name<?php echo (($sort_str == 'name')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
       <?php do_action('prli_link_column_header'); ?>
-      <th class="manage-column" width="10%"><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&sort=clicks<?php echo (($sort_str == 'clicks' and $sdir_str == 'asc')?'&sdir=desc':''); ?>">Hits / Uniq<?php echo (($sort_str == 'clicks')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
-      <th class="manage-column" width="5%"><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&sort=group_name<?php echo (($sort_str == 'group_name' and $sdir_str == 'asc')?'&sdir=desc':''); ?>">Group<?php echo (($sort_str == 'group_name')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
-      <th class="manage-column" width="12%"><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&sort=created_at<?php echo (($sort_str == 'created_at' and $sdir_str == 'asc')?'&sdir=desc':''); ?>">Created<?php echo ((empty($sort_str) or $sort_str == 'created_at')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.((empty($sort_str) or $sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
-      <th class="manage-column" width="20%"><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&sort=slug<?php echo (($sort_str == 'slug' and $sdir_str == 'asc')?'&sdir=desc':''); ?>">Links<?php echo (($sort_str == 'slug')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
+      <th class="manage-column" width="10%"><a href="<?php echo admin_url('admin.php?page=pretty-link&sort=clicks' . (($sort_str == 'clicks' and $sdir_str == 'asc')?'&sdir=desc':'')); ?>">Hits / Uniq<?php echo (($sort_str == 'clicks')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
+      <th class="manage-column" width="5%"><a href="<?php echo admin_url('admin.php?page=pretty-link&sort=group_name' . (($sort_str == 'group_name' and $sdir_str == 'asc')?'&sdir=desc':'')) ?>">Group<?php echo (($sort_str == 'group_name')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
+      <th class="manage-column" width="12%"><a href="<?php echo admin_url('admin.php?page=pretty-link&sort=created_at' . (($sort_str == 'created_at' and $sdir_str == 'asc')?'&sdir=desc':'')); ?>">Created<?php echo ((empty($sort_str) or $sort_str == 'created_at')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.((empty($sort_str) or $sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
+      <th class="manage-column" width="20%"><a href="<?php echo admin_url('admin.php?page=pretty-link&sort=slug' . (($sort_str == 'slug' and $sdir_str == 'asc')?'&sdir=desc':'')); ?>">Links<?php echo (($sort_str == 'slug')?'&nbsp;&nbsp;&nbsp;<img src="'.PRLI_IMAGES_URL . '/'.(($sdir_str == 'desc')?'arrow_down.png':'arrow_up.png').'"/>':'') ?></a></th>
     </tr>
     </thead>
+    <tr id="bulk-edit" class="inline-edit-row inline-edit-row-post inline-edit-post bulk-edit-row bulk-edit-row-post bulk-edit-post" style="display: none;">
+      <td class="colspanchange">
+        <form id="prli-bulk-action-form" action="<?php echo admin_url('admin.php'); ?>" method="post">
+          <input type="hidden" name="page" value="pretty-link" />
+          <input type="hidden" name="action" value="bulk-edit" />
+          <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce('prli-bulk-edit'); ?>" />
+          <fieldset class="inline-edit-col-left">
+            <div class="inline-edit-col">
+              <h4><?php _e('Bulk Edit', 'pretty-link'); ?></h4>
+              <div id="bulk-title-div">
+                <div id="bulk-titles"></div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="inline-edit-col-center">
+            <h4><?php _e('Basic Link Options', 'pretty-link'); ?></h4>
+            <div class="bacheck-title"><?php _e('Redirect Type', 'pretty-link'); ?></div>
+            <?php PrliLinksHelper::redirect_type_dropdown( 'bu[redirect_type]', '', array(__('- No Change -', 'pretty-link') => '##nochange##'), 'bulk-edit-select' ) ?>
+            <br/>
+            <div class="bacheck-title"><?php _e('Group', 'pretty-link'); ?></div>
+            <?php PrliLinksHelper::groups_dropdown('bu[group_id]', '', array(__('- No Change -', 'pretty-link') => '##nochange##'), 'bulk-edit-select'); ?>
+            <br/>
+            <?php PrliLinksHelper::bulk_action_checkbox_dropdown('bu[track_me]', __('Track', 'pretty-link'), 'bulk-edit-select'); ?>
+            <br/>
+            <?php PrliLinksHelper::bulk_action_checkbox_dropdown('bu[nofollow]', __('Nofollow', 'pretty-link'), 'bulk-edit-select'); ?>
+            <br/>
+            <?php PrliLinksHelper::bulk_action_checkbox_dropdown('bu[param_forwarding]', __('Forward Params', 'pretty-link'), 'bulk-edit-select'); ?>
+            <br/>
+          </fieldset>
+          <fieldset class="inline-edit-col-right">
+            <?php do_action('prli_bulk_action_right_col'); ?>
+          </fieldset>
+          <p class="submit inline-edit-save">
+            <a href="javascript:" title="<?php _e('Cancel', 'pretty-link'); ?>" class="button-secondary bulk-edit-cancel alignleft"><?php _e('Cancel', 'pretty-link'); ?></a>
+            <a href="javascript:" title="<?php _e('Update', 'pretty-link'); ?>" class="button-primary bulk-edit-update alignright"><?php _e('Bulk Update', 'pretty-link'); ?></a><br class="clear">
+          </p>
+        </form>
+      </td>
+</tr>
   <?php
 
   if($record_count <= 0)
@@ -89,10 +125,12 @@ if(!defined('ABSPATH'))
       $struct = PrliUtils::get_permalink_pre_slug_uri();
       $pretty_link_url = "{$prli_blogurl}{$struct}{$link->slug}";
       ?>
-      <tr style="min-height: 75px; height: 75px;">
+      <tr class="link_row">
         <td class="edit_link">
 
+        <input type="checkbox" name="link-action[<?php echo $link->id; ?>]" class="link-action-checkbox" data-id="<?php echo $link->id; ?>" data-title="<?php echo stripslashes($link->name); ?>" />&nbsp;&nbsp;
         <?php do_action('prli_list_icon',$link->id); ?>
+
         <?php if( $link->redirect_type == 'prettybar' ) { ?>
             <img src="<?php echo PRLI_IMAGES_URL . '/pretty-link-small.png'; ?>" title="Using PrettyBar" width="13px" height="13px" />
         <?php }
@@ -101,6 +139,12 @@ if(!defined('ABSPATH'))
         <?php }
         else if( $link->redirect_type == 'pixel' ) { ?>
           <img src="<?php echo PRLI_IMAGES_URL . '/pixel_track.png'; ?>" width="13px" height="13px" name="Pixel Tracking Enabled" alt="Pixel Tracking Enabled" title="Pixel Tracking Enabled"/>&nbsp;
+        <?php }
+        else if( $link->redirect_type == 'metarefresh' ) { ?>
+          <span title="<?php _e('Meta Refresh Redirection', 'pretty-link') ?>" style="font-size: 14px; line-height: 14px; padding: 0px; margin: 0px; color: green;"><strong>M</strong></span>&nbsp;
+        <?php }
+        else if( $link->redirect_type == 'javascript' ) { ?>
+          <span title="<?php _e('Javascript Redirection', 'pretty-link') ?>" style="font-size: 14px; line-height: 14px; padding: 0px; margin: 0px; color: green;"><strong>J</strong></span>&nbsp;
         <?php }
         else if( $link->redirect_type == '307' ) { ?>
           <span title="Temporary Redirection (307)" style="font-size: 14px; line-height: 14px; padding: 0px; margin: 0px; color: green;"><strong>T</strong></span>&nbsp;
@@ -126,6 +170,7 @@ if(!defined('ABSPATH'))
         <?php
         }
         ?>
+        <?php do_action('prli_list_end_icon',$link); ?>
 
         <?php if( $link->redirect_type != 'pixel' )
         {
@@ -134,15 +179,16 @@ if(!defined('ABSPATH'))
           <a href="<?php echo $pretty_link_url; ?>" target="_blank" title="Visit Pretty Link: <?php echo $pretty_link_url; ?> in a New Window"><img src="<?php echo PRLI_IMAGES_URL . '/url_icon.gif'; ?>" width="13px" height="13px" name="Visit" alt="Visit"/></a>&nbsp;
         <?php
         }
+        do_action('prli-special-link-action',$link->id);
         ?>
-        <a class="slug_name" href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&action=edit&id=<?php echo $link->id; ?>" title="Edit <?php echo stripslashes($link->name); ?>"><?php echo stripslashes($link->name); ?></a>
+        <a class="slug_name" href="<?php echo admin_url('admin.php?page=pretty-link&action=edit&id=' . $link->id); ?>" title="Edit <?php echo stripslashes($link->name); ?>"><?php echo stripslashes($link->name); ?></a>
           <br/>
           <div class="link_actions">
-            <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&action=edit&id=<?php echo $link->id; ?>" title="Edit <?php echo $link->slug; ?>">Edit</a>&nbsp;|
-            <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&action=destroy&id=<?php echo $link->id; ?>"  onclick="return confirm('Are you sure you want to delete your <?php echo $link->name; ?> Pretty Link? This will delete the Pretty Link and all of the statistical data about it in your database.');" title="Delete <?php echo $link->slug; ?>">Delete</a>
-            |&nbsp;<a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&action=reset&id=<?php echo $link->id; ?>"  onclick="return confirm('Are you sure you want to reset your <?php echo $link->name; ?> Pretty Link? This will delete all of the statistical data about this Pretty Link in your database.');" title="Reset <?php echo $link->name; ?>">Reset</a>
+            <a href="<?php echo admin_url('admin.php?page=pretty-link&action=edit&id=' . $link->id); ?>" title="Edit <?php echo $link->slug; ?>">Edit</a>&nbsp;|
+            <a href="<?php echo admin_url('admin.php?page=pretty-link&action=destroy&id=' . $link->id); ?>"  onclick="return confirm('Are you sure you want to delete your <?php echo $link->name; ?> Pretty Link? This will delete the Pretty Link and all of the statistical data about it in your database.');" title="Delete <?php echo $link->slug; ?>">Delete</a>
+            |&nbsp;<a href="<?php echo admin_url('admin.php?page=pretty-link&action=reset&id=' . $link->id); ?>"  onclick="return confirm('Are you sure you want to reset your <?php echo $link->name; ?> Pretty Link? This will delete all of the statistical data about this Pretty Link in your database.');" title="Reset <?php echo $link->name; ?>">Reset</a>
             <?php if( $link->track_me and $prli_options->extended_tracking!='count' ) { ?>
-            |&nbsp;<a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-clicks.php&l=<?php echo $link->id; ?>" title="View clicks for <?php echo $link->slug; ?>">Hits</a>
+            |&nbsp;<a href="<?php echo admin_url("admin.php?page=pretty-link/prli-clicks.php&l={$link->id}"); ?>" title="View clicks for <?php echo $link->slug; ?>">Hits</a>
             <?php do_action('prli-link-action',$link->id); ?>
             <?php } ?>
             <?php if( $link->redirect_type != 'pixel' )
@@ -158,15 +204,17 @@ if(!defined('ABSPATH'))
         <?php do_action('prli_link_column_row',$link->id); ?>
         <td>
           <?php if($prli_options->extended_tracking!='count')
-                  echo (($link->track_me)?"<a href=\"?page=".PRLI_PLUGIN_NAME."/prli-clicks.php&l=$link->id\" title=\"View clicks for $link->slug\">" . (empty($link->clicks)?0:$link->clicks) . "/" . (empty($link->uniques)?0:$link->uniques) . "</a>":"<img src=\"".PRLI_IMAGES_URL."/not_tracking.png\" title=\"This link isn't being tracked\"/>");
+                  echo (($link->track_me)?"<a href=\"". admin_url( "admin.php?page=pretty-link/prli-clicks.php&l={$link->id}" ) . "\" title=\"View clicks for $link->slug\">" . (empty($link->clicks)?0:$link->clicks) . "/" . (empty($link->uniques)?0:$link->uniques) . "</a>":"<img src=\"".PRLI_IMAGES_URL."/not_tracking.png\" title=\"This link isn't being tracked\"/>");
                 else
                   echo (($link->track_me)?(empty($link->clicks)?0:$link->clicks) . "/" . (empty($link->uniques)?0:$link->uniques):"<img src=\"".PRLI_IMAGES_URL."/not_tracking.png\" title=\"This link isn't being tracked\"/>");
           ?>
         </td>
-        <td><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&group=<?php echo $link->group_id; ?>"><?php echo $link->group_name; ?></a></td>
+        <td><a href="<?php echo admin_url( "admin.php?page=pretty-link&group={$link->group_id}"); ?>"><?php echo $link->group_name; ?></a></td>
         <td><?php echo $link->created_at; ?></td>
         </td>
-        <td><input type='text' style="font-size: 10px; width: 100%;" readonly="true" onclick='this.select();' onfocus='this.select();' value='<?php echo $pretty_link_url; ?>' /><br/>
+        <td>
+        <input type='text' style="font-size: 10px; width: 100%;" readonly="true" onclick='this.select();' onfocus='this.select();' value='<?php echo $pretty_link_url; ?>' />
+        <span class="list-clippy prli-clipboard"><?php echo $pretty_link_url; ?></span>
         <?php if( $link->redirect_type != 'pixel' )
         {
         ?>
@@ -191,6 +239,5 @@ if(!defined('ABSPATH'))
     </tfoot>
 </table>
 <?php $footer = true; require(PRLI_VIEWS_PATH.'/shared/link-table-nav.php'); ?>
-</form>
 
 </div>

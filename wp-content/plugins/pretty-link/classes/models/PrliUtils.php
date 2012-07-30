@@ -210,10 +210,11 @@ class PrliUtils
   
     $query = "SELECT * FROM ".$prli_link->table_name." WHERE slug='$slug' LIMIT 1";
     $pretty_link = $wpdb->get_row($query);
-    $pretty_link_target = apply_filters('prli_target_url',array('url' => $pretty_link->url, 'link_id' => $pretty_link->id));
+    $pretty_link_target = apply_filters( 'prli_target_url', array( 'url' => $pretty_link->url, 'link_id' => $pretty_link->id, 'redirect_type' => $pretty_link->redirect_type ) );
     $pretty_link_url = $pretty_link_target['url'];
+    $track_me = apply_filters('prli_track_link', $pretty_link->track_me);
     
-    if(isset($pretty_link->track_me) and $pretty_link->track_me)
+    if(isset($track_me) and !empty($track_me) and $track_me)
     {
       $first_click = 0;
       
@@ -300,24 +301,19 @@ class PrliUtils
       }
     }
   
-    // Reformat Parameters
     $param_string = '';
+    if( isset($pretty_link->param_forwarding) and 
+        ( $pretty_link->param_forwarding == 'custom' or 
+          $pretty_link->param_forwarding == 'on') and
+        isset( $values ) and count( $values ) >= 1 ) {
+      $parray = explode( '?', $_SERVER['REQUEST_URI'] );
       
-    if(isset($pretty_link->param_forwarding) and ($pretty_link->param_forwarding == 'custom' OR $pretty_link->param_forwarding == 'on') and isset($values) and count($values) >= 1)
-    {
-      $first_param = true;
-      foreach($values as $key => $value)
-      {
-        if($first_param)
-        {
-          $param_string = (preg_match("#\?#", $pretty_link_url)?"&":"?");
-          $first_param = false;
-        }
-        else
-          $param_string .= "&";
-    
-        $param_string .= "$key=$value";
-      }
+      if(isset($parray[1]))
+        $param_string = (preg_match("#\?#", $pretty_link_url)?"&":"?") . $parray[1];
+
+      $param_string = preg_replace( array("#%5B#i","#%5D#i"), array("[","]"), $param_string ); 
+
+      $param_string = apply_filters('prli_redirect_params', $param_string);
     }
     
     if(isset($pretty_link->nofollow) and $pretty_link->nofollow)
@@ -343,7 +339,7 @@ class PrliUtils
           do_action('prli_issue_cloaked_redirect', $pretty_link->redirect_type, $pretty_link, $pretty_link_url, $param_string);
     }
   }
-  
+
   function get_custom_forwarding_rule($param_struct)
   {
     $param_struct = preg_replace('#%.*?%#','(.*?)',$param_struct);
@@ -915,7 +911,8 @@ class PrliUtils
       unset($prli_options->prettybar_link_limit);
 
       // Save the posted value in the database
-      update_option( 'prli_options', $prli_options );
+      //update_option( 'prli_options', $prli_options );
+      $prli_options->store();
     }
 
     // Modify the tables so they're UTF-8
@@ -1190,10 +1187,37 @@ class PrliUtils
   {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
     $string = '';
+    $max_index = strlen($characters) - 1;
     
     for($p = 0; $p < $length; $p++)
-      $string .= $characters[mt_rand(0, strlen($characters))];
+      $string .= $characters[mt_rand(0, $max_index)];
     
     return $string;
+  }
+
+  public static function get_page_title($url, $slug='')
+  {
+    $title = '';
+    $wp_http = new WP_Http;
+    $result = $wp_http->request( $url, array( 'sslverify' => false ) );
+
+    if(!$result or is_a($result, 'WP_Error') or !isset($result['body']))
+      return $slug;
+
+    $data = $result['body'];
+
+    // Look for <title>(.*?)</title> in the text
+    if($data and preg_match('#<title>[\s\n\r]*?(.*?)[\s\n\r]*?</title>#im', $data, $matches))
+      $title = trim($matches[1]);
+
+    if(empty($title) or !$title)
+      return $slug;
+
+    return $title;
+  }
+
+  public static function is_url($url) {
+    return ( preg_match('/^http.?:\/\/.*\..*$/', $url ) or
+             preg_match('!^(http|https)://(localhost|127\.0\.0\.1)(:\d+)?(/[\w- ./?%&=]*)?!', $url ) );
   }
 }

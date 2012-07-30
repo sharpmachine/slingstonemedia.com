@@ -17,6 +17,7 @@ $link_track_me = 'prli_link_track_me';
 $link_prefix = 'prli_link_prefix';
 $link_nofollow = 'prli_link_nofollow';
 $link_redirect_type = 'prli_link_redirect_type';
+$link_redirect_action = 'prli_link_redirect_action';
 $hidden_field_name = 'prli_update_options';
 
 $update_message = false;
@@ -43,6 +44,7 @@ if( isset($_REQUEST[ $hidden_field_name ]) and $_REQUEST[ $hidden_field_name ] =
   $prli_options->link_prefix = (int)isset($_POST[ $link_prefix ]);
   $prli_options->link_nofollow = (int)isset($_POST[ $link_nofollow ]);
   $prli_options->link_redirect_type = $_POST[ $link_redirect_type ];
+  $prli_options->link_redirect_action = $_POST[ $link_redirect_action ];
 
   do_action('prli-store-options');
 
@@ -51,7 +53,8 @@ if( isset($_REQUEST[ $hidden_field_name ]) and $_REQUEST[ $hidden_field_name ] =
   else
   {
     // Save the posted value in the database
-    update_option( 'prli_options', $prli_options );
+    //update_option( 'prli_options', $prli_options );
+    $prli_options->store();
 
     // Put an options updated message on the screen
 

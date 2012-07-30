@@ -4,8 +4,7 @@ if(!defined('ABSPATH'))
 ?>
 
 <div class="wrap">
-        <div id="icon-options-general" class="icon32"><br /></div>
-<h2 id="prli_title">Pretty Link: Options</h2>
+<?php echo PrliAppHelper::page_title(__('Options', 'pretty-link')); ?>
 <br/>
 <?php
 $permalink_structure = get_option('permalink_structure');
@@ -17,15 +16,16 @@ if(!$permalink_structure or empty($permalink_structure))
 }
 ?>
 <?php do_action('prli-options-message'); ?>
-<a href="admin.php?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php">&laquo Pretty Link Admin</a>
+<a href="<?php echo admin_url("admin.php?page=pretty-link"); ?>">&laquo; Pretty Link Admin</a>
 
-<form name="form1" method="post" action="">
+<form name="form1" method="post" action="<?php echo admin_url("/admin.php?page=pretty-link/prli-options.php"); ?>">
 <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
 <?php wp_nonce_field('update-options'); ?>
 
-<h3><a class="toggle link-toggle-button">Link Option Defaults <span class="link-expand" style="display: none;">[+]</span><span class="link-collapse">[-]</span></a></h3>
-<ul class="link-toggle-pane" style="list-style-type: none;">
+<h3><a class="toggle link-toggle-button"><?php _e('Link Options', 'pretty-link') ?> <span class="link-expand" style="display: none;">[+]</span><span class="link-collapse">[-]</span></a></h3>
+<ul class="link-toggle-pane" style="list-style-type: none; padding-left: 10px;">
   <li>
+    <h3><?php _e('Link Defaults:', 'pretty-link') ?></h3>
     <input type="checkbox" name="<?php echo $link_track_me; ?>" <?php echo (($prli_options->link_track_me != 0)?'checked="true"':''); ?>/>&nbsp; Track Link
     <br/><span class="description">Default all new links to be tracked.</span>
   </li>
@@ -38,13 +38,23 @@ if(!$permalink_structure or empty($permalink_structure))
 <br/><span class="description">This option should only be checked if you have elements in your permalink structure that must be present in any link on your site. For example, some WordPress installs don't have the benefit of full rewrite capabilities and in this case you'd need an index.php included in each link (http://example.com/index.php/mycoolslug instead of http://example.com/mycoolslug). If this is the case for you then check this option but the vast majority of users will want to keep this unchecked.</span>
   </li>
   <li>
-    <h4>Default Link Redirection Type:</h4>
+    <span><strong><?php _e('Default Link Redirection Type:', 'pretty-link') ?> </strong></span>
     <select name="<?php echo $link_redirect_type; ?>">
-        <option value="307" <?php echo (($prli_options->link_redirect_type == '307')?' selected="selected"':''); ?>/>Temporary (307)</option>
-        <option value="301" <?php echo (($prli_options->link_redirect_type == '301')?' selected="selected"':''); ?>/>Permanent (301)</option>
+        <option value="307" <?php echo (($prli_options->link_redirect_type == '307')?' selected="selected"':''); ?>>Temporary (307)</option>
+        <option value="301" <?php echo (($prli_options->link_redirect_type == '301')?' selected="selected"':''); ?>>Permanent (301)</option>
         <?php do_action('prli_default_redirection_types',$prli_options->link_redirect_type); ?>
     </select>
     <br/><span class="description">Select the type of redirection you want your newly created links to have.</span>
+  </li>
+  <?php do_action('prli_custom_link_options'); ?>
+  <li>
+	<h3><?php _e('Advanced', 'pretty-link') ?></h3>
+    <span><strong><?php _e('WordPress Redirection Action:', 'pretty-link') ?> </strong></span>
+    <select name="<?php echo $link_redirect_action; ?>">
+	  <option value="init" <?php echo (($prli_options->link_redirect_action == 'init')?' selected="selected"':''); ?>><?php _e('WordPress \'init\' Action', 'pretty-link') ?></option>
+	  <option value="template_redirect" <?php echo (($prli_options->link_redirect_action == 'template_redirect')?' selected="selected"':''); ?>><?php _e('WordPress \'template_redirect\' Action', 'pretty-link') ?></option>
+	</select>
+    <br/><span class="description"><?php _e('Defaults to use WordPress\' \'init\' action. Init works more reliably for many users but the better option for performance and compatibility is to use the \'template_redirect\' action.', 'pretty-link') ?></span>
   </li>
 </ul>
 <?php do_action('prli_custom_option_pane'); ?>

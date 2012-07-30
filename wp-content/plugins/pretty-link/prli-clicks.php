@@ -31,44 +31,44 @@ if(!isset($_REQUEST['action']))
   $edmon  = date('n',$end_timestamp);
   $eddom  = date('j',$end_timestamp);
 
-  $where_clause = " cl.created_at BETWEEN '$sdyear-$sdmon-$sddom 00:00:00' AND '$edyear-$edmon-$eddom 23:59:59'";
+  $where_clause = $wpdb->prepare(" cl.created_at BETWEEN '%d-%d-%d 00:00:00' AND '%d-%d-%d 23:59:59'",$sdyear,$sdmon,$sddom,$edyear,$edmon,$eddom);
 
-  if(!empty($params['sdate']))
-    $page_params .= "&sdate=".$params['sdate'];
+  if(!empty($params['sdate']) and preg_match('/^\d\d\d\d-\d\d-\d\d$/', $params['sdate']))
+    $page_params .= "&sdate={$params['sdate']}";
 
-  if(!empty($params['edate']))
-    $page_params .= "&edate=".$params['edate'];
+  if(!empty($params['edate']) and preg_match('/^\d\d\d\d-\d\d-\d\d$/', $params['edate']))
+    $page_params .= "&edate={$params['edate']}";
 
   if(!empty($params['l']) and $params['l'] != 'all')
   {
-    $where_clause .= (($params['l'] != 'all')?" AND cl.link_id=".$params['l']:'');
-    $link_name = $wpdb->get_var("SELECT name FROM ".$wpdb->prefix."prli_links WHERE id=".$params['l']);
-    $link_slug = $wpdb->get_var("SELECT slug FROM ".$wpdb->prefix."prli_links WHERE id=".$params['l']);
+    $where_clause .= (($params['l'] != 'all') ? $wpdb->prepare(" AND cl.link_id=%d",$params['l']):'');
+    $link_name = $wpdb->get_var($wpdb->prepare("SELECT name FROM {$wpdb->prefix}prli_links WHERE id=%d", $params['l']));
+    $link_slug = $wpdb->get_var($wpdb->prepare("SELECT slug FROM {$wpdb->prefix}prli_links WHERE id=%d", $params['l']));
 
-    $page_params .= "&l=".$params['l'];
+    $page_params .= "&l={$params['l']}";
   }
   else if(!empty($params['ip']))
   {
-    $link_name = "IP Address: " . $params['ip'];
-    $where_clause .= " AND cl.ip='".$params['ip']."'";
-    $page_params .= "&ip=".$params['ip'];
+    $link_name = __("IP Address: ", 'pretty-link') . esc_html($params['ip']);
+    $where_clause .= $wpdb->prepare(" AND cl.ip=%d", $params['ip']);
+    $page_params .= "&ip={$params['ip']}";
   }
   else if(!empty($params['vuid']))
   {
-    $link_name = "Visitor: " . $params['vuid'];
-    $where_clause .= " AND cl.vuid='".$params['vuid']."'";
-    $page_params .= "&vuid=".$params['vuid'];
+    $link_name = __("Visitor: ", 'pretty-link') . esc_html($params['vuid']);
+    $where_clause .= $wpdb->prepare(" AND cl.vuid=%s",$params['vuid']);
+    $page_params .= "&vuid={$params['vuid']}";
   }
   else if(!empty($params['group']))
   {
     $group = $prli_group->getOne($params['group']);
-    $link_name = "Group: " . $group->name;
-    $where_clause .= " AND cl.link_id IN (SELECT id FROM " . $prli_link->table_name . " WHERE group_id=".$params['group'].")";
-    $page_params .= "&group=".$params['group'];
+    $link_name = __("Group: ", 'pretty-link') . esc_html($group->name);
+    $where_clause .= $wpdb->prepare(" AND cl.link_id IN (SELECT id FROM {$prli_link->table_name} WHERE group_id=%d)",$params['group']);
+    $page_params .= "&group={$params['group']}";
   }
   else
   {
-    $link_name = "All Links";
+    $link_name = __("All Links", 'pretty-link');
     $where_clause .= "";
     $page_params .= "";
   }
@@ -96,7 +96,7 @@ if(!isset($_REQUEST['action']))
   $page_last_record = $prli_utils->getLastRecordNum($record_count,$current_page,$page_size);
   $page_first_record = $prli_utils->getFirstRecordNum($record_count,$current_page,$page_size);
 
-  require_once 'classes/views/prli-clicks/list.php';
+  require_once PRLI_VIEWS_PATH . '/prli-clicks/list.php';
 }
 else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'csv')
 {
@@ -105,66 +105,64 @@ else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'csv')
 
   if(isset($_GET['l']))
   {
-    $where_clause = " link_id=".$_GET['l'];
-    $link_name = $wpdb->get_var("SELECT name FROM ".$wpdb->prefix."prli_links WHERE id=".$_GET['l']);
-    $link_slug = $wpdb->get_var("SELECT slug FROM ".$wpdb->prefix."prli_links WHERE id=".$_GET['l']);
-    $param_string .= "l=".$_GET['l'];
+    $where_clause = $wpdb->prepare(" link_id=%d",$_GET['l']);
+    $link_name = $wpdb->get_var($wpdb->prepare("SELECT name FROM {$wpdb->prefix}prli_links WHERE id=%d",$_GET['l']));
+    $link_slug = $wpdb->get_var($wpdb->prepare("SELECT slug FROM {$wpdb->prefix}prli_links WHERE id=%d",$_GET['l']));
+    $param_string .= "l={$_GET['l']}";
   }
   else if(isset($_GET['ip']))
   {
     $link_name = "ip_addr_" . $_GET['ip'];
-    $where_clause = " cl.ip='".$_GET['ip']."'";
-    $param_string .= "ip=".$_GET['ip'];
+    $where_clause = $wpdb->prepare(" cl.ip=%s",$_GET['ip']);
+    $param_string .= "ip={$_GET['ip']}";
   }
   else if(isset($_GET['vuid']))
   {
     $link_name = "visitor_" . $_GET['vuid'];
-    $where_clause = " cl.vuid='".$_GET['vuid']."'";
-    $param_string .= "vuid=".$_GET['vuid'];
+    $where_clause = $wpdb->prepare(" cl.vuid=%s",$_GET['vuid']);
+    $param_string .= "vuid={$_GET['vuid']}";
   }
   else if(isset($_GET['group']))
   {
     $group = $prli_group->getOne($_GET['group']);
-    $link_name = "group_" . $group->name;
-    $where_clause .= " cl.link_id IN (SELECT id FROM {$prli_link->table_name} WHERE group_id=".$_GET['group'].")";
-    $param_string .= "group=".$_GET['group'];
+    $link_name = "group_{$group->name}";
+    $where_clause .= $wpdb->prepare(" cl.link_id IN (SELECT id FROM {$prli_link->table_name} WHERE group_id=%d)",$_GET['group']);
+    $param_string .= "group={$_GET['group']}";
   }
   else
-  {
     $link_name = "all_links";
-  }
-
+  
   $hit_record_count = $prli_click->getRecordCount($where_clause);
   $hit_page_count   = (int)ceil($hit_record_count / $max_rows_per_file);
 
   $param_string       = (empty($param_string)?'':"&{$param_string}");
   $hit_report_url     = "{$prli_blogurl}/index.php?action=prli_download_csv_hit_report{$param_string}";
 
-  require_once 'classes/views/prli-clicks/csv_download.php';
+  require_once PRLI_VIEWS_PATH . '/prli-clicks/csv_download.php';
 }
 else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'prli_download_csv_hit_report')
 {
   if(isset($_GET['l']))
   {
-    $where_clause = " link_id=".$_GET['l'];
-    $link_name = $wpdb->get_var("SELECT name FROM ".$wpdb->prefix."prli_links WHERE id=".$_GET['l']);
-    $link_slug = $wpdb->get_var("SELECT slug FROM ".$wpdb->prefix."prli_links WHERE id=".$_GET['l']);
+    $where_clause = $wpdb->prepare(" link_id=%d",$_GET['l']);
+    $link_name = $wpdb->get_var($wpdb->prepare("SELECT name FROM {$wpdb->prefix}prli_links WHERE id=%d",$_GET['l']));
+    $link_slug = $wpdb->get_var($wpdb->prepare("SELECT slug FROM {$wpdb->prefix}prli_links WHERE id=%d",$_GET['l']));
   }
   else if(isset($_GET['ip']))
   {
-    $link_name = "ip_addr_" . $_GET['ip'];
-    $where_clause = " cl.ip='".$_GET['ip']."'";
+    $link_name = "ip_addr_{$_GET['ip']}";
+    $where_clause = $wpdb->prepare(" cl.ip=%s",$_GET['ip']);
   }
   else if(isset($_GET['vuid']))
   {
-    $link_name = "visitor_" . $_GET['vuid'];
-    $where_clause = " cl.vuid='".$_GET['vuid']."'";
+    $link_name = "visitor_{$_GET['vuid']}";
+    $where_clause = $wpdb->prepare(" cl.vuid=%s",$_GET['vuid']);
   }
   else if(isset($_GET['group']))
   {
     $group = $prli_group->getOne($_GET['group']);
-    $link_name = "group_" . $group->name;
-    $where_clause .= " cl.link_id IN (SELECT id FROM " . $prli_link->table_name . " WHERE group_id=".$_GET['group'].")";
+    $link_name = "group_{$group->name}";
+    $where_clause .= $wpdb->prepare(" cl.link_id IN (SELECT id FROM {$prli_link->table_name} WHERE group_id=%d)", $_GET['group']);
   }
   else
   {
@@ -177,7 +175,7 @@ else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'prli_download_csv
 
   $record_count = $prli_click->getRecordCount($where_clause);
   $page_count   = (int)ceil($record_count / $max_rows_per_file);
-  $prli_page = $_GET['prli_page'];
+  $prli_page = esc_html($_GET['prli_page']);
   $hmin = 0;
 
   if($prli_page)
@@ -190,13 +188,15 @@ else if(isset($_REQUEST['action']) and $_REQUEST['action'] == 'prli_download_csv
 
   $hlimit = "{$hmin},{$max_rows_per_file}";
   $clicks = $prli_click->getAll($where_clause,'',false,$hlimit);
-  require_once 'classes/views/prli-clicks/csv.php';
+  require_once PRLI_VIEWS_PATH . '/prli-clicks/csv.php';
 }
 
 // Helpers
 function prli_get_click_sort_vars($params,$where_clause = '')
 {
-  $count_where_clause = '';
+  global $wpdb;
+  
+  $count_where_clause = $where_clause;
   $page_params = '';
   $order_by = '';
 
@@ -208,34 +208,47 @@ function prli_get_click_sort_vars($params,$where_clause = '')
   // Insert search string
   if(!empty($search_str))
   {
-    $search_params = explode(" ", $search_str);
+    $search_params = explode(" ", esc_html($search_str));
 
     $first_pass = true;
     foreach($search_params as $search_param)
     {
       if($first_pass)
       {
-        if($where_clause != '')
+        if($where_clause != '') {
           $where_clause .= ' AND';
+          $count_where_clause .= ' AND';
+        }
 
         $first_pass = false;
       }
-      else
+      else {
         $where_clause .= ' AND';
+        $count_where_clause .= ' AND';
+      }
 
-      $where_clause .= " (cl.ip LIKE '%$search_param%' OR ".
-                         "cl.vuid LIKE '%$search_param%' OR ".
-                         "cl.btype LIKE '%$search_param%' OR ".
-                         "cl.bversion LIKE '%$search_param%' OR ".
-                         "cl.host LIKE '%$search_param%' OR ".
-                         "cl.referer LIKE '%$search_param%' OR ".
-                         "cl.uri LIKE '%$search_param%' OR ".
-                         "cl.created_at LIKE '%$search_param%'";
-      $count_where_clause = $where_clause . ")";
-      $where_clause .= " OR li.name LIKE '%$search_param%')";
+      $search_param = $sp = "%" . like_escape($search_param) . "%";
+      $where_clause .= $wpdb->prepare( " (cl.ip LIKE %s OR ".
+                                       "cl.vuid LIKE %s OR ".
+                                       "cl.btype LIKE %s OR ".
+                                       "cl.bversion LIKE %s OR ".
+                                       "cl.host LIKE %s OR ".
+                                       "cl.referer LIKE %s OR ".
+                                       "cl.uri LIKE %s OR ".
+                                       "cl.created_at LIKE %s", $sp, $sp, $sp, $sp, $sp, $sp, $sp, $sp );
+      $count_where_clause .= $wpdb->prepare( " (cl.ip LIKE %s OR ".
+                                             "cl.vuid LIKE %s OR ".
+                                             "cl.btype LIKE %s OR ".
+                                             "cl.bversion LIKE %s OR ".
+                                             "cl.host LIKE %s OR ".
+                                             "cl.referer LIKE %s OR ".
+                                             "cl.uri LIKE %s OR ".
+                                             "cl.created_at LIKE %s", $sp, $sp, $sp, $sp, $sp, $sp, $sp, $sp );
+      $count_where_clause .= ")";
+      $where_clause .= $wpdb->prepare( " OR li.name LIKE %s)", $sp );
     }
 
-    $page_params .="&search=$search_str";
+    $page_params .= "&search=" . urlencode($search_str);
   }
 
   // Have to create a separate var so sorting doesn't get screwed up
@@ -279,12 +292,6 @@ function prli_get_click_sort_vars($params,$where_clause = '')
   else
     $sdir_str = 'asc';
 
-  return array('count_where_clause' => $count_where_clause,
-               'sort_str' => $sort_str, 
-               'sdir_str' => $sdir_str, 
-               'search_str' => $search_str, 
-               'where_clause' => $where_clause, 
-               'order_by' => $order_by,
-               'sort_params' => $sort_params,
-               'page_params' => $page_params);
+  return compact( 'count_where_clause', 'sort_str', 'sdir_str', 'search_str',
+                  'where_clause', 'order_by', 'sort_params', 'page_params' );
 }

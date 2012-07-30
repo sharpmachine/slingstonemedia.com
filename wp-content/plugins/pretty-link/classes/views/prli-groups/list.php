@@ -6,7 +6,7 @@ if(!defined('ABSPATH'))
 <?php
   require(PRLI_VIEWS_PATH.'/shared/nav.php');
 ?>
-  <h2><img src="<?php echo PRLI_IMAGES_URL.'/pretty-link-med.png'; ?>"/>&nbsp;Pretty Link: Groups</h2>
+  <?php echo PrliAppHelper::page_title(__('Groups', 'pretty-link')); ?>
   <div id="message" class="updated fade" style="padding:5px;"><?php echo $prli_message; ?></div> 
   <div id="search_pane" style="float: right;">
     <form class="form-fields" name="group_form" method="post" action="">
@@ -63,11 +63,11 @@ if(!defined('ABSPATH'))
           <div class="group_actions">
             <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-groups.php&action=edit&id=<?php echo $group->id; ?>" title="Edit <?php echo htmlspecialchars(stripslashes($group->name)); ?>">Edit</a>&nbsp;|
             <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-groups.php&action=destroy&id=<?php echo $group->id; ?>"  onclick="return confirm('Are you sure you want to delete your <?php echo htmlspecialchars(stripslashes($group->name)); ?> Pretty Link Group?');" title="Delete <?php echo htmlspecialchars(stripslashes($group->name)); ?>">Delete</a>&nbsp;|
-            <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&group=<?php echo $group->id; ?>" title="View links in <?php echo htmlspecialchars(stripslashes($group->name)); ?>">Links</a>&nbsp;|
+            <a href="<?php echo admin_url("admin.php?page=pretty-link&group={$group->id}"); ?>" title="View links in <?php echo htmlspecialchars(stripslashes($group->name)); ?>">Links</a>&nbsp;|
             <a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-clicks.php&group=<?php echo $group->id; ?>" title="View hits in <?php echo htmlspecialchars(stripslashes($group->name)); ?>">Hits</a>
           </div>
         </td>
-        <td><a href="?page=<?php echo PRLI_PLUGIN_NAME; ?>/prli-links.php&group=<?php echo $group->id; ?>" title="View links in <?php echo htmlspecialchars(stripslashes($group->name)); ?>"><?php echo $group->link_count; ?></a></td>
+        <td><a href="<?php echo admin_url("admin.php?page=pretty-link&group={$group->id}"); ?>" title="View links in <?php echo htmlspecialchars(stripslashes($group->name)); ?>"><?php echo $group->link_count; ?></a></td>
         <td><?php echo $group->created_at; ?></td>
       </tr>
       <?php

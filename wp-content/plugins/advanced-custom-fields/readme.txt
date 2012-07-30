@@ -1,12 +1,11 @@
 === Advanced Custom Fields ===
 Contributors: Elliot Condon
-Donate link: https://www.paypal.com/au/cgi-bin/webscr?cmd=_flow&SESSION=-B2MHZ-ioHQb-z1o22AMmhjSI08rxFqQdljyfqVa1R-4QrbQWPNcfL37jYi&dispatch=5885d80a13c0db1f8e263663d3faee8d5fa8ff279e37c3d9d4e38bdbee0ede69
 Tags: custom, field, custom field, advanced, simple fields, magic fields, more fields, repeater, matrix, post, type, text, textarea, file, image, edit, admin
 Requires at least: 3.0
 Tested up to: 3.3
 Stable tag: 3.3
 
-Completely Customise your edit pages with an assortment of field types: Wysiwyg, Repeater, text, image, select, checkbox, page link, post object and more! Hide unwanted metaboxes and assign to any edit page!
+Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerfull API, it’s a must have for any web developer working with WordPress.Field types include: Wysiwyg, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker and more!
 
 == Description ==
 
@@ -14,11 +13,10 @@ Advanced Custom Fields is the perfect solution for any wordpress website which n
 
 * Visually create your Fields
 * Select from multiple input types (text, textarea, wysiwyg, image, file, page link, post object, relationship, select, checkbox, radio buttons, repeater, more to come)
-* Assign your fields to multiple edit pages (specific ID's, post types, post slugs, parent ID's, template names)
-* Add, Edit and reorder infinite rows to your fields
+* Assign your fields to multiple edit pages (via custom location rules)
 * Easily load data through a simple and friendly API
 * Uses the native WordPress custom post type for ease of use and fast processing
-* Now uses custom Database tables to improve speed, reliability and future development
+* Uses the native WordPress metadata for ease of use and fast processing
 
 = Field Types =
 * Text (type text, api returns text)
@@ -43,20 +41,17 @@ Advanced Custom Fields is the perfect solution for any wordpress website which n
 * PC Firefox	:)
 * PC ie7	:S
 
-= Demonstration =
-http://plugins.elliotcondon.com/advanced-custom-fields/demonstration/
+= Website =
+http://www.advancedcustomfields.com/
 
 = Documentation =
-http://plugins.elliotcondon.com/advanced-custom-fields/documentation/
+http://www.advancedcustomfields.com/docs/getting-started/
 
 = Field Type Info =
-http://plugins.elliotcondon.com/advanced-custom-fields/field-types/
-
-= Website =
-http://plugins.elliotcondon.com/advanced-custom-fields/
+http://www.advancedcustomfields.com/docs/field-types/
 
 = Bug Submission and Forum Support =
-http://support.plugins.elliotcondon.com/categories/advanced-custom-fields/
+http://www.advancedcustomfields.com/support/
 
 = Please Vote and Enjoy =
 Your votes really make a difference! Thanks.
@@ -66,20 +61,16 @@ Your votes really make a difference! Thanks.
 
 1. Upload 'advanced-custom-fields' to the '/wp-content/plugins/' directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. You may be prompted for a Database Upgrade. This is necessary for ACF to function. Please backup your database and click the Upgrade button
-3. Click on Settings -> Adv Custom Fields and create your first Custom Field Group!
-4. Your ACF field group will now appear on the page / post / template you specified in the field group's location rules!
+3. Click on the new menu itme "Custom Fields" and create your first Custom Field Group!
+4. Your custom field group will now appear on the page / post / template you specified in the field group's location rules!
 5. Read the documentation to display your data: 
 
 
 == Frequently Asked Questions ==
 
-= Q. I can't see the "Select Image" button for my image field! =
-A. For Image uploads to work, your post type must support "editor"
-
 = Q. I have a question =
 A. Chances are, someone else has asked it. Check out the support forum at: 
-http://support.plugins.elliotcondon.com/categories/advanced-custom-fields/
+http://www.advancedcustomfields.com/support/
 
 
 == Screenshots ==
@@ -89,10 +80,92 @@ http://support.plugins.elliotcondon.com/categories/advanced-custom-fields/
 
 3. The Page edit screen after creating the Advanced Custom Fields
 
-4. Simple and intuitive API. Read the documentation at: http://plugins.elliotcondon.com/advanced-custom-fields/documentation/
+4. Simple and intuitive API. Read the documentation at: http://www.advancedcustomfields.com/docs/functions/
 
 
 == Changelog ==
+
+= 3.1.8 =
+* Options page fields now save their data in the wp_options table. This will require a "Database Upgrade" when you update ACF. This upgrade will move your Options page data from the postmeta table to the options table.
+* Added _e() and __() functions to more text throughout plugin
+* Added new French translation. Thanks to Martin Vauchel @littlbr http://littleboyrunning.com
+* Fixed duplicate WYSIWYG in chrome bug
+* New Location rules: add fields to a user / taxonomy / attachment
+* Bug Fix: Color picker now shows color on page load. Thanks to Kev http://www.popcreative.co.uk
+* CSS tweaks File clearfix, new style for selects with optgroups
+* Simplified get_value to return default value if value == ""
+* API now allows for "option" and "options" for the $post_id value in API functions
+
+= 3.1.7 =
+* Bug fix: Image field returns correct url after selecting one or more images
+* Translation: Added Polish translation. Thank you Bartosz Arendt - Digital Factory - www.digitalfactory.pl
+* Update : Added id attribute to all div.field (id="acf-$field_name")
+
+= 3.1.6 =
+* New style for buttons
+* Bug Fix: Repeater maximum row setting was disabling the "add row" button 1 row early.
+* Performance: Field options are now loaded in via ajax. This results in much less HTML on the edit field group page
+* Performance: Field inputs are now loaded in via ajax. Again, less HTML on edit screens improves load times / memory usage
+* Bug Fix: Field groups registered by code were not showing on ajax change (category / page type / page template / etc). To fix this, your field group needs a unique ID. When you export a field group, you will now be given a unique ID to fix this issue. Field groups without a fixed id will still show on page load.
+* New Option: Repeater field can now have a custom button label
+* New Option: Flexible content field can now have a custom button label
+* Improvement: Updated the HTML / CSS for file fields with icon
+* Bug Fix: Fixed multi upload / select image in repeater. 
+* Performance: Added caching to the get_field function. Templates will now render quicker.
+* Bug Fix: Fixed Post formats location rule - it now works.
+* Nested repeaters are now possible!
+
+= 3.1.5 =
+* Improvement: Redesigned the experience for uploading and selecting images / files in fields and sub fields. Image / File fields within a repeater can now add multiple images / files
+
+= 3.1.4 =
+* New Feature: Front end form (Please read documentation on website for usage)
+* Performance: compiled all field script / style into 1 .js file
+* Bug Fix: Editor now remembers mode (Visual / HTML) without causing errors when loading in HTML mode
+* Improvement: Added draft / private labels to post objects in relationship, post object and page link fields
+
+= 3.1.3 =
+* Bug Fix: Options page fields were rendered invisible in v3.1.2 (now fixed)
+* Updated POT file with new texts
+
+= 3.1.2 =
+* New Feature: Required field validation. Note: Repeater / Flexible content fields can be required but their sub fields can not.
+* Field update: Select field: API now returns false when "null" is selected
+* Field update: Radio button: When editing a post / page, the radio button will select the first choice if there is no saved value for the field
+* Bug fix: You can now use a repeater field inside a flexible field! Please note that the_repeater_field will not work as expected. Please use get_sub_field to get the sub repeater field, then use php to loop through it.
+
+= 3.1.1 =
+* New Feature: Added shortcode support. usage: [acf field="field_name"]
+* Bug Fix: Fixed menu disappearing by changing the function "add_menu" to "add_utility_page"
+* Visual: Changed post object / page link fields to display post type label instead of post type name for the select optgroup label. Thanks to kevwaddell for the code
+
+= 3.1.0 =
+* New Field: Flexible Content Field (license required)
+* Bug Fix: ACF data now saves for draft posts (please do a hard refresh on an edit screen to remove cached js)
+* Bug fix: Fixed multiple content editors
+ 
+= 3.0.7 =
+* Added export / register support via PHP
+* Moved menu position under Settings
+* Improve speed / php memory by introducing cached data
+* Temp bug fix: sets content editor to "visual mode" to stop wysiwyg breaking
+* Visual: Removed "Screen Options" tab from the admin acf edit page. Added filter to always show 99 acf's
+* Minor JS improvements
+
+= 3.0.6 =
+* Bug Fix: Location meta box now shows all pages / posts
+* Bug Fix: upgrade and settings url should now work / avoid conflicts with other plugins
+
+= 3.0.5 =
+* Support: use wp native functions to add all user roles to location metabox
+* Update: gave acf a css update + new menu structure
+* Bug fix: fixed a few issues with wysiwyg js/css in wp3.3
+* Bug fix:  fixed page_name conflicting with normal pages / posts by adding a "acf_" to the page_name on save / update
+* Performance: location metabox - limited taxonomies to hierarchial only. Posts and Pages have now been limited to 25
+
+= 3.0.4 =
+* Bug fix: WYSIWYG is now compatible with WP 3.3 (May have incidentally added support for gravity forms media button! But not 100% sure...)
+* Fix : Taxonomy Location rule now only shows hierarchal taxonomies to improve speed and reduce php memory issues
 
 = 3.0.3 =
 * New translation: French (thanks to Netactions)

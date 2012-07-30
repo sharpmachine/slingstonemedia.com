@@ -1,4 +1,6 @@
 <?php
+include 'functions/need-help-dashboard-widget.php';
+include 'functions/customize-admin.php';
 /**
  * TwentyTen functions and definitions
  *
@@ -478,32 +480,6 @@ function twentyten_posted_in() {
 endif;
 
 // Custom Functions
-
-//Custom logo should be 16 x16
-function custom_logo() {
-  echo '<style type="text/css">
-    #header-logo  { 
-    	background-image: url('.get_bloginfo('template_directory').'/images/admin-logo.png) !important; 
-	}
-	#cpt_info_box {
-		display: none !important;
-	}
-    </style>';
-}
-
-add_action('admin_head', 'custom_logo');
-
-function custom_login_logo() {
-  echo '<style type="text/css">
-    h1 a { 
-    	background-image:url('.get_bloginfo('template_directory').'/images/login-logo.png) !important;
-    	height: 161px;
-   }
-    </style>';
-}
-
-add_action('login_head', 'custom_login_logo');
-
 function get_home_page_excerpt(){
 $excerpt = get_the_content();
 $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
@@ -588,49 +564,3 @@ function save_extra_category_fileds( $term_id ) {
         update_option( "category_$t_id", $cat_meta );
     }
 }
-
-function remove_admin_bar_links() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu('themes');
-	$wp_admin_bar->remove_menu('background');
-	$wp_admin_bar->remove_menu('header');
-	$wp_admin_bar->remove_menu('new-theme');
-	$wp_admin_bar->remove_menu('new-plugin');
-	$wp_admin_bar->remove_menu('new-product_extras');
-	$wp_admin_bar->remove_menu('new-acf');
-}
-add_action( 'wp_before_admin_bar_render', 'remove_admin_bar_links' );
-
-// Create the function to output the contents of our Dashboard Widget
-function help_dashboard_widget_function() {
-	// Display whatever it is you want to show
-	echo "<ul style=width:40%;float:left;margin-right:55px;min-width:153px;>
-		<li style=color:#666;font-size:14px;border-bottom-style:solid;border-bottom-width:1px;border-bottom-color:#DFDFDF;padding-bottom:5px;margin-bottom:10px;>WordPress 101 Videos:</li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp101-video-training-part-1-the-dashboard/ target=_blank>Part 1: The Dashboard</a></li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp-101-video-training-part-2-creating-a-new-post/ target=_blank>Part 2: Creating A New Post</a></li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp-101-video-training-part-3-edit-existing-post/ target=_blank>Part 3: Edit Existing Post</a></li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp-101-video-training-part-4-using-categories-and-tags/ target=_blank>Part 4: Using Categories and Tag</a></li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp-101-video-training-part-5-creating-and-editing-pages/ target=_blank>Part 5: Creating and Editing Pages</a></li>
-		<li><a href=http://wp.tutsplus.com/tutorials/wp-101-video-training-part-6-adding-images/ target=_blank>Part 6: Adding Images</a></li>
-		</ul>
-		<ul style=width:40%;float:left;min-width:153px;>
-			<li style=color:#666;font-size:14px;border-bottom-style:solid;border-bottom-width:1px;border-bottom-color:#DFDFDF;padding-bottom:5px;margin-bottom:10px;>Videos Specific To Your Site:</li>
-		<li><a href=http://www.youtube.com/watch?v=hvw1qeeqfOI target=_blank>Overview of Slingstone Media Site</a></li>
-		<li><a href=http://www.youtube.com/watch?v=BVouW1LpRTY target=_blank>Comments, Widgets &amp; Menus</a></li>
-		<li><a href=http://www.youtube.com/watch?v=0G_-mTHqs3Q target=_blank>Addings Authors</a></li>
-		<li><a href=http://www.youtube.com/watch?v=S3XosQewhu0 target=_blank>Adding Products</a></li>
-		<li><a href=http://www.youtube.com/watch?v=Sf18FXQJu6g target=_blank>Further Help With Menus</a></li>
-		</ul>
-		<p style=clear:both;padding-top:5px;margin-bottom:0.5em;color:#666;font-size:14px;>Helpful Quick Links:</p>
-			<a href=http://login.mailchimp.com target=_blank>Mailchimp Login</a> | <a href=http://google.com/analytics target=_blank>Analytics Login</a> | <a href=http://mail.slingstonemedia.com target=_blank>Mail Login</a>
-			<p>Still stuck?  Give us a call at <strong>(480) 648-8229</strong> or email us at <a href=mailto:info@sharpmachinemedia.com?subject=Help!><strong>info@sharpmachinemedia.com</strong></a>.
-	";
-} 
-
-// Create the function use in the action hook
-function help_add_dashboard_widgets() {
-	wp_add_dashboard_widget('help_dashboard_widget', 'Need Help?', 'help_dashboard_widget_function');	
-} 
-
-// Hook into the 'wp_dashboard_setup' action to register our other functions
-add_action('wp_dashboard_setup', 'help_add_dashboard_widgets' );

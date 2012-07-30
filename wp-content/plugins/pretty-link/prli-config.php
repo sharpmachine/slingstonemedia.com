@@ -2,13 +2,16 @@
 if(!defined('ABSPATH'))
   die('You are not allowed to call this page directly.');
 
-define('PRLI_PLUGIN_NAME',"pretty-link");
+define('PRLI_PLUGIN_NAME',dirname(plugin_basename(__FILE__)));
 define('PRLI_PATH',WP_PLUGIN_DIR.'/'.PRLI_PLUGIN_NAME);
 define('PRLI_MODELS_PATH',PRLI_PATH.'/classes/models');
+define('PRLI_HELPERS_PATH',PRLI_PATH.'/classes/helpers');
 define('PRLI_CONTROLLERS_PATH',PRLI_PATH.'/classes/controllers');
 define('PRLI_VIEWS_PATH',PRLI_PATH.'/classes/views');
 //define(PRLI_URL,WP_PLUGIN_URL.'/'.PRLI_PLUGIN_NAME);
 define('PRLI_URL',plugins_url($path = '/'.PRLI_PLUGIN_NAME));
+define('PRLI_CSS_URL',PRLI_URL . '/css');
+define('PRLI_JS_URL',PRLI_URL . '/js');
 define('PRLI_IMAGES_URL',PRLI_URL . '/images');
 define('PRLI_BROWSER_URL','https://d14715w921jdje.cloudfront.net/browser');
 define('PRLI_OS_URL','https://d14715w921jdje.cloudfront.net/os');
@@ -40,23 +43,7 @@ $prli_blogdescription = get_option('blogdescription');
 
 /***** SETUP OPTIONS OBJECT *****/
 global $prli_options;
-
-$prli_options = get_option('prli_options');
-
-// If unserializing didn't work
-if(!is_object($prli_options))
-{
-  if($prli_options and is_string($prli_options))
-    $prli_options = unserialize($prli_options);
-
-  // If it still isn't an object then let's create it
-  if(!is_object($prli_options))
-    $prli_options = new PrliOptions();
-
-  update_option('prli_options',$prli_options);
-}
-
-$prli_options->set_default_options(); // Sets defaults for unset options
+$prli_options = PrliOptions::get_options();
 
 /***** TODO: Uh... these functions should find a better home somewhere *****/
 function setup_new_vars($groups)
@@ -78,9 +65,11 @@ function setup_new_vars($groups)
   $values['redirect_type']['prettybar'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'prettybar') or (!isset($_REQUEST['redirect_type']) and $prli_options->link_redirect_type == 'prettybar'))?'selected="selected"':'');
   $values['redirect_type']['cloak'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'cloak') or (!isset($_REQUEST['redirect_type']) and $prli_options->link_redirect_type == 'cloak'))?'selected="selected"':'');
   $values['redirect_type']['pixel'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'pixel') or (!isset($_REQUEST['redirect_type']) and $prli_options->link_redirect_type == 'pixel'))?'selected="selected"':'');
-
+  $values['redirect_type']['metarefresh'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'metarefresh') or (!isset($_REQUEST['redirect_type']) and $prli_options->link_redirect_type == 'metarefresh'))?'selected="selected"':'');
+  $values['redirect_type']['javascript'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'javascript') or (!isset($_REQUEST['redirect_type']) and $prli_options->link_redirect_type == 'javascript'))?'selected="selected"':'');
+  
   $values['groups'] = array();
-
+  
   if(is_array($groups))
   {
     foreach($groups as $group)
@@ -90,18 +79,33 @@ function setup_new_vars($groups)
                                    'name' => $group->name );
     }
   }
+  
+  $values['param_forwarding'] = isset($_REQUEST['param_forwarding'])?'checked=checked':'';
+  
+  if(isset($_REQUEST['delay']))
+    $values['delay'] = $_REQUEST['delay'];
+  else
+    $values['delay'] = 0;
 
-  $values['param_forwarding'] = array();
-  $values['param_forwarding']['off'] = (((isset($_REQUEST['param_forwarding']) and $_REQUEST['param_forwarding'] == 'off') or !isset($_REQUEST['param_forwarding']))?'checked="true"':'');
-  $values['param_forwarding']['on'] = ((isset($_REQUEST['param_forwarding']) and $_REQUEST['param_forwarding'] == 'on')?'checked="true"':'');
-  $values['param_forwarding']['custom'] = ((isset($_REQUEST['param_forwarding']) and $_REQUEST['param_forwarding'] == 'custom')?'checked="true"':'');
+  if(isset($_REQUEST['google_tracking']))
+    $values['google_tracking'] = ' checked=checked';
+  else {
+	global $prli_update;
+	if( $prli_update->pro_is_installed_and_authorized() ) {
+      global $prlipro_options;
+
+      $values['google_tracking'] = $prlipro_options->google_tracking?' checked=checked':'';
+    }
+    else
+      $values['google_tracking'] = '';
+  }
 
   return $values;
 }
 
 function setup_edit_vars($groups,$record)
 {
-  global $prli_link;
+  global $prli_link, $prli_link_meta;
 
   $values = array();
   $values['url'] =  ((isset($_REQUEST['url']) and $record == null)?$_REQUEST['url']:$record->url);
@@ -119,11 +123,7 @@ function setup_edit_vars($groups,$record)
                                  'name' => $group->name );
   }
 
-  $values['param_forwarding'] = array();
-  $values['param_forwarding']['off'] = ((!isset($_REQUEST['param_forwarding']) or $record->param_forwarding == 'off')?'checked="true"':'');
-  $values['param_forwarding']['on'] = (((isset($_REQUEST['param_forwarding']) and $_REQUEST['param_forwarding'] == 'on') or (isset($record->param_forwarding) and $record->param_forwarding == 'on'))?'checked="true"':'');
-  $values['param_forwarding']['custom'] = (((isset($_REQUEST['param_forwarding']) and $_REQUEST['param_forwarding'] == 'custom') or (isset($record->param_forwarding) and $record->param_forwarding == 'custom'))?'checked="true"':'');
-  $values['param_struct'] = ((isset($_REQUEST['param_struct']) and $record == null)?$_REQUEST['param_struct']:$record->param_struct);
+  $values['param_forwarding'] = ((isset($_REQUEST['param_forwarding']) or $record->param_forwarding == 'on' or $record->param_forwarding == 1)?'checked=checked':'');
 
   $values['redirect_type'] = array();
   $values['redirect_type']['307'] = ((!isset($_REQUEST['redirect_type']) or (isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == '307') or (isset($record->redirect_type) and $record->redirect_type == '307'))?' selected="selected"':'');
@@ -131,6 +131,19 @@ function setup_edit_vars($groups,$record)
   $values['redirect_type']['prettybar'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'prettybar') or (isset($record->redirect_type) and $record->redirect_type == 'prettybar'))?' selected="selected"':'');
   $values['redirect_type']['cloak'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'cloak') or (isset($record->redirect_type) and $record->redirect_type == 'cloak'))?' selected="selected"':'');
   $values['redirect_type']['pixel'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'pixel') or (isset($record->redirect_type) and $record->redirect_type == 'pixel'))?' selected="selected"':'');
+  $values['redirect_type']['metarefresh'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'metarefresh') or (isset($record->redirect_type) and $record->redirect_type == 'metarefresh'))?' selected="selected"':'');
+  $values['redirect_type']['javascript'] = (((isset($_REQUEST['redirect_type']) and $_REQUEST['redirect_type'] == 'javascript') or (isset($record->redirect_type) and $record->redirect_type == 'javascript'))?' selected="selected"':'');
+
+
+  if(isset($_REQUEST['delay']))
+    $values['delay'] = $_REQUEST['delay'];
+  else
+    $values['delay'] = $prli_link_meta->get_link_meta($record->id, 'delay', true);
+
+  if(isset($_REQUEST['google_tracking']))
+    $values['google_tracking'] = ' checked=checked';
+  else
+    $values['google_tracking'] = (($prli_link_meta->get_link_meta($record->id, 'google_tracking', true) == 1)?' checked=checked':'');
 
   return $values;
 }

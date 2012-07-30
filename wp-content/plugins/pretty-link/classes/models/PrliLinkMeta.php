@@ -6,7 +6,7 @@ class PrliLinkMeta
 {
   var $table_name;
 
-  function PrliLinkMeta()
+  function __construct()
   {
     global $wpdb;
     $this->table_name = "{$wpdb->prefix}prli_link_metas";
@@ -55,6 +55,14 @@ class PrliLinkMeta
 
     $query_str = "DELETE FROM {$this->table_name} " .
                  "WHERE meta_key=%s AND link_id=%d";
+    $query = $wpdb->prepare($query_str, $meta_key, $link_id);
+    return $wpdb->query($query);
+  }
+
+  function delete_link_metas($link_id) {
+    global $wpdb;
+
+    $query_str = "DELETE FROM {$this->table_name} WHERE link_id=%d";
     $query = $wpdb->prepare($query_str, $meta_key, $link_id);
     return $wpdb->query($query);
   }

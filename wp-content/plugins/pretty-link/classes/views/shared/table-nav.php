@@ -12,7 +12,7 @@
         if($current_page > 1)
         {
           ?>
-          <a class='prev page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php print($current_page-1); ?>'>&laquo;</a>
+          <a class='prev page-numbers' href='?page=<?php echo esc_html($_REQUEST['page'] . $page_params); ?>&paged=<?php print($current_page-1); ?>'>&laquo;</a>
           <?php
         }
       
@@ -26,7 +26,7 @@
         else
         {
           ?>
-          <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=1'>1</a>
+          <a class='page-numbers' href='?page=<?php echo esc_html($_REQUEST['page'] . $page_params); ?>&paged=1'>1</a>
           <?php
         }
       
@@ -52,7 +52,7 @@
           else
           {
             ?>
-            <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php echo esc_html($i); ?>'><?php echo esc_html($i); ?></a>
+            <a class='page-numbers' href='?page=<?php echo esc_html($_REQUEST['page'] . $page_params); ?>&paged=<?php echo esc_html($i); ?>'><?php echo esc_html($i); ?></a>
             <?php
           }
         }
@@ -75,7 +75,7 @@
         else
         {
           ?>
-          <a class='page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php echo esc_html($page_count); ?>'><?php echo esc_html($page_count); ?></a>
+          <a class='page-numbers' href='?page=<?php echo esc_html($_REQUEST['page'] . $page_params); ?>&paged=<?php echo esc_html($page_count); ?>'><?php echo esc_html($page_count); ?></a>
           <?php
         }
       
@@ -83,7 +83,7 @@
         if($current_page < $page_count)
         {
           ?>
-          <a class='next page-numbers' href='?page=<?php echo esc_html(PRLI_PLUGIN_NAME); ?>/<?php echo esc_html($controller_file . $page_params); ?>&paged=<?php print($current_page + 1); ?>'>&raquo;</a>
+          <a class='next page-numbers' href='?page=<?php echo esc_html($_REQUEST['page'] . $page_params); ?>&paged=<?php print($current_page + 1); ?>'>&raquo;</a>
           <?php
         }
         ?>

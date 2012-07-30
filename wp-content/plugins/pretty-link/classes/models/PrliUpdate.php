@@ -38,7 +38,7 @@ class PrliUpdate
     $this->plugin_url             = 'http://prettylinkpro.com';
     $this->pro_script             = PRLI_PATH . '/pro/pretty-link-pro.php';
     $this->pro_mothership         = 'http://prettylinkpro.com';
-    $this->get_started_page       = 'pretty-link/prli-links.php';
+    $this->get_started_page       = 'pretty-link';
     $this->pro_cred_store         = 'prlipro-credentials';
     $this->pro_auth_store         = 'prlipro_activated';
     $this->pro_username_label     = __('Pretty Link Pro Username', 'pretty-link');

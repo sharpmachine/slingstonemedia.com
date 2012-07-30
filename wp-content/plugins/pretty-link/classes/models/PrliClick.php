@@ -166,24 +166,9 @@ class PrliClick
         return $results;
     }
 
-    function generateUniqueVisitorId($num_chars = 6)
+    function generateUniqueVisitorId()
     {
-      global $wpdb, $prli_utils;
-
-      // We're doing a base 36 hash which is why we're always doing everything by 36
-      $max_vuid_value = pow(36,$num_chars);
-      $min_vuid_value = 37; 
-      $vuid = base_convert( mt_rand($min_vuid_value,$max_vuid_value), 10, 36 );
-     
-      $query = "SELECT DISTINCT vuid FROM ".$this->table_name;
-      $vuids = $wpdb->get_col($query,0);
-     
-      // It is highly unlikely that we'll ever see 2 identical random vuids
-      // but just in case, here's some code to prevent collisions
-      while( in_array($vuid,$vuids) )
-        $vuid = base_convert( mt_rand($min_vuid_value,$max_vuid_value), 10, 36 );
-     
-      return $vuid;
+      return uniqid();
     }
 
     function get_counts_by_days($start_timestamp, $end_timestamp, $link_id = "all", $type = "all", $group = '')

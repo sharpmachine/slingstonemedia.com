@@ -6,7 +6,7 @@ Description: Redirect Pages, Posts or Custom Post Types to another location quic
 Author: Don Fischer
 Author URI: http://www.fischercreativemedia.com/
 Donate link: http://www.fischercreativemedia.com/wordpress-plugins/donate/
-Version: 4.2.2 
+Version: 4.2.3 
 
 Version info:
 See change log in readme.txt file.
@@ -114,7 +114,7 @@ class quick_page_post_reds {
 	}
 	
 	function ppr_add_menu(){
-		add_menu_page('Redirect Menu', 'Redirect Menu', 'administrator', 'redirect-options', array($this,'ppr_settings_page'),WP_PLUGIN_URL.'/quick-pagepost-redirect-plugin/settings-16-icon.png');
+		add_menu_page('Redirect Menu', 'Redirect Menu', 'administrator', 'redirect-options', array($this,'ppr_settings_page'),plugins_url().'/quick-pagepost-redirect-plugin/settings-16-icon.png');
 		add_submenu_page( 'redirect-options', 'Quick Redirects', 'Quick Redirects', 'manage_options', 'redirect-updates', array($this,'ppr_options_page') );
 		add_submenu_page( 'redirect-options', 'Redirect Summary', 'Redirect Summary', 'manage_options', 'redirect-summary', array($this,'ppr_summary_page') );
 		add_action( 'admin_init', array($this,'register_pprsettings') );
@@ -135,7 +135,7 @@ class quick_page_post_reds {
 	function ppr_summary_page() {?>
 		<div class="wrap">
 		<style type="text/css">.pprdonate{padding:5px;border:1px solid #dadada;font-family:tahoma, arial, helvetica, sans-serif;font-size:12px;float:right;position:absolute;top:25px;right:5px;width:250px;text-align:center;}.qform-table td{padding:2px !important;border:1px solid #cccccc;}.qform-table .headrow td{font-weight:bold;}.qform-table .onrow td{background-color:#eaeaea;}.qform-table .offrow td{background-color:#ffffff;}</style>
-		<div class="icon32" style="<?php echo 'background: url('.WP_PLUGIN_URL.'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
+		<div class="icon32" style="<?php echo 'background: url('.plugins_url().'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
 		<h2>Quick Page Post Redirect Summary</h2>
 		<p>This is a summary of Individual redirects only. Quick 301 Redirects can be found <a href="admin.php?page=redirect-updates">here</a>.</p><br/>
 		<?php if($this->updatemsg!=''){?><div class="updated settings-error" id="setting-error-settings_updated"><p><strong><?php echo $this->updatemsg;?></strong></p></div><?php } ?>
@@ -217,7 +217,7 @@ class quick_page_post_reds {
 	?>
 	<div class="wrap" style="position:relative;">
 	<style type="text/css">.pprdonate{padding:5px;border:1px solid #dadada;font-family:tahoma, arial, helvetica, sans-serif;font-size:12px;float:right;position:absolute;top:25px;right:5px;width:250px;text-align:center;}.qpprform label {float:left;display:block;width:290px;margin-left:30px;}.qpprform .submit{clear:both;}.qpprform span{font-size:9px;}</style>
-	<div class="icon32" style="<?php echo 'background: url('.WP_PLUGIN_URL.'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
+	<div class="icon32" style="<?php echo 'background: url('.plugins_url().'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
 	<div class="pprdonate">
 	<p>If you enjoy or find any of our plugins useful, please donate a few dollars to help with future development and updates.</p>
 	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -288,7 +288,7 @@ class quick_page_post_reds {
 		$tohash = $this->homelink.'/';
 		?>
 		<div class="wrap">
-		<div class="icon32" style="<?php echo 'background: url('.WP_PLUGIN_URL.'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
+		<div class="icon32" style="<?php echo 'background: url('.plugins_url().'/quick-pagepost-redirect-plugin/settings-icon.png) no-repeat transparent;';?>"><br></div>
 		<script type="text/javascript">jQuery(document).ready(function() {jQuery(".delete-qppr").click(function(){var mainurl = '<?php echo get_bloginfo('url');?>/';	var thepprdel = jQuery(this).attr('id');if(confirm('Are you sure you want to delete this redirect?')){jQuery.ajax({url: mainurl+"/",data : "pprd="+thepprdel+"&scid=<?php echo md5($tohash);?>",success: function(data){jQuery('#row'+thepprdel).remove();},complete: function(){}});return false;}else{return false;}});});</script>
 		<h2>Quick 301 Redirects</h2>
 		<?php if($this->updatemsg!=''){?><div class="updated settings-error" id="setting-error-settings_updated"><p><strong><?php echo $this->updatemsg;?></strong></p></div><?php } ?>

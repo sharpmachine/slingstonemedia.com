@@ -4,34 +4,39 @@ if(!defined('ABSPATH'))
 
 class PrliOptions
 {
-  var $prli_exclude_ips;
-  var $whitelist_ips;
-  var $filter_robots;
-  var $extended_tracking;
-  var $prettybar_image_url;
-  var $prettybar_background_image_url;
-  var $prettybar_color;
-  var $prettybar_text_color;
-  var $prettybar_link_color;
-  var $prettybar_hover_color;
-  var $prettybar_visited_color;
-  var $prettybar_show_title;
-  var $prettybar_show_description;
-  var $prettybar_show_share_links;
-  var $prettybar_show_target_url_link;
-  var $prettybar_title_limit;
-  var $prettybar_desc_limit;
-  var $prettybar_link_limit;
+  public $prli_exclude_ips;
+  public $whitelist_ips;
+  public $filter_robots;
+  public $extended_tracking;
+  public $prettybar_image_url;
+  public $prettybar_background_image_url;
+  public $prettybar_color;
+  public $prettybar_text_color;
+  public $prettybar_link_color;
+  public $prettybar_hover_color;
+  public $prettybar_visited_color;
+  public $prettybar_show_title;
+  public $prettybar_show_description;
+  public $prettybar_show_share_links;
+  public $prettybar_show_target_url_link;
+  public $prettybar_title_limit;
+  public $prettybar_desc_limit;
+  public $prettybar_link_limit;
 
-  var $link_redirect_type;
-  var $link_prefix;
-  var $link_track_me;
-  var $link_nofollow;
+  public $link_redirect_type;
+  public $link_redirect_action;
+  public $link_prefix;
+  public $link_track_me;
+  public $link_nofollow;
 
-  var $bookmarklet_auth;
+  public $bookmarklet_auth;
 
-  function PrliOptions()
+  function __construct($options_array=array())
   {
+    // Set values from array
+    foreach($options_array as $key => $value)
+      $this->{$key} = $value;
+    
     $this->set_default_options();
   }
 
@@ -60,6 +65,7 @@ class PrliOptions
     $link_track_as_pixel = 'prli_link_track_as_pixel';
     $link_nofollow = 'prli_link_nofollow';
     $link_redirect_type = 'prli_link_redirect_type';
+    $link_redirect_action = 'prli_link_redirect_action';
 
 
     if(!isset($this->prettybar_show_title)) {
@@ -151,6 +157,9 @@ class PrliOptions
       else
         $this->link_redirect_type = '307';
     }
+
+    if(!isset($this->link_redirect_action))
+        $this->link_redirect_action = 'init';
 
     if(!isset($this->prli_exclude_ips))
     {
@@ -273,5 +282,32 @@ class PrliOptions
 
     if(!isset($this->extended_tracking))
       $this->extended_tracking = 'normal';
+  }
+
+  public function store() {
+    $storage_array = (array)$this;
+    update_option( 'prli_options', $storage_array );
+  }
+
+  public static function get_options() {
+    $prli_options = get_option('prli_options');
+    
+    if($prli_options) {
+      if(is_string($prli_options))
+        $prli_options = unserialize($prli_options);
+      
+      if(is_object($prli_options) and is_a($prli_options,'PrliOptions')) {
+        $prli_options->set_default_options();
+        $prli_options->store(); // store will convert this back into an array
+      }
+      else if(is_array($prli_options))
+        $prli_options = new PrliOptions($prli_options);
+      else
+        $prli_options = new PrliOptions();
+    }
+    else
+      $prli_options = new PrliOptions();
+
+    return $prli_options;
   }
 }

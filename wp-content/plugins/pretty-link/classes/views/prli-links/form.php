@@ -1,38 +1,47 @@
 <?php if(!defined('ABSPATH')) { die('You are not allowed to call this page directly.'); } ?>
+
 <table class="form-table">
   <tr class="form-field">
-    <td width="75px" valign="top">Target URL*: </td>
-    <td><textarea style="height: 50px;" name="url"><?php echo esc_html(htmlentities($values['url'],ENT_COMPAT,'UTF-8')); ?></textarea>
-    <a class="toggle">&nbsp;[?]</a>
-    <span class="description toggle_pane"><br/>Enter the URL you want to mask and track. Don't forget to start your url with <code>http://</code> or <code>https://</code>. Example: <code>http://www.yoururl.com</code></span></td>
+    <td width="125px" valign="top"><?php _e('Redirection Type*:', 'pretty-link'); ?></td>
+    <td>
+	  <select id="redirect_type" name="redirect_type" style="padding: 0px; margin: 0px;">
+	    <option value="307"<?php echo esc_html($values['redirect_type']['307']); ?>><?php _e("307 (Temporary)", 'pretty-link') ?>&nbsp;</option>
+	    <option value="301"<?php echo esc_html($values['redirect_type']['301']); ?>><?php _e("301 (Permanent)", 'pretty-link') ?>&nbsp;</option>
+	    <?php do_action('prli_redirection_types', $values); ?>
+	  </select>
+	  <?php 
+	    global $prli_update;
+	    if(!$prli_update->pro_is_installed_and_authorized()) {
+		  ?>
+	      <p class="description"><?php printf(__("To Enable Cloaked, Meta-Refresh, Javascript, Pixel and Pretty Bar Redirection, upgrade to %sPretty Link Pro%s", 'pretty-link'),'<a href="http://prettylinkpro.com">',"</a>") ?></p>
+	  <?php } ?>
+	</td>
+  </tr>
+  <tr id="prli_target_url" class="form-field ">
+    <td valign="top"><?php _e("Target URL*:", 'pretty-link'); ?> </td>
+    <td><textarea style="height: 50px;" name="url"><?php echo esc_html(htmlentities($values['url'],ENT_COMPAT,'UTF-8')); ?></textarea></td>
   </tr>
   <tr>
-    <td valign="top">Pretty Link*: </td>
-    <td><strong><?php echo esc_html($prli_blogurl); ?></strong>/<input type="text" name="slug" value="<?php echo esc_attr($values['slug']); ?>" size="50"/>
-    <a class="toggle">&nbsp;[?]</a>
-    <span class="toggle_pane description"><br/>Enter the slug (word trailing your main URL) that will form your pretty link and redirect to the URL above.</span></td>
+    <td valign="top"><?php _e("Pretty Link*:", 'pretty-link'); ?> </td>
+    <td><strong><?php global $prli_blogurl; echo esc_html($prli_blogurl); ?></strong>/<input type="text" name="slug" value="<?php echo esc_attr($values['slug']); ?>" size="50"/></td>
   </tr>
   <tr class="form-field">
-    <td width="75px" valign="top">Title: </td>
-    <td><input type="text" name="name" value="<?php echo esc_attr($values['name']); ?>" />
-    <a class="toggle">&nbsp;[?]</a>
-      <span class="description toggle_pane"><br/>This will act as the title of your Pretty Link. If a name is not entered here then the slug name will be used.</span></td>
-  </tr>
-  <tr class="form-field">
-    <td valign="top">Description: </td>
-    <td><textarea style="height: 50px;" name="description"><?php echo esc_html($values['description']); ?></textarea>
-    </select><a class="toggle">&nbsp;[?]</a>
-    <span class="toggle_pane description"><br/>A Description of this link.</span></td>
+    <td width="75px" valign="top"><?php _e("Title:", 'pretty-link'); ?> </td>
+    <td><input type="text" name="name" value="<?php echo esc_attr($values['name']); ?>" /></td>
   </tr>
 </table>
-<h3><a class="options-table-toggle">Link Options <span class="expand-options" style="display: none;">[+]</span><span class="collapse-options">[-]</span></a> <span class="expand-collapse" style="display: none"><a class="expand-all" title="Show all option instructions.">&nbsp;[?]</a><a class="collapse-all" title="Hide all option instructions." style="display: none;">&nbsp;[?]</a></span></h3>
-<table class="options-table">
+<br/>
+<h2 id="link-options-tabs" class="nav-tab-wrapper">
+	<a href="#options-table" class="nav-tab nav-tab-active"><?php _e( 'Options', 'pretty-link' ) ?></a>
+	<a href="#pro-options-table" class="nav-tab"><?php _e( 'Advanced', 'pretty-link' ) ?></a>
+</h2>
+<table id="options-table">
   <tr>
     <td valign="top" width="50%">
-      <h3>Group&nbsp;</h3>
+      <h3><?php _e("Group", 'pretty-link') ?></h3>
       <div class="pane">
-        <select name="group_id" style="padding: 0px; margin: 0px;">
-          <option>None</option>
+        <select name="group_id" id="group_dropdown" style="padding: 0px; margin: 0px;">
+          <option><?php _e("None", 'pretty-link') ?></option>
           <?php
             foreach($values['groups'] as $group)
             {
@@ -41,58 +50,69 @@
           <?php
             }
           ?>
-        </select><a class="toggle">&nbsp;[?]</a>
-        <div class="toggle_pane description">Select a group for this link.</div>
+        </select>
+        <input class="defaultText" id="add_group_textbox" title="<?php _e('Add a New Group', 'pretty-link') ?>" type="text" prli_nonce="<?php echo wp_create_nonce('prli-add-new-group'); ?>" /><div id="add_group_message"></div>
+        <p class="description"><?php _e('Select a Group for this Link', 'pretty-link') ?></p>
       </div>
       <br/>
-      <h3>Redirection Type&nbsp;</h3>
+      <h3><?php _e("SEO Options", 'pretty-link') ?></h3>
       <div class="pane">
-        <select id="redirect_type" name="redirect_type" style="padding: 0px; margin: 0px;">
-          <option value="307"<?php echo esc_html($values['redirect_type']['307']); ?>>307 (Temporary)&nbsp;</option>
-          <option value="301"<?php echo esc_html($values['redirect_type']['301']); ?>>301 (Permanent)&nbsp;</option>
-          <?php do_action('prli_redirection_types', $values); ?>
-        </select><a class="toggle">&nbsp;[?]</a>
-        <div class="toggle_pane description"><strong>307 Redirection</strong> is the best option if your Target URL could possibly change or need accurate reporting for this link.<br/><br/><strong>301 Redirection</strong> is the best option if you're <strong>NOT</strong> planning on changing your Target URL. Traditionally this option is considered to be the best approach to use for your SEO/SEM efforts but since Pretty Link uses your domain name either way this notion isn't necessarily true for Pretty Links. Also, this option may not give you accurate reporting since proxy and caching servers may go directly to your Target URL once it's cached.<br/><br/><strong>Pretty Bar Redirection</strong> is the best option if you want to show the Pretty Bar at the top of the page when redirecting to the Target URL.<br/><br/><strong>Cloak Redirection</strong> is the best option if you don't want your Target URL to be visible even after the redirection. This way, if a Target URL doesn't redirect to a URL you want to show then this will mask it.<br/><br/><strong>Pixel Redirection</strong> is the option you should select if you want this link to behave like a tracking pixel instead of as a link. This option is useful if you want to track the number of times a page or email is opened. If you place your Pretty Link inside an img tag on the page (Example: <code>&lt;img src="<?php echo esc_html($prli_blogurl . "/yourslug"); ?>" /&gt;</code>) then the page load will be tracked as a click and then displayed. Note: If this option is selected your Target URL will simply be ignored if there's a value in it.</div>
-        <?php global $prli_update; ?>
-        <?php if(!$prli_update->pro_is_installed_and_authorized()) { ?>
-              <p class="description">To Enable Cloaking &amp; Pretty Bar<br/>Upgrade to <a href="http://prettylinkpro.com">Pretty Link Pro</a></p>
-        <?php } ?>
+        <input type="checkbox" name="nofollow" <?php echo esc_html($values['nofollow']); ?>/>&nbsp; <?php _e("'Nofollow' this Link", 'pretty-link') ?>
+        <p class="description"><?php _e('Add a nofollow and noindex to this link\'s http redirect header', 'pretty-link')?>
       </div>
-      <br/>
-      <h3>SEO Options</h3>
-      <div class="pane">
-        <input type="checkbox" name="nofollow" <?php echo esc_html($values['nofollow']); ?>/>&nbsp; 'Nofollow' this Link <a class="toggle">&nbsp;[?]</a>
-        <div class="toggle_pane description">Select this if you want to add a nofollow code to this link. A nofollow will prevent reputable spiders and robots from following or indexing this link.</div>
+      <div id="prli_time_delay" style="display: none">
+        <br/>
+        <h3><?php _e('Delay Redirect (Seconds):', 'pretty-link'); ?></h3>
+        <div class="pane">
+          <input type="text" name="delay" value="<?php echo esc_attr($values['delay']); ?>" />
+          <p class="description"><?php _e('Time in seconds to wait before redirecting', 'pretty-link') ?></p>
+        </div>
       </div>
     </td>
     <td valign="top" width="50%">
-      <h3>Tracking Options</h3>
+      <h3><?php _e("Parameter Forwarding", 'pretty-link') ?></h3>
       <div class="pane">
-        <input type="checkbox" name="track_me" <?php echo esc_html($values['track_me']); ?>/>&nbsp; Track this Link <a class="toggle">&nbsp;[?]</a>
-        <div class="toggle_pane description">De-select this option if you don't want this link tracked. If de-selected, this link will still redirect to the target URL but hits on it won't be recorded in the database.</div>
-      </div>
-      <br/>
-      <a name="param_forwarding_pos" height="0"></a>
-      <h3>Parameter Forwarding</h3>
-      <ul style="list-style-type: none" class="pane">
-        <li>
-          <input type="radio" name="param_forwarding" value="off" <?php echo esc_html($values['param_forwarding']['off']); ?>/>&nbsp;Forward Parameters Off <a class="toggle">&nbsp;[?]</a>
-          <div class="toggle_pane description">You may want to leave this option off if you don't need to forward any parameters on to your Target URL.</div>
-        </li>
-        <li>
-          <input type="radio" name="param_forwarding" value="on" <?php echo esc_html($values['param_forwarding']['on']); ?> />&nbsp;Standard Parameter Forwarding <a class="toggle">&nbsp;[?]</a>
-          <div class="toggle_pane description">Select this option if you want to forward parameters through your pretty link to your Target URL. This will allow you to pass parameters in the standard syntax for example the pretty link <code>http://yoururl.com/coollink?product_id=4&sku=5441</code> will forward to the target URL and append the same parameters like so: <code>http://anotherurl.com?product_id=4&sku=5441</code>.</div>
-        </li>
-        <!--
-        <li>
-          <input type="radio" name="param_forwarding" value="custom" <?php echo esc_html($values['param_forwarding']['custom']); ?> />&nbsp;Custom Parameter Forwarding&nbsp;&nbsp;<input type="text" name="param_struct" value="<?php echo esc_attr($values['param_struct']); ?>" size="25"/> <a class="toggle">&nbsp);[?]</a>
-          <div class="toggle_pane description">Select this option if you want to forward parameters through your Pretty Link to your Target URL and write the parameters in a custom format. For example, say I wanted to to have my links look like this: <code>http://yourdomain.com/products/14/4</code> and I wanted this to forward to <code>http://anotherurl.com?product_id=14&dock=4</code> you'd just select this option and enter the following string into the text field <code>/products/%product_id%/%dock%</code>. This will tell Pretty Link where each variable will be located in the URL and what each variable name is.</div>
-        </li>
-        -->
-      </ul>
+        <input type="checkbox" name="param_forwarding" id="param_forwarding" <?php echo esc_html($values['param_forwarding']); ?>/>&nbsp;<?php _e("Parameter Forwarding Enabled", 'pretty-link') ?>
+        <p class="description"><?php _e('Forward parameters passed to this link onto the Target URL', 'pretty-link') ?></p>
+      </div><br/>
+      <h3><?php _e("Tracking Options", 'pretty-link') ?></h3>
+      <div class="pane">
+        <input type="checkbox" name="track_me" <?php echo esc_html($values['track_me']); ?>/>&nbsp; <?php _e("Track Hits on this Link", 'pretty-link') ?>
+        <p class="description"><?php _e('Enable Pretty Link\'s built-in hit (click) tracking', 'pretty-link') ?></p>
+        <div id="prli_google_analytics" style="display: none">
+          <input type="checkbox" name="google_tracking" <?php echo esc_attr($values['google_tracking']); ?>/>&nbsp; <?php _e('Enable Google Analytics Tracking on this Link', 'pretty-link') ?>
+          <p class="description"><?php _e('Requires the Google Analyticator, Google Analytics for WordPress or Google Analytics Plugin installed and configured for this to work.', 'pretty-link') ?></p>
+          <?php
+          global $prli_update;
+          if($prli_update->pro_is_installed_and_authorized()):
+            if($ga_info = PrliProUtils::ga_installed()):
+              ?>
+              <p class="description"><?php printf(__('It appears that <strong>%s</strong> is currently installed. Pretty Link will attempt to use its settings to track this link.', 'pretty-link'), $ga_info['name']); ?></p>
+              <?php
+            else:
+              ?>
+                <p class="description"><strong><?php _e('No Google Analytics Plugin is currently installed. Pretty Link cannot track links using Google Analytics until one is.', 'pretty-link'); ?></strong></p>
+              <?php
+            endif;
+          endif;
+          ?>
+        </div>
+      </div><br/>
     </td>
   </tr>
 </table>
+
+<table id="pro-options-table">
 <?php
-  // Add stuff to the form here
-  do_action('prli_link_fields',$id);
+  global $prli_update;
+  if($prli_update->pro_is_installed_and_authorized()) {
+    // Add stuff to the form here
+    do_action('prli_link_fields',$id);
+  }
+  else {
+?>
+  <tr><td colspan="2"><h3><?php printf(__('To enable Double Redirection, Keyword Replacements, URL Replacements, URL Rotations, Split Tests, and more, %sUpgrade to Pretty Link Pro%s today!', 'pretty-link'), '<a href="http://prettylinkpro.com">', '</a>') ?></h3></td></tr>
+<?php
+  }
+?>
+</table>
